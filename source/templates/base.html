@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <h1 class="site-title">The Poets Codex</h1>
+    {% include "nav.html" %}
+</header>
+
+<main class="content">
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+    © Mohammed Usman
+</footer>
+
+</body>
+</html>
