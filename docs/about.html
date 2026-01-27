@@ -9,15 +9,21 @@
 
     <style>
         :root {
-            --cream: #f7f3e9;
-            --ink: #000000;
+            --cream-dark: #f2e9d8;
+            --brown-ink: #4a3b2a;
         }
 
         /* mobile-first base styles */
+        html, body {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
         body {
             font-family: "Crimson Pro", Georgia, serif;
-            background-color: var(--cream);
-            color: var(--ink);
+            background-color: var(--cream-dark);
+            color: var(--brown-ink);
             margin: 0;
             padding: 1.2rem;
             line-height: 1.7;
@@ -27,7 +33,7 @@
         /* header and title */
         .site-header {
             margin-bottom: 1.5rem;
-            text-align: center; /* centers the title and nav container */
+            text-align: center;
         }
 
         .site-title {
@@ -40,7 +46,7 @@
         /* navigation */
         nav {
             display: flex;
-            justify-content: center; /* centers the nav block */
+            justify-content: center; /* centers nav block */
             width: 100%;
         }
 
@@ -51,12 +57,13 @@
             gap: 0.75rem;
             padding: 0;
             margin: 0;
-            text-align: left; /* left-aligns the nav items */
+            text-align: left; /* left-aligns nav items */
         }
 
         nav a {
             text-decoration: none;
-            color: var(--ink);
+            color: var(--brown-ink);
+            font-size: 0.95rem; /* slightly smaller for poet names */
         }
 
         nav a:hover {
@@ -69,12 +76,13 @@
             margin: 0 auto;
         }
 
-        /* footer signature */
+        /* footer (only used on homepage) */
         .site-footer {
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            color: var(--ink);
-            text-align: right; /* bottom-right signature */
+            margin-top: auto;
+            text-align: right;
+            font-size: 0.85rem;
+            opacity: 0.6;
+            padding-top: 1rem;
         }
 
         /* desktop styles */
@@ -136,9 +144,7 @@
 
 </main>
 
-<footer class="site-footer">
-    © Mohammed Usman
-</footer>
+
 
 </body>
 </html>
