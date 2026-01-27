@@ -3,6 +3,9 @@ name: Build Poets Codex
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,10 +27,13 @@ jobs:
         run: |
           python source/build.py
 
+      - name: Configure Git identity
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+
       - name: Commit and push generated files
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
           git add docs
           git commit -m "Manual build" || echo "No changes to commit"
           git push
