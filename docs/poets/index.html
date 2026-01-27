@@ -4,16 +4,27 @@
     <meta charset="UTF-8">
     <title>Poets</title>
 
+    <!-- Poetic manuscript-style font -->
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+
     <!-- Inline CSS -->
     <style>
+        /* Global colours */
+        :root {
+            --cream: #f7f3e9;
+            --deep-green: #0b3d2e;
+            --deep-green-soft: #145c44;
+            --ink: #0a2f23;
+        }
+
         body {
-            font-family: Georgia, "Times New Roman", serif;
-            line-height: 1.6;
-            font-size: 18px;
-            color: #222;
-            background-color: #faf9f7;
+            font-family: "Crimson Pro", Georgia, serif;
+            background-color: var(--cream);
+            color: var(--ink);
             margin: 0;
             padding: 2rem;
+            line-height: 1.7;
+            font-size: 19px;
         }
 
         .site-header {
@@ -22,7 +33,10 @@
 
         .site-title {
             margin: 0 0 1rem 0;
-            font-size: 2rem;
+            font-size: 2.4rem;
+            color: var(--deep-green);
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         nav ul {
@@ -35,7 +49,8 @@
 
         nav a {
             text-decoration: none;
-            color: #444;
+            color: var(--deep-green-soft);
+            font-weight: 400;
         }
 
         nav a:hover {
@@ -50,8 +65,25 @@
         .site-footer {
             margin-top: 3rem;
             font-size: 0.9rem;
-            color: #666;
+            color: var(--deep-green-soft);
             text-align: center;
+        }
+
+        /* Responsive layout */
+        @media (max-width: 768px) {
+            body {
+                padding: 1.2rem;
+                font-size: 17px;
+            }
+
+            .site-title {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
         }
     </style>
 
@@ -67,8 +99,6 @@
     <script>
         const siteDataEl = document.getElementById("site-data");
         const siteData = siteDataEl ? JSON.parse(siteDataEl.textContent) : {};
-
-        // Example: expose site name to console for debugging
         console.log("Loaded site:", siteData.siteName);
     </script>
 
