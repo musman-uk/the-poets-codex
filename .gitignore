@@ -1,0 +1,26 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Python build artifacts
+__pycache__/
+*.pyc
+
+# Backend build output
+backend/content/*
+!backend/content/.gitkeep
+
+# Temporary files
+*.tmp
+*.log
+
+# Node or tooling (future proofing)
+node_modules/
+dist/
+
+# Editor settings
+.vscode/
+.idea/
+
+# OS sync conflicts
+*.sync-conflict*
