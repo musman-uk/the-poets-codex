@@ -3,7 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+
+    <!-- Inline CSS -->
+    <style>
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            line-height: 1.6;
+            font-size: 18px;
+            color: #222;
+            background-color: #faf9f7;
+            margin: 0;
+            padding: 2rem;
+        }
+
+        .site-header {
+            margin-bottom: 2rem;
+        }
+
+        .site-title {
+            margin: 0 0 1rem 0;
+            font-size: 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #444;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .site-footer {
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+        }
+    </style>
+
+    <!-- Inline JSON metadata -->
+    <script id="site-data" type="application/json">
+    {
+        "siteName": "The Poets Codex",
+        "author": "Mohammed Usman"
+    }
+    </script>
+
+    <!-- Inline JS (optional, future-proof) -->
+    <script>
+        const siteDataEl = document.getElementById("site-data");
+        const siteData = siteDataEl ? JSON.parse(siteDataEl.textContent) : {};
+
+        // Example: expose site name to console for debugging
+        console.log("Loaded site:", siteData.siteName);
+    </script>
+
 </head>
 
 <body>
@@ -14,7 +82,7 @@
     <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/about.html">About</a></li>
-        <li><a href="/sections/poets/index.html">Poets</a></li>
+        <li><a href="/poets/index.html">Poets</a></li>
     </ul>
 </nav>
 </header>
