@@ -9,11 +9,11 @@
 <article>
     <h1>Poets</h1>
 
+    <p>A curated collection of voices across time, culture, and tradition.</p>
+
     <ul>
         {% for poet in poets %}
-            <li>
-                <a href="/poets/{{ poet.id }}/">{{ poet.name }}</a>
-            </li>
+            <li><a href="/poets/{{ poet.id }}/">{{ poet.name }}</a></li>
         {% endfor %}
     </ul>
 </article>
