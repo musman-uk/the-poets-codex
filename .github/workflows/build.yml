@@ -1,4 +1,4 @@
-name: Build Poets Codex
+name: Build Site
 
 on:
   workflow_dispatch:
