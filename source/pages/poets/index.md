@@ -1,10 +1,7 @@
-# Poets
+---
+title: Poets
+template: poets.html
+---
 
-## Rumi
-Sample entry.
-
-## William Shakespeare
-Sample entry.
-
-## Muhammad Iqbal
-Sample entry.
+A curated collection of poets, each with their own page and palette.  
+Select a poet below to explore their presence within the Codex.
