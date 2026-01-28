@@ -4,7 +4,7 @@ This repository contains an in‑development project called The Poets Codex, whi
 
 ## Project Contents
 
-A simplified view of what each part of the project contains:
+A short summary of what each part of the project contains:
 
 - `source/` – Markdown pages and HTML templates used to generate the site  
 - `docs/` – the generated static site ready for deployment  
