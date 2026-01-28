@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+<header class="site-header">
+    <h1 class="site-title">The Poets Codex</h1>
+    {% include "nav.html" %}
+</header>
+
 <article>
     <h1>{{ title }}</h1>
     {{ content }}
