@@ -1,1 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article>
+    <h1>Poets</h1>
+
+    <ul>
+        {% for poet in poets %}
+            <li>
+                <a href="/poets/{{ poet.id }}/">{{ poet.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</article>
+{% endblock %}
 
