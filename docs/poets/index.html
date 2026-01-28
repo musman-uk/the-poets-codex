@@ -121,46 +121,90 @@
 <article>
     <h1>Poets</h1>
 
-    <p>A curated collection of voices across time, culture, and tradition.</p>
+    <p class="intro">
+        A curated collection of voices across time, culture, and tradition.
+        Each poet carries a distinct palette, a distinct rhythm, a distinct way
+        of seeing the world.
+    </p>
 
-    <div class="poet-grid">
+    <div class="poet-list">
         
-        <a class="poet-card" href="/poets/rumi/">
+        <a class="poet-list-item" href="/poets/rumi/">
+            
             <img src="/assets/images/rumi.png" alt="Rumi">
-            <h2>Rumi</h2>
+            
+            <div class="poet-meta">
+                <h2>Rumi</h2>
+                <p class="poet-summary">A selected voice from the Codex.</p>
+            </div>
         </a>
         
-        <a class="poet-card" href="/poets/shakespeare/">
+        <a class="poet-list-item" href="/poets/shakespeare/">
+            
             <img src="/assets/images/shakespeare.png" alt="William Shakespeare">
-            <h2>William Shakespeare</h2>
+            
+            <div class="poet-meta">
+                <h2>William Shakespeare</h2>
+                <p class="poet-summary">A selected voice from the Codex.</p>
+            </div>
         </a>
         
-        <a class="poet-card" href="/poets/iqbal/">
+        <a class="poet-list-item" href="/poets/iqbal/">
+            
             <img src="/assets/images/iqbal.png" alt="Muhammad Iqbal">
-            <h2>Muhammad Iqbal</h2>
+            
+            <div class="poet-meta">
+                <h2>Muhammad Iqbal</h2>
+                <p class="poet-summary">A selected voice from the Codex.</p>
+            </div>
         </a>
         
     </div>
 </article>
 
 <style>
-.poet-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
+.intro {
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
 }
 
-.poet-card {
+.poet-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.poet-list-item {
+    display: flex;
+    gap: 1rem;
     text-decoration: none;
     color: var(--brown-ink);
-    text-align: center;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
-.poet-card img {
-    width: 100%;
+.poet-list-item:hover h2 {
+    text-decoration: underline;
+}
+
+.poet-list-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
     border-radius: 6px;
-    margin-bottom: 0.5rem;
+}
+
+.poet-meta h2 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.poet-summary {
+    margin: 0.2rem 0 0 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
 }
 </style>
 
