@@ -21,11 +21,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install markdown jinja2
+          pip install markdown jinja2 pyyaml
 
       - name: Build site
         run: |
-          python source/build.py
+          python build.py
 
       - name: Configure Git identity
         run: |
@@ -35,5 +35,5 @@ jobs:
       - name: Commit and push generated files
         run: |
           git add docs
-          git commit -m "Manual build" || echo "No changes to commit"
+          git commit -m "Build Complete" || echo "No changes to commit"
           git push
