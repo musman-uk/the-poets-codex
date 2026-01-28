@@ -4,13 +4,20 @@
     <meta charset="UTF-8">
     <title>{{ title }}</title>
 
-    <!-- manuscript-style font -->
+    <!-- manuscript-style serif font -->
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --cream-dark: #f2e9d8;
             --brown-ink: #4a3b2a;
+
+            /* poet palette defaults */
+            --color-1: var(--cream-dark);
+            --color-2: var(--brown-ink);
+            --color-3: var(--brown-ink);
+            --color-4: var(--brown-ink);
+            --color-5: var(--brown-ink);
         }
 
         /* mobile-first base styles */
@@ -30,6 +37,24 @@
             font-size: 17px;
         }
 
+        /* poet theme overrides */
+        body.poet-theme {
+            background-color: var(--color-1);
+            color: var(--color-5);
+        }
+
+        body.poet-theme .site-title {
+            color: var(--color-2);
+        }
+
+        body.poet-theme nav a {
+            color: var(--color-3);
+        }
+
+        body.poet-theme nav a:hover {
+            color: var(--color-4);
+        }
+
         /* header and title */
         .site-header {
             margin-bottom: 1.5rem;
@@ -46,7 +71,7 @@
         /* navigation */
         nav {
             display: flex;
-            justify-content: center; /* centers nav block */
+            justify-content: center;
             width: 100%;
         }
 
@@ -57,13 +82,13 @@
             gap: 0.75rem;
             padding: 0;
             margin: 0;
-            text-align: left; /* left-aligns nav items */
+            text-align: left;
         }
 
         nav a {
             text-decoration: none;
             color: var(--brown-ink);
-            font-size: 0.95rem; /* slightly smaller for poet names */
+            font-size: 0.95rem;
         }
 
         nav a:hover {
@@ -76,7 +101,7 @@
             margin: 0 auto;
         }
 
-        /* footer (only used on homepage) */
+        /* optional footer */
         .site-footer {
             margin-top: auto;
             text-align: right;
@@ -107,6 +132,19 @@
         }
     </style>
 
+    <!-- palette injection -->
+    {% if palette %}
+    <style>
+        :root {
+            --color-1: {{ palette[0] }};
+            --color-2: {{ palette[1] }};
+            --color-3: {{ palette[2] }};
+            --color-4: {{ palette[3] }};
+            --color-5: {{ palette[4] }};
+        }
+    </style>
+    {% endif %}
+
     <!-- inline json metadata -->
     <script id="site-data" type="application/json">
     {
@@ -124,7 +162,7 @@
 
 </head>
 
-<body>
+<body class="{% if template == 'poet.html' %}poet-theme{% endif %}">
 
 <header class="site-header">
     <h1 class="site-title">The Poets Codex</h1>
