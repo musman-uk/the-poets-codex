@@ -4,23 +4,14 @@
     <meta charset="UTF-8">
     <title>Home</title>
 
-    <!-- manuscript-style serif font -->
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --cream-dark: #f2e9d8;
             --brown-ink: #4a3b2a;
-
-            /* poet palette defaults */
-            --color-1: var(--cream-dark);
-            --color-2: var(--brown-ink);
-            --color-3: var(--brown-ink);
-            --color-4: var(--brown-ink);
-            --color-5: var(--brown-ink);
         }
 
-        /* mobile-first base styles */
         html, body {
             height: 100%;
             display: flex;
@@ -37,123 +28,25 @@
             font-size: 17px;
         }
 
-        /* poet theme overrides */
-        body.poet-theme {
-            background-color: var(--color-1);
-            color: var(--color-5);
-        }
-
-        body.poet-theme .site-title {
-            color: var(--color-2);
-        }
-
-        body.poet-theme nav a {
-            color: var(--color-3);
-        }
-
-        body.poet-theme nav a:hover {
-            color: var(--color-4);
-        }
-
-        /* header and title */
-        .site-header {
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .site-title {
-            margin: 0 0 1rem 0;
-            font-size: 2rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        /* navigation */
-        nav {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column; /* stacked on mobile */
-            gap: 0.75rem;
-            padding: 0;
-            margin: 0;
-            text-align: left;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--brown-ink);
-            font-size: 0.95rem;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        /* main content */
         .content {
-            max-width: 100%;
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        /* optional footer */
-        .site-footer {
-            margin-top: auto;
-            text-align: right;
-            font-size: 0.85rem;
-            opacity: 0.6;
-            padding-top: 1rem;
-        }
-
-        /* desktop styles */
         @media (min-width: 769px) {
             body {
                 padding: 2rem;
                 font-size: 19px;
             }
-
-            .site-title {
-                font-size: 2.4rem;
-            }
-
-            nav ul {
-                flex-direction: row; /* horizontal on desktop */
-                gap: 1.5rem;
-            }
-
-            .content {
-                max-width: 800px;
-            }
         }
     </style>
 
-    <!-- palette injection -->
     
-
-    <!-- inline json metadata -->
-    <script id="site-data" type="application/json">
-    {
-        "siteName": "The Poets Codex",
-        "author": "Mohammed Usman"
-    }
-    </script>
-
-    <!-- optional inline javascript -->
-    <script>
-        const siteDataEl = document.getElementById("site-data");
-        const siteData = siteDataEl ? JSON.parse(siteDataEl.textContent) : {};
-        console.log("Loaded site:", siteData.siteName);
-    </script>
-
 </head>
 
 <body class="">
-
+    <main class="content">
+        
 <header class="site-header">
     <h1 class="site-title">The Poets Codex</h1>
     <nav class="site-nav">
@@ -165,8 +58,6 @@
 </nav>
 </header>
 
-<main class="content">
-    
 <article>
     <h1>Home</h1>
     <p>Welcome to <strong>The Poets Codex</strong>, a quiet space dedicated to poets whose words continue to echo across time.</p>
@@ -175,9 +66,6 @@ Every poet has their own page, palette, and place within the Codex.</p>
 <p>Begin exploring through the navigation above, or visit the Poets section to see the growing collection.</p>
 </article>
 
-</main>
-
-
-
+    </main>
 </body>
 </html>
