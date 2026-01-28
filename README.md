@@ -17,7 +17,7 @@ A simplified view of what each part of the project contains:
 
 ## Development Process
 
-A simplified view of how the site is created:
+A simplified view of how the website is being developed:
 
 | Stage        | Location               | Purpose                                                |
 |--------------|------------------------|--------------------------------------------------------|
