@@ -11,10 +11,34 @@
 
     <p>A curated collection of voices across time, culture, and tradition.</p>
 
-    <ul>
+    <div class="poet-grid">
         {% for poet in poets %}
-            <li><a href="/poets/{{ poet.id }}/">{{ poet.name }}</a></li>
+        <a class="poet-card" href="/poets/{{ poet.id }}/">
+            <img src="/assets/images/{{ poet.image }}" alt="{{ poet.name }}">
+            <h2>{{ poet.name }}</h2>
+        </a>
         {% endfor %}
-    </ul>
+    </div>
 </article>
+
+<style>
+.poet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.poet-card {
+    text-decoration: none;
+    color: var(--brown-ink);
+    text-align: center;
+}
+
+.poet-card img {
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+}
+</style>
 {% endblock %}
