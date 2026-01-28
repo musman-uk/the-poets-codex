@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-<article class="poet-page">
+<header class="site-header">
+    <h1 class="site-title">The Poets Codex</h1>
+    {% include "nav.html" %}
+</header>
 
-    {% if image %}
-    <div class="poet-image">
-        <img src="/assets/images/{{ image }}" alt="{{ title }}">
-    </div>
-    {% endif %}
+<article>
+    <h1>Poets</h1>
 
-    <h1>{{ title }}</h1>
-
-    <div class="poet-bio">
-        {{ content }}
-    </div>
-
+    <ul>
+        {% for poet in poets %}
+            <li>
+                <a href="/poets/{{ poet.id }}/">{{ poet.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
 </article>
 {% endblock %}
-
