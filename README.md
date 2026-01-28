@@ -2,31 +2,31 @@
 
 This repository contains an in‑development project called The Poets Codex, which is a website aiming to bring together a curated set of esteemed poets.
 
-## Repository Contents
+## Project Contents
 
-A simplified view of the project’s structure:
+A simplified view of what each part of the project contains:
 
-`content/` – Markdown files for all sections and pages  
-`source/` – build script and HTML templates  
-`docs/` – generated static site for deployment  
-`assets/` – styles, images, and supporting files  
-`README.md` – main overview of the project  
-`ROADMAP.md` – planned development and future directions  
-`DEVLOG.md` – notes on changes, iterations, and build progress  
-`DESIGN-NOTES.md` – design philosophy, layout decisions, and rationale  
-`.github/` – automated workflow that triggers the build process
+- `source/` – Markdown pages and HTML templates used to generate the site  
+- `docs/` – the generated static site ready for deployment  
+- `assets/` – stylesheets, images, and supporting files  
+- `README.md` – main overview of the project  
+- `ROADMAP.md` – planned development and future directions  
+- `DEVLOG.md` – notes on changes, iterations, and build progress  
+- `DESIGN-NOTES.md` – design philosophy, layout decisions, and rationale  
+- `.github/workflows/` – automated workflow that runs the build process
 
-## Build Process
+## Development Process
 
-A simplified view of the project's build pipeline:
+A simplified view of how the site is created:
 
-| Stage      | Directory     | Purpose                                                |
-|------------|---------------|--------------------------------------------------------|
-| Write      | `content/`    | All poet folios and pages written in Markdown         |
-| Build      | `source/`     | Python script applies templates and assembles pages   |
-| Generate   | `.github/`    | Automated action that runs the build script           |
-| Output     | `docs/`       | Final static HTML generated for deployment            |
+| Stage        | Location               | Purpose                                                |
+|--------------|------------------------|--------------------------------------------------------|
+| Write        | `source/`              | Markdown pages and templates are authored and updated |
+| Build        | `build.py`             | Python script applies templates and assembles pages   |
+| Automate     | `.github/workflows/`   | Workflow triggers the build script upon manual dispatch     |
+| Deploy       | `docs/`                | Static HTML output used for GitHub Pages deployment   |
 
 ## Status
 
-Version `0.0.0` – Draft
+Version `0.0.0` – Draft  
+The project is in its earliest phase, with structure, templates, and generation logic being established.
