@@ -24,7 +24,7 @@ def parse_markdown(path):
 
 # Build normal pages
 def build_page(src, dest, template_name="page.html"):
-    front, html = parse_markdown(f"source/content/{src}")
+    front, html = parse_markdown(f"source/pages/{src}")
     title = front.get("title") or src.replace(".md", "").title()
 
     template = env.get_template(template_name)
@@ -42,7 +42,7 @@ def build_page(src, dest, template_name="page.html"):
 # Build poet pages and collect metadata
 def build_poets():
     poets = []
-    poets_src = "source/content/poets"
+    poets_src = "source/pages/poets"
 
     for filename in os.listdir(poets_src):
         if not filename.endswith(".md"):
@@ -57,7 +57,6 @@ def build_poets():
         image = front.get("image")
         palette = front.get("palette", [])
 
-        # Save poet metadata for poets index
         poets.append({
             "id": poet_id,
             "name": title,
@@ -65,7 +64,6 @@ def build_poets():
             "palette": palette
         })
 
-        # Render individual poet page
         template = env.get_template("poet.html")
         rendered = template.render(
             title=title,
@@ -102,11 +100,9 @@ def build_poets_index(poets):
 def main():
     print("Building pages...")
 
-    # Normal pages
     build_page("index.md", "docs/index.html")
     build_page("about.md", "docs/about/index.html")
 
-    # Poets
     poets = build_poets()
     build_poets_index(poets)
 
