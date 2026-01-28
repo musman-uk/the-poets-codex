@@ -6,23 +6,31 @@ from jinja2 import Environment, FileSystemLoader
 # Load templates
 env = Environment(loader=FileSystemLoader("source/templates"))
 
-# Utility: extract YAML front matter
+# ---------------------------------------------------------
+# Robust YAML front‑matter parser
+# ---------------------------------------------------------
 def parse_markdown(path):
     with open(path, "r", encoding="utf-8") as f:
         raw = f.read()
 
+    front = {}
+    body = raw
+
+    # Detect front matter safely
     if raw.startswith("---"):
-        _, fm, body = raw.split("---", 2)
-        front = yaml.safe_load(fm)
-    else:
-        front = {}
-        body = raw
+        end = raw.find("\n---", 3)
+        if end != -1:
+            fm = raw[3:end]               # YAML block
+            body = raw[end + 4:]          # skip closing '---\n'
+            front = yaml.safe_load(fm) or {}
 
     html = markdown.markdown(body)
     return front, html
 
 
-# Build normal pages
+# ---------------------------------------------------------
+# Build normal pages (index, about, etc.)
+# ---------------------------------------------------------
 def build_page(src, dest, template_name="page.html"):
     front, html = parse_markdown(f"source/pages/{src}")
     title = front.get("title") or src.replace(".md", "").title()
@@ -39,13 +47,19 @@ def build_page(src, dest, template_name="page.html"):
         f.write(rendered)
 
 
-# Build poet pages and collect metadata
+# ---------------------------------------------------------
+# Build individual poet pages + collect metadata
+# ---------------------------------------------------------
 def build_poets():
     poets = []
     poets_src = "source/pages/poets"
 
     for filename in os.listdir(poets_src):
         if not filename.endswith(".md"):
+            continue
+
+        # Skip index.md inside poets/
+        if filename == "index.md":
             continue
 
         poet_id = filename.replace(".md", "")
@@ -81,7 +95,9 @@ def build_poets():
     return poets
 
 
+# ---------------------------------------------------------
 # Build poets index page
+# ---------------------------------------------------------
 def build_poets_index(poets):
     template = env.get_template("poets.html")
     rendered = template.render(
@@ -96,7 +112,9 @@ def build_poets_index(poets):
         f.write(rendered)
 
 
+# ---------------------------------------------------------
 # Main build
+# ---------------------------------------------------------
 def main():
     print("Building pages...")
 
