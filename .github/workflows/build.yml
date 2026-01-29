@@ -1,7 +1,9 @@
 name: Build Site
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:        # Manual trigger
+  # pull_request:
+  #   branches: [ main ]    # Uncomment later when you want PR-based builds
 
 permissions:
   contents: write
@@ -12,20 +14,36 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
+      - name: Cache Python packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
       - name: Install dependencies
         run: |
-          pip install markdown jinja2 pyyaml
+          pip install --upgrade pip
+          pip install -r requirements.txt
 
       - name: Build site
         run: |
           python build.py
+
+      - name: Verify build output exists
+        run: |
+          if [ ! -d "docs" ]; then
+            echo "Error: docs/ folder not generated"
+            exit 1
+          fi
 
       - name: Configure Git identity
         run: |
