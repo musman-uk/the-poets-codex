@@ -1,4 +1,4 @@
-# Dev Log
+# Developer Log
 
 Entry 1  
 Created the initial repository structure and established the core layout for the project.  
