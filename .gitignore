@@ -16,7 +16,6 @@ temp/
 # Node / Build
 node_modules/
 dist/
-docs/
 _site/
 
 # Editors
