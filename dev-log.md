@@ -16,6 +16,6 @@ Updated the README to reflect the current architecture and build process.
 Reviewed the repository layout to ensure it remains stable as new poets and sections are introduced.
 
 Entry 4  
-Started shaping the content workflow, focusing on how Markdown files in `content/` will map to templates in `source/`.  
+Started shaping the content workflow, focusing on how Markdown files in `pages/` will map to templates in `source/`.  
 Confirmed the approach for generating static pages through the automated workflow in `.github`.  
 Prepared the next steps for adding the first complete poet folio.
