@@ -8,7 +8,7 @@ A short summary of what each part of the project contains:
 
 - `source/` – Markdown pages and HTML templates used to generate the site  
 - `docs/` – the generated static site ready for deployment  
-- `assets/` – stylesheets, images, and supporting files  
+- `assets/` – fonts, images, and supporting files  
 - `README.md` – main overview of the project  
 - `ROADMAP.md` – planned development and future directions  
 - `DEVLOG.md` – notes on changes, iterations, and build progress  
