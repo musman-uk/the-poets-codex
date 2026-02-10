@@ -74,6 +74,17 @@
             text-decoration: underline;
         }
 
+        nav li {
+            display: flex;
+            align-items: center;
+       }
+
+        nav li:not(:last-child)::after {
+            content: "·";
+            margin-left: 0.5rem;
+       }
+
+
         /* poet theme (only applied on poet pages) */
         body.poet-theme {
             background-color: var(--color-1);

@@ -74,6 +74,17 @@
             text-decoration: underline;
         }
 
+        nav li {
+            display: flex;
+            align-items: center;
+       }
+
+        nav li:not(:last-child)::after {
+            content: "·";
+            margin-left: 0.5rem;
+       }
+
+
         /* poet theme (only applied on poet pages) */
         body.poet-theme {
             background-color: var(--color-1);
@@ -111,9 +122,9 @@
     <h1 class="site-title">The Poets Codex</h1>
     <nav class="site-nav">
   <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/about/">About</a></li>
-    <li><a href="/poets/">Poets</a></li>
+    <li><a href="/">The Opening Page</a></li>
+    <li><a href="/about/">About This Codex</a></li>
+    <li><a href="/poets/">The Poets Room</a></li>
   </ul>
 </nav>
 </header>
