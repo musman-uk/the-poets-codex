@@ -77,13 +77,14 @@
         nav li {
             display: flex;
             align-items: center;
-       }
+        }
 
+        /* centred dot separator */
         nav li:not(:last-child)::after {
             content: "·";
-            margin-left: 0.5rem;
-       }
-
+            display: inline-block;
+            margin: 0 0.75rem; /* half of the 1.5rem gap = perfectly centred */
+        }
 
         /* poet theme (only applied on poet pages) */
         body.poet-theme {
