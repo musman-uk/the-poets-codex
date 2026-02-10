@@ -1,16 +1,13 @@
 ---
 title: William Shakespeare
-template: poet.html
-image: shakespeare.png
-palette:
-  - "#1B1B1E"
-  - "#4A4E69"
-  - "#9A8C98"
-  - "#C9ADA7"
-  - "#F2E9E4"
+image: placeholder.jpg
 ---
 
-William Shakespeare (1564–1616) remains one of the most influential writers in the English language, known for his plays, sonnets, and enduring insight into the human condition.
+William Shakespeare was born in 1564 in Stratford upon Avon, England. He wrote plays and poems that continue to shape how we think about love, ambition, grief, and the strange contradictions of being human. His work feels both ancient and familiar, as if he understood something about people that has not changed despite the centuries that have passed.
 
-His work spans tragedy, comedy, and history, capturing the complexities of emotion and experience.
+A few lines from one of his sonnets:
 
+> Shall I compare thee to a summer's day  
+> Thou art more lovely and more temperate
+
+A small piece of trivia that many people do not know is that Shakespeare never oversaw the publication of his plays. They were gathered and printed by his friends after his death, which means that much of what we now consider his legacy survived only because a few people cared enough to preserve it.
