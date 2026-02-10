@@ -1,55 +1,88 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }} — The Poets Codex</title>
 
-{% block extra_head %}
-<style>
-    :root {
-        --color-1: {{ palette[0] }};
-        --color-2: {{ palette[1] }};
-        --color-3: {{ palette[2] }};
-        --color-4: {{ palette[3] }};
-        --color-5: {{ palette[4] }};
-    }
+    <style>
+        /* phone-first layout */
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f5f0e6; /* soft cream */
+            color: #3b2a22; /* deep brown text */
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+        }
 
-    body.poet-theme {
-        background-color: var(--color-1);
-        color: var(--color-5);
-    }
+        nav {
+            padding: 1rem;
+        }
 
-    .back-link a {
-        color: var(--color-3);
-        text-decoration: none;
-    }
+        nav a {
+            color: #3b2a22;
+            text-decoration: none;
+            font-size: 1rem;
+            border-bottom: 1px solid #3b2a22;
+            padding-bottom: 0.1rem;
+        }
 
-    .back-link a:hover {
-        color: var(--color-4);
-        text-decoration: underline;
-    }
+        main {
+            padding: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
 
-    .poet-image img {
-        max-width: 100%;
-        margin-bottom: 1rem;
-    }
-</style>
-{% endblock %}
+        h1 {
+            font-weight: 600;
+            font-size: clamp(1.8rem, 5vw, 2.4rem);
+            margin-top: 0;
+            color: #3b2a22;
+        }
 
-{% block body_class %}poet-theme{% endblock %}
+        .poet-image {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
 
-{% block content %}
-<div class="back-link">
-    <a href="/poets/">← Back to Poets</a>
-</div>
+        .poet-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
 
-<article class="poet-page">
-    {% if image %}
-    <div class="poet-image">
-        <img src="/assets/images/{{ image }}" alt="{{ title }}">
-    </div>
-    {% endif %}
+        article {
+            margin-top: 1.5rem;
+        }
 
-    <h1>{{ title }}</h1>
+        /* desktop enhancements */
+        @media (min-width: 768px) {
+            main {
+                padding: 2.5rem;
+            }
+        }
+    </style>
+</head>
 
-    <div class="poet-bio">
-        {{ content }}
-    </div>
-</article>
-{% endblock %}
+<body>
+    <nav>
+        <a href="../hub.html">back</a>
+    </nav>
+
+    <main>
+        <header>
+            <h1>{{ title }}</h1>
+
+            {% if image %}
+            <div class="poet-image">
+                <img src="../../../assets/images/{{ image }}" alt="{{ title }}">
+            </div>
+            {% endif %}
+        </header>
+
+        <article>
+            {{ content }}
+        </article>
+    </main>
+</body>
+</html>
