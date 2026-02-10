@@ -1,128 +1,121 @@
 import os
 import markdown
 import yaml
-from jinja2 import Environment, FileSystemLoader
+from pathlib import Path
 
-# Load templates
-env = Environment(loader=FileSystemLoader("source/templates"))
+# paths
+ROOT = Path(__file__).parent
+SOURCE = ROOT / "source"
+TEMPLATES = SOURCE / "templates"
+POETS_SRC = SOURCE / "pages" / "poets"
+DOCS = ROOT / "docs"
+POETS_OUT = DOCS / "poets"
 
-# ---------------------------------------------------------
-# Robust YAML front‑matter parser
-# ---------------------------------------------------------
+# ensure output directories exist
+POETS_OUT.mkdir(parents=True, exist_ok=True)
+
+
+def load_template(name):
+    """load an html template from source/templates"""
+    return (TEMPLATES / name).read_text(encoding="utf-8")
+
+
 def parse_markdown(path):
-    with open(path, "r", encoding="utf-8") as f:
-        raw = f.read()
+    """extract yaml frontmatter + markdown content"""
+    raw = path.read_text(encoding="utf-8").strip()
 
     front = {}
     body = raw
 
-    # Detect front matter safely
     if raw.startswith("---"):
         end = raw.find("\n---", 3)
         if end != -1:
-            fm = raw[3:end]               # YAML block
-            body = raw[end + 4:]          # skip closing '---\n'
+            fm = raw[3:end]
+            body = raw[end + 4:]
             front = yaml.safe_load(fm) or {}
 
-    html = markdown.markdown(body)
+    html = markdown.markdown(body, extensions=["fenced_code", "tables"])
     return front, html
 
 
-# ---------------------------------------------------------
-# Build normal pages (index, about, etc.)
-# ---------------------------------------------------------
-def build_page(src, dest, template_name="page.html"):
-    front, html = parse_markdown(f"source/pages/{src}")
-    title = front.get("title") or src.replace(".md", "").title()
+def build_poet_pages():
+    """convert each poet markdown file into a full html page"""
+    poet_template = load_template("poet.html")
+    poets_data = []
 
-    template = env.get_template(template_name)
-    rendered = template.render(
-        title=title,
-        content=html,
-        template=template_name
-    )
+    for md_file in sorted(POETS_SRC.glob("*.md")):
+        front, html_content = parse_markdown(md_file)
 
-    os.makedirs(os.path.dirname(dest), exist_ok=True)
-    with open(dest, "w", encoding="utf-8") as f:
-        f.write(rendered)
+        title = front.get("title", md_file.stem.title())
+        image = front.get("image", None)
 
+        # inject into template
+        page_html = poet_template.replace("{{ title }}", title)
+        page_html = page_html.replace("{{ content }}", html_content)
 
-# ---------------------------------------------------------
-# Build individual poet pages + collect metadata
-# ---------------------------------------------------------
-def build_poets():
-    poets = []
-    poets_src = "source/pages/poets"
+        if image:
+            page_html = page_html.replace("{{ image }}", image)
+        else:
+            page_html = page_html.replace("{{ image }}", "")
 
-    for filename in os.listdir(poets_src):
-        if not filename.endswith(".md"):
-            continue
+        # write output
+        out_path = POETS_OUT / f"{md_file.stem}.html"
+        out_path.write_text(page_html, encoding="utf-8")
 
-        # Skip index.md inside poets/
-        if filename == "index.md":
-            continue
-
-        poet_id = filename.replace(".md", "")
-        src_path = os.path.join(poets_src, filename)
-
-        front, html = parse_markdown(src_path)
-
-        title = front.get("title", poet_id.title())
-        image = front.get("image")
-        palette = front.get("palette", [])
-
-        poets.append({
-            "id": poet_id,
-            "name": title,
-            "image": image,
-            "palette": palette
+        # store metadata for poets list
+        poets_data.append({
+            "title": title,
+            "file": f"poets/{md_file.stem}.html",
+            "frontmatter": front
         })
 
-        template = env.get_template("poet.html")
-        rendered = template.render(
-            title=title,
-            content=html,
-            image=image,
-            palette=palette,
-            template="poet.html"
-        )
-
-        dest = f"docs/poets/{poet_id}/index.html"
-        os.makedirs(os.path.dirname(dest), exist_ok=True)
-        with open(dest, "w", encoding="utf-8") as f:
-            f.write(rendered)
-
-    return poets
+    return poets_data
 
 
-# ---------------------------------------------------------
-# Build poets index page
-# ---------------------------------------------------------
-def build_poets_index(poets):
-    template = env.get_template("poets.html")
-    rendered = template.render(
-        title="Poets",
-        poets=poets,
-        template="poets.html"
-    )
+def build_poets_list(poets_data):
+    """generate the <ul> list for the hub page"""
+    items = []
 
-    dest = "docs/poets/index.html"
-    os.makedirs(os.path.dirname(dest), exist_ok=True)
-    with open(dest, "w", encoding="utf-8") as f:
-        f.write(rendered)
+    for poet in poets_data:
+        title = poet["title"]
+        fm = poet["frontmatter"]
+
+        years = fm.get("years")
+        origin = fm.get("origin")
+
+        label_parts = [title]
+        if years:
+            label_parts.append(f"({years})")
+        if origin:
+            label_parts.append(origin)
+
+        label = ", ".join(label_parts)
+        items.append(f'<li><a href="{poet["file"]}">{label}</a></li>')
+
+    return "<ul>\n" + "\n".join(items) + "\n</ul>"
 
 
-# ---------------------------------------------------------
-# Main build
-# ---------------------------------------------------------
+def build_hub(poets_data):
+    """inject poets list into hub.html"""
+    hub_template = load_template("hub.html")
+    poets_list_html = build_poets_list(poets_data)
+
+    final = hub_template.replace("<!-- poets_list -->", poets_list_html)
+    (DOCS / "hub.html").write_text(final, encoding="utf-8")
+
+
+def build_cover():
+    """copy index.html directly into docs"""
+    index_template = load_template("index.html")
+    (DOCS / "index.html").write_text(index_template, encoding="utf-8")
+
+
 def main():
-    print("Building pages...")
+    print("Building The Poets Codex...")
 
-    build_page("index.md", "docs/index.html")
-    build_page("about.md", "docs/about/index.html")
-
-    poets = build_poets()
-    build_poets_index(poets)
+    poets_data = build_poet_pages()
+    build_hub(poets_data)
+    build_cover()
 
     print("Build complete.")
 
