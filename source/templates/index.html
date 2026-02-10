@@ -1,1 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Poets Codex</title>
+
+    <style>
+        /* phone-first layout */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #4a2f23; /* deep brunette leather tone */
+            font-family: "Georgia", serif;
+        }
+
+        .container {
+            text-align: center;
+            padding: 1rem;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        /* responsive manuscript title */
+        h1 {
+            font-size: clamp(2.2rem, 6vw, 3.5rem);
+            letter-spacing: 2px;
+            color: #d4af37; /* gold metallic */
+            margin: 0;
+            font-weight: normal;
+        }
+
+        /* open link styled like a quiet gesture */
+        .open {
+            display: inline-block;
+            margin-top: 1.8rem;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            color: #d4af37;
+            text-decoration: none;
+            border: 1px solid #d4af37;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            transition: 0.2s ease;
+        }
+
+        .open:hover {
+            background: #d4af37;
+            color: #4a2f23;
+        }
+
+        /* desktop enhancements */
+        @media (min-width: 768px) {
+            body {
+                background-size: cover;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>The Poets Codex</h1>
+        <a class="open" href="hub.html">Open</a>
+    </div>
+</body>
+</html>
 
