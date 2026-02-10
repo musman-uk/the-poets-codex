@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hub — The Poets Codex</title>
+
+    <style>
+        /* phone-first layout */
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f5f0e6; /* soft cream */
+            color: #3b2a22; /* deep brown text */
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        nav {
+            padding: 1rem;
+        }
+
+        nav a {
+            color: #3b2a22;
+            text-decoration: none;
+            font-size: 1rem;
+            border-bottom: 1px solid #3b2a22;
+            padding-bottom: 0.1rem;
+        }
+
+        main {
+            padding: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-weight: 600;
+            margin-top: 2.5rem;
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
+            color: #3b2a22;
+        }
+
+        .preface p {
+            margin-bottom: 1.2rem;
+        }
+
+        /* poets list styling */
+        .poets-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .poets-list li {
+            margin-bottom: 0.8rem;
+            padding: 0.4rem 0;
+            border-bottom: 1px solid #d8cfc4;
+        }
+
+        .poets-list a {
+            text-decoration: none;
+            color: #3b2a22;
+            font-weight: 500;
+        }
+
+        /* desktop enhancements */
+        @media (min-width: 768px) {
+            main {
+                padding: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">Close</a>
+    </nav>
+
+    <main>
+        <section class="preface">
+            <p>
+                Welcome to all. This codex is more metaphysical than literal, where poets who never shared a moment in history can sit together for a while. I have always felt though they are separated by time and distance, they could be brought together here, as if they are in a room, and we can be the ones walking into it and inhabiting it with them.
+            </p>
+        </section>
+
+        <section class="poets-list">
+            <h2>The Poets</h2>
+
+            <ul>
+<li><a href="poets/iqbal.html">Muhammad Iqbal</a></li>
+<li><a href="poets/rumi.html">Jalal al-Din Rumi</a></li>
+<li><a href="poets/shakespeare.html">William Shakespeare</a></li>
+</ul>
+            <!-- the build script will insert:
+                 <ul>
+                     <li><a href="poets/rumi.html">Jalal al-Din Rumi (1207–1273), Balkh, Afghanistan</a></li>
+                     <li><a href="poets/iqbal.html">Muhammad Iqbal (1877–1938), Sialkot, Pakistan</a></li>
+                     <li><a href="poets/shakespeare.html">William Shakespeare (1564–1616), Stratford-upon-Avon, England</a></li>
+                 </ul>
+            -->
+        </section>
+    </main>
+</body>
+</html>

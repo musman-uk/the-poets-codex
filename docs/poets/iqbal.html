@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Muhammad Iqbal — The Poets Codex</title>
+
+    <style>
+        /* phone-first layout */
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f5f0e6; /* soft cream */
+            color: #3b2a22; /* deep brown text */
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        nav {
+            padding: 1rem;
+        }
+
+        nav a {
+            color: #3b2a22;
+            text-decoration: none;
+            font-size: 1rem;
+            border-bottom: 1px solid #3b2a22;
+            padding-bottom: 0.1rem;
+        }
+
+        main {
+            padding: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-weight: 600;
+            font-size: clamp(1.8rem, 5vw, 2.4rem);
+            margin-top: 0;
+            color: #3b2a22;
+        }
+
+        .poet-image {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .poet-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        article {
+            margin-top: 1.5rem;
+        }
+
+        /* desktop enhancements */
+        @media (min-width: 768px) {
+            main {
+                padding: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="../hub.html">back</a>
+    </nav>
+
+    <main>
+        <header>
+            <h1>Muhammad Iqbal</h1>
+
+            {% if image %}
+            <div class="poet-image">
+                <img src="../../../assets/images/placeholder.jpg" alt="Muhammad Iqbal">
+            </div>
+            {% endif %}
+        </header>
+
+        <article>
+            <p>Muhammad Iqbal was born in 1877 in Sialkot, in present day Pakistan. He was a philosopher, poet, and thinker who moved between worlds with ease, writing in Persian and Urdu while studying in Europe and engaging deeply with questions of selfhood, destiny, and the future of the human spirit. His work carries a sense of awakening, as if he was always urging the reader to rise a little higher than they thought possible.</p>
+<p>A short excerpt from one of his Persian verses:</p>
+<blockquote>
+<p>Raise yourself to such heights<br />
+That God Himself may ask you<br />
+What it is you desire</p>
+</blockquote>
+<p>Something not commonly known is that Iqbal wrote much of his early work during long solitary walks at night. He believed that ideas arrived more clearly when the world was quiet, and many of his poems were first shaped in those hours when most people were asleep.</p>
+        </article>
+    </main>
+</body>
+</html>
