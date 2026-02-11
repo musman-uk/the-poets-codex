@@ -1,13 +1,31 @@
----
 title: William Shakespeare
-image: placeholder.jpg
----
 
-William Shakespeare was born in 1564 in Stratford upon Avon, England. He wrote plays and poems that continue to shape how we think about love, ambition, grief, and the strange contradictions of being human. His work feels both ancient and familiar, as if he understood something about people that has not changed despite the centuries that have passed.
+profile: |
+    Shakespeare wrote with an instinct for the inner life. His lines move between clarity and mystery, carrying the weight of thought and the quickness of feeling. Even now, his voice feels close, as if he is watching the world with us and offering language that helps us understand it.
 
-A few lines from one of his sonnets:
+trivia:
+  - Wrote for the Globe Theatre in London
+  - His works were first collected in the First Folio
+  - Known for blending poetry and drama with unusual ease
 
-> Shall I compare thee to a summer's day  
-> Thou art more lovely and more temperate
+recommended:
+  - Sonnets
+  - Hamlet
+  - King Lear
 
-A small piece of trivia that many people do not know is that Shakespeare never oversaw the publication of his plays. They were gathered and printed by his friends after his death, which means that much of what we now consider his legacy survived only because a few people cared enough to preserve it.
+poetry:
+  - title: "Sonnet 18 (Excerpt)"
+    original: |
+        Shall I compare thee to a summer day
+        Thou art more lovely and more temperate
+    translation: |
+        Should I compare you to a summer day
+        You are gentler and more beautiful
+
+  - title: "Sonnet 116 (Excerpt)"
+    original: |
+        Let me not to the marriage of true minds
+        Admit impediments
+    translation: |
+        I will not claim that true and steady love
+        Can be blocked by anything
