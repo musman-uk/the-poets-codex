@@ -194,26 +194,45 @@
 
 <div class="spread">
 
+    <!-- LEFT PAGE -->
     <section class="page">
-        <h1>William Shakespeare</h1>
+        <h1>Shakespeare</h1>
 
-        {% if image %}
-        <div class="poet-image">
-            <img src="../../../assets/images/placeholder.jpg" alt="William Shakespeare">
-        </div>
-        {% endif %}
+        <h2>Profile</h2>
+        {{ profile }}
+
+        <h3>Trivia</h3>
+        <ul>
+            {% for fact in trivia %}
+            <li>{{ fact }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Recommended Reading</h3>
+        <ul>
+            {% for book in recommended %}
+            <li>{{ book }}</li>
+            {% endfor %}
+        </ul>
     </section>
 
+    <!-- RIGHT PAGE -->
     <section class="page">
-        <article>
-            <p>William Shakespeare was born in 1564 in Stratford upon Avon, England. He wrote plays and poems that continue to shape how we think about love, ambition, grief, and the strange contradictions of being human. His work feels both ancient and familiar, as if he understood something about people that has not changed despite the centuries that have passed.</p>
-<p>A few lines from one of his sonnets:</p>
-<blockquote>
-<p>Shall I compare thee to a summer's day<br />
-Thou art more lovely and more temperate</p>
-</blockquote>
-<p>A small piece of trivia that many people do not know is that Shakespeare never oversaw the publication of his plays. They were gathered and printed by his friends after his death, which means that much of what we now consider his legacy survived only because a few people cared enough to preserve it.</p>
-        </article>
+        <h2>Selected Poetry</h2>
+
+        {% for poem in poetry %}
+        <h3>{{ poem.title }}</h3>
+
+        {% if poem.original %}
+        <p><strong>Original:</strong></p>
+        <pre>{{ poem.original }}</pre>
+        {% endif %}
+
+        {% if poem.translation %}
+        <p><strong>Translation:</strong></p>
+        <pre>{{ poem.translation }}</pre>
+        {% endif %}
+        {% endfor %}
     </section>
 
 </div>
