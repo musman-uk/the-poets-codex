@@ -1,13 +1,30 @@
----
-title: Jalal al-Din Rumi
-image: placeholder.jpg
----
+title: Jalal al Din Rumi
 
-Jalal al-Din Rumi was born in 1207 in Balkh, in what is now Afghanistan. He spent much of his life in Konya, where he became a teacher, a jurist, and eventually a poet whose work feels as if it was written for every century at once. His writing carries a sense of longing that moves between the earthly and the spiritual, as if he was always reaching for something just beyond the visible world.
+profile: |
+    Rumi wrote as if the heart were a doorway and the world a passing guest. His work moves between longing and recognition, always circling the idea that love is both the path and the destination. He speaks in a voice that feels close, as if he is reminding us of something we once knew.
 
-A few lines often attributed to him:
+trivia:
+  - Wrote primarily in Persian
+  - His son Sultan Walad preserved many of his works
+  - Inspired the Mevlevi order of dervishes
 
-> The breeze at dawn has secrets to tell you  
-> Do not go back to sleep
+recommended:
+  - Masnavi
+  - Divan e Shams
+  - Fihi Ma Fihi
 
-A small piece of trivia that is not widely known is that Rumi never wrote with the intention of being a poet in the modern sense. Many of his verses were spoken aloud during gatherings, recorded by students, and shaped into collections long after the moment had passed. His poetry was lived before it was written.
+poetry:
+  - title: "The Guest House"
+    original: |
+        این خانه مهمان سراست
+        هر صبح مهمانی تازه می رسد
+    translation: |
+        This being human is a guest house
+        Every morning a new arrival
+
+  - title: "Where the Light Enters"
+    original: |
+        از زخم توست که نور می آید
+    translation: |
+        The wound is the place
+        Where the light enters you
