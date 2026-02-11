@@ -1,14 +1,32 @@
----
 title: Muhammad Iqbal
-image: placeholder.jpg
----
 
-Muhammad Iqbal was born in 1877 in Sialkot, in present day Pakistan. He was a philosopher, poet, and thinker who moved between worlds with ease, writing in Persian and Urdu while studying in Europe and engaging deeply with questions of selfhood, destiny, and the future of the human spirit. His work carries a sense of awakening, as if he was always urging the reader to rise a little higher than they thought possible.
+profile: |
+    Iqbal wrote with a sense of awakening, urging the self to rise, to see, to act. His poetry carries both tenderness and resolve, shaped by a belief that the human spirit is capable of great transformation. He speaks to the inner life with clarity and purpose.
 
-A short excerpt from one of his Persian verses:
+trivia:
+  - Wrote in Persian and Urdu
+  - Considered a philosopher poet
+  - His work influenced movements of selfhood and renewal
 
-> Raise yourself to such heights  
-> That God Himself may ask you  
-> What it is you desire
+recommended:
+  - Bang e Dara
+  - Asrar e Khudi
+  - Zarb e Kaleem
 
-Something not commonly known is that Iqbal wrote much of his early work during long solitary walks at night. He believed that ideas arrived more clearly when the world was quiet, and many of his poems were first shaped in those hours when most people were asleep.
+poetry:
+  - title: "Khudi (Excerpt)"
+    original: |
+        خودی کو کر بلند اتنا
+        کہ ہر تقدیر سے پہلے
+    translation: |
+        Raise the self so high
+        That destiny pauses
+        And asks what you desire
+
+  - title: "Shikwa (Excerpt)"
+    original: |
+        کیوں زیاں کار بنوں
+        سود فراموش رہوں
+    translation: |
+        Why should I remain silent
+        Forgetting the worth of my own voice
