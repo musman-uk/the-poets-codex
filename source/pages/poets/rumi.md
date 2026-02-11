@@ -1,16 +1,13 @@
 ---
-title: Rumi
-template: poet.html
-image: rumi.png
-palette:
-  - "#6A4C93"
-  - "#1982C4"
-  - "#8AC926"
-  - "#FFCA3A"
-  - "#FF595E"
+title: Jalal al-Din Rumi
+image: placeholder.jpg
 ---
 
-Jalāl ad‑Dīn Muhammad Rūmī (1207–1273) was a Persian poet, mystic, and scholar whose work explores love, longing, and the search for the divine.
+Jalal al-Din Rumi was born in 1207 in Balkh, in what is now Afghanistan. He spent much of his life in Konya, where he became a teacher, a jurist, and eventually a poet whose work feels as if it was written for every century at once. His writing carries a sense of longing that moves between the earthly and the spiritual, as if he was always reaching for something just beyond the visible world.
 
-His verses continue to resonate across cultures, offering a sense of stillness, wonder, and spiritual clarity.
+A few lines often attributed to him:
 
+> The breeze at dawn has secrets to tell you  
+> Do not go back to sleep
+
+A small piece of trivia that is not widely known is that Rumi never wrote with the intention of being a poet in the modern sense. Many of his verses were spoken aloud during gatherings, recorded by students, and shaped into collections long after the moment had passed. His poetry was lived before it was written.
