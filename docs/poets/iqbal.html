@@ -196,23 +196,32 @@
 
     <!-- LEFT PAGE -->
     <section class="page">
-        <h1>Iqbal</h1>
+        <h1>Muhammad Iqbal</h1>
 
         <h2>Profile</h2>
-        {{ profile }}
+        Iqbal wrote with a sense of awakening, urging the self to rise, to see, to act. His poetry carries both tenderness and resolve, shaped by a belief that the human spirit is capable of great transformation. He speaks to the inner life with clarity and purpose.
+
 
         <h3>Trivia</h3>
         <ul>
-            {% for fact in trivia %}
-            <li>{{ fact }}</li>
-            {% endfor %}
+            
+            <li>Wrote in Persian and Urdu</li>
+            
+            <li>Considered a philosopher poet</li>
+            
+            <li>His work influenced movements of selfhood and renewal</li>
+            
         </ul>
 
         <h3>Recommended Reading</h3>
         <ul>
-            {% for book in recommended %}
-            <li>{{ book }}</li>
-            {% endfor %}
+            
+            <li>Bang e Dara</li>
+            
+            <li>Asrar e Khudi</li>
+            
+            <li>Zarb e Kaleem</li>
+            
         </ul>
     </section>
 
@@ -220,19 +229,39 @@
     <section class="page">
         <h2>Selected Poetry</h2>
 
-        {% for poem in poetry %}
-        <h3>{{ poem.title }}</h3>
+        
+        <h3>Khudi (Excerpt)</h3>
 
-        {% if poem.original %}
+        
         <p><strong>Original:</strong></p>
-        <pre>{{ poem.original }}</pre>
-        {% endif %}
+        <pre>خودی کو کر بلند اتنا
+کہ ہر تقدیر سے پہلے
+</pre>
+        
 
-        {% if poem.translation %}
+        
         <p><strong>Translation:</strong></p>
-        <pre>{{ poem.translation }}</pre>
-        {% endif %}
-        {% endfor %}
+        <pre>Raise the self so high
+That destiny pauses
+And asks what you desire
+</pre>
+        
+        
+        <h3>Shikwa (Excerpt)</h3>
+
+        
+        <p><strong>Original:</strong></p>
+        <pre>کیوں زیاں کار بنوں
+سود فراموش رہوں
+</pre>
+        
+
+        
+        <p><strong>Translation:</strong></p>
+        <pre>Why should I remain silent
+Forgetting the worth of my own voice</pre>
+        
+        
     </section>
 
 </div>

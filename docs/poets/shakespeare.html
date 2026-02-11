@@ -196,23 +196,32 @@
 
     <!-- LEFT PAGE -->
     <section class="page">
-        <h1>Shakespeare</h1>
+        <h1>William Shakespeare</h1>
 
         <h2>Profile</h2>
-        {{ profile }}
+        Shakespeare wrote with an instinct for the inner life. His lines move between clarity and mystery, carrying the weight of thought and the quickness of feeling. Even now, his voice feels close, as if he is watching the world with us and offering language that helps us understand it.
+
 
         <h3>Trivia</h3>
         <ul>
-            {% for fact in trivia %}
-            <li>{{ fact }}</li>
-            {% endfor %}
+            
+            <li>Wrote for the Globe Theatre in London</li>
+            
+            <li>His works were first collected in the First Folio</li>
+            
+            <li>Known for blending poetry and drama with unusual ease</li>
+            
         </ul>
 
         <h3>Recommended Reading</h3>
         <ul>
-            {% for book in recommended %}
-            <li>{{ book }}</li>
-            {% endfor %}
+            
+            <li>Sonnets</li>
+            
+            <li>Hamlet</li>
+            
+            <li>King Lear</li>
+            
         </ul>
     </section>
 
@@ -220,19 +229,38 @@
     <section class="page">
         <h2>Selected Poetry</h2>
 
-        {% for poem in poetry %}
-        <h3>{{ poem.title }}</h3>
+        
+        <h3>Sonnet 18 (Excerpt)</h3>
 
-        {% if poem.original %}
+        
         <p><strong>Original:</strong></p>
-        <pre>{{ poem.original }}</pre>
-        {% endif %}
+        <pre>Shall I compare thee to a summer day
+Thou art more lovely and more temperate
+</pre>
+        
 
-        {% if poem.translation %}
+        
         <p><strong>Translation:</strong></p>
-        <pre>{{ poem.translation }}</pre>
-        {% endif %}
-        {% endfor %}
+        <pre>Should I compare you to a summer day
+You are gentler and more beautiful
+</pre>
+        
+        
+        <h3>Sonnet 116 (Excerpt)</h3>
+
+        
+        <p><strong>Original:</strong></p>
+        <pre>Let me not to the marriage of true minds
+Admit impediments
+</pre>
+        
+
+        
+        <p><strong>Translation:</strong></p>
+        <pre>I will not claim that true and steady love
+Can be blocked by anything</pre>
+        
+        
     </section>
 
 </div>

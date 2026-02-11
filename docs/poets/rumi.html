@@ -196,23 +196,32 @@
 
     <!-- LEFT PAGE -->
     <section class="page">
-        <h1>Rumi</h1>
+        <h1>Jalal al Din Rumi</h1>
 
         <h2>Profile</h2>
-        {{ profile }}
+        Rumi wrote as if the heart were a doorway and the world a passing guest. His work moves between longing and recognition, always circling the idea that love is both the path and the destination. He speaks in a voice that feels close, as if he is reminding us of something we once knew.
+
 
         <h3>Trivia</h3>
         <ul>
-            {% for fact in trivia %}
-            <li>{{ fact }}</li>
-            {% endfor %}
+            
+            <li>Wrote primarily in Persian</li>
+            
+            <li>His son Sultan Walad preserved many of his works</li>
+            
+            <li>Inspired the Mevlevi order of dervishes</li>
+            
         </ul>
 
         <h3>Recommended Reading</h3>
         <ul>
-            {% for book in recommended %}
-            <li>{{ book }}</li>
-            {% endfor %}
+            
+            <li>Masnavi</li>
+            
+            <li>Divan e Shams</li>
+            
+            <li>Fihi Ma Fihi</li>
+            
         </ul>
     </section>
 
@@ -220,19 +229,37 @@
     <section class="page">
         <h2>Selected Poetry</h2>
 
-        {% for poem in poetry %}
-        <h3>{{ poem.title }}</h3>
+        
+        <h3>The Guest House</h3>
 
-        {% if poem.original %}
+        
         <p><strong>Original:</strong></p>
-        <pre>{{ poem.original }}</pre>
-        {% endif %}
+        <pre>این خانه مهمان سراست
+هر صبح مهمانی تازه می رسد
+</pre>
+        
 
-        {% if poem.translation %}
+        
         <p><strong>Translation:</strong></p>
-        <pre>{{ poem.translation }}</pre>
-        {% endif %}
-        {% endfor %}
+        <pre>This being human is a guest house
+Every morning a new arrival
+</pre>
+        
+        
+        <h3>Where the Light Enters</h3>
+
+        
+        <p><strong>Original:</strong></p>
+        <pre>از زخم توست که نور می آید
+</pre>
+        
+
+        
+        <p><strong>Translation:</strong></p>
+        <pre>The wound is the place
+Where the light enters you</pre>
+        
+        
     </section>
 
 </div>
