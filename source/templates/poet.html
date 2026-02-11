@@ -194,20 +194,45 @@
 
 <div class="spread">
 
+    <!-- LEFT PAGE -->
     <section class="page">
         <h1>{{ title }}</h1>
 
-        {% if image %}
-        <div class="poet-image">
-            <img src="../../../assets/images/{{ image }}" alt="{{ title }}">
-        </div>
-        {% endif %}
+        <h2>Profile</h2>
+        {{ profile }}
+
+        <h3>Trivia</h3>
+        <ul>
+            {% for fact in trivia %}
+            <li>{{ fact }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Recommended Reading</h3>
+        <ul>
+            {% for book in recommended %}
+            <li>{{ book }}</li>
+            {% endfor %}
+        </ul>
     </section>
 
+    <!-- RIGHT PAGE -->
     <section class="page">
-        <article>
-            {{ content }}
-        </article>
+        <h2>Selected Poetry</h2>
+
+        {% for poem in poetry %}
+        <h3>{{ poem.title }}</h3>
+
+        {% if poem.original %}
+        <p><strong>Original:</strong></p>
+        <pre>{{ poem.original }}</pre>
+        {% endif %}
+
+        {% if poem.translation %}
+        <p><strong>Translation:</strong></p>
+        <pre>{{ poem.translation }}</pre>
+        {% endif %}
+        {% endfor %}
     </section>
 
 </div>
