@@ -7,6 +7,16 @@
 <title>The Poets Codex</title>
 
 <style>
+/* --- Fade animations --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
 /* --- Light horizontal wooden table background --- */
 body {
   margin: 0;
@@ -33,7 +43,8 @@ body {
 
   background-blend-mode: multiply, overlay, overlay, normal;
 
-  font-family: Georgia, "Times New Roman", serif;
+ /* Matching Font */
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
 /* --- Portrait book cover frame (lighter leather) --- */
@@ -42,7 +53,7 @@ body {
   height: 85vh;
   padding: 2rem;
 
-  background: #6a4a2c; /* lighter, warmer leather */
+  background: #6a4a2c;
 
   background-image:
     repeating-linear-gradient(
@@ -106,21 +117,20 @@ body {
   position: relative;
   width: 100%;
   display: flex;
-  justify-content: flex-end; /* button slightly right-aligned */
+  justify-content: flex-end;
   align-items: center;
   padding-right: clamp(1rem, 3vw, 1.6rem);
 }
 
-/* Strap anchored to the right edge */
 .footer::before {
   content: "";
   position: absolute;
   right: 0;
 
-  width: clamp(120px, 35vw, 160px); /* short strap */
-  height: clamp(18px, 2.6vw, 24px); /* thin strap */
+  width: clamp(120px, 35vw, 160px);
+  height: clamp(18px, 2.6vw, 24px);
 
-  background: #4f3a26; /* strap leather */
+  background: #4f3a26;
   border-radius: 4px;
 
   background-image:
@@ -143,7 +153,7 @@ body {
     inset 0 0 12px rgba(0,0,0,0.25);
 }
 
-/* --- Open button (sits on the strap) --- */
+/* --- Open button --- */
 .open-button {
   position: relative;
   z-index: 2;
@@ -188,6 +198,13 @@ body {
   </div>
 
 </div>
+
+<script>
+  // Fade in ONLY when arriving from hub.html
+  if (document.referrer.includes("hub.html")) {
+    document.body.classList.add("fade-in");
+  }
+</script>
 
 </body>
 </html>
