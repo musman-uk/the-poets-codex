@@ -1,209 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Poets Codex</title>
 
-<title>The Poets Codex</title>
+    <style>
+        /* --- Fade animations --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
 
-<style>
-/* --- Fade animations --- */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to   { opacity: 0; }
+        }
 
-.fade-in {
-  animation: fadeIn 0.6s ease-out;
-}
+        body.fade-out {
+            animation: fadeOut 0.5s ease-out forwards;
+        }
 
-/* --- Light horizontal wooden table background --- */
-body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
+        /* --- Wooden background (desk) --- */
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
-  background: #e0c7a3;
+            background: #e0c7a3;
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(120, 80, 40, 0.16) 0px,
+                    rgba(120, 80, 40, 0.16) 4px,
+                    rgba(210, 180, 140, 0.16) 6px,
+                    rgba(210, 180, 140, 0.16) 12px
+                ),
+                radial-gradient(circle at 20% 40%, rgba(0,0,0,0.07), transparent 60%),
+                radial-gradient(circle at 80% 70%, rgba(0,0,0,0.05), transparent 70%),
+                radial-gradient(circle at center, transparent 55%, rgba(0,0,0,0.40) 100%);
+            background-blend-mode: multiply, overlay, overlay, normal;
 
-  background-image:
-    repeating-linear-gradient(
-      0deg,
-      rgba(120, 80, 40, 0.16) 0px,
-      rgba(120, 80, 40, 0.16) 4px,
-      rgba(210, 180, 140, 0.16) 6px,
-      rgba(210, 180, 140, 0.16) 12px
-    ),
-    radial-gradient(circle at 20% 40%, rgba(0,0,0,0.07), transparent 60%),
-    radial-gradient(circle at 80% 70%, rgba(0,0,0,0.05), transparent 70%),
-    radial-gradient(circle at center, transparent 55%, rgba(0,0,0,0.40) 100%);
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            color: #3b2a22;
 
-  background-blend-mode: multiply, overlay, overlay, normal;
+            animation: fadeIn 0.6s ease-out;
+        }
 
- /* Matching Font */
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-}
+        /* --- Spread container --- */
+        .spread {
+            width: min(1000px, 95vw);
+            height: 75vh;
 
-/* --- Portrait book cover frame (lighter leather) --- */
-.cover-frame {
-  width: min(420px, 90vw);
-  height: 85vh;
-  padding: 2rem;
+            display: flex;
+            gap: 1rem;
 
-  background: #6a4a2c;
+            margin-top: 2rem;
+        }
 
-  background-image:
-    repeating-linear-gradient(
-      90deg,
-      rgba(255,255,255,0.02) 0px,
-      rgba(255,255,255,0.02) 2px,
-      rgba(0,0,0,0.10) 3px,
-      rgba(0,0,0,0.10) 5px
-    ),
-    radial-gradient(circle at 25% 30%, rgba(255,255,255,0.10), transparent 60%),
-    radial-gradient(circle at 75% 70%, rgba(255,255,255,0.08), transparent 70%),
-    linear-gradient(135deg, rgba(0,0,0,0.45), rgba(0,0,0,0.65));
+        /* --- Page styling --- */
+        .page {
+            flex: 1;
+            padding: clamp(1rem, 2vw, 2rem);
+            border-radius: 10px;
+            overflow-y: auto;
 
-  background-blend-mode: overlay, overlay, multiply, normal;
+            background: #ddc8a9;
 
-  border: 3px solid rgba(255,255,255,0.08);
-  border-radius: 12px;
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(0,0,0,0.07) 0px,
+                    rgba(0,0,0,0.07) 1px,
+                    transparent 2px
+                ),
+                linear-gradient(
+                    to bottom,
+                    rgba(255,255,255,0.45),
+                    rgba(255,255,255,0.10)
+                );
 
-  box-shadow:
-    inset 0 0 20px rgba(0,0,0,0.55),
-    inset 0 0 40px rgba(0,0,0,0.35),
-    0 0 40px rgba(0,0,0,0.65);
+            box-shadow:
+                inset 0 0 32px rgba(0,0,0,0.30),
+                inset 0 0 14px rgba(0,0,0,0.12),
+                0 0 24px rgba(0,0,0,0.30),
+                0 0 0 2px rgba(0,0,0,0.18);
+        }
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+        .page h2 {
+            margin-top: 0;
+            font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+            font-weight: 600;
+        }
 
-  gap: clamp(2.8rem, 8vw, 5rem);
-}
+        /* --- Contents list --- */
+        .contents-section h3 {
+            margin-top: 1.2rem;
+            margin-bottom: 0.6rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
 
-/* --- Title --- */
-.gold-title {
-  font-size: clamp(2rem, 7vw, 2.6rem);
-  letter-spacing: clamp(0.06em, 0.4vw, 0.15em);
-  line-height: 1.1;
-  text-align: center;
-  max-width: 90%;
+        .contents-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0.5rem 0 1rem 0;
+        }
 
-  margin-top: clamp(-1.4rem, -2.4vw, -2rem);
+        .contents-section li {
+            margin-bottom: 0.6rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid #b8a78f;
+        }
 
-  background: linear-gradient(
-    90deg,
-    #fff4d0 0%,
-    #d4a84f 20%,
-    #f7e7b5 50%,
-    #d4a84f 80%,
-    #fff4d0 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+        .contents-section a {
+            text-decoration: none;
+            color: #3b2a22;
+            font-weight: 500;
+            transition: color 0.2s ease, text-decoration 0.2s ease;
+        }
 
-  text-shadow:
-    0 0 8px rgba(255,220,150,0.8),
-    0 0 16px rgba(255,220,150,0.5),
-    2px 2px 6px rgba(0,0,0,0.7);
-}
+        .contents-section a:hover {
+            text-decoration: underline;
+            color: #5a4636;
+        }
 
-/* --- Thin right-side leather strap --- */
-.footer {
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding-right: clamp(1rem, 3vw, 1.6rem);
-}
+        /* --- Close button (matches book cover) --- */
+        .close-wrapper {
+            margin-top: 1.4rem;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+        }
 
-.footer::before {
-  content: "";
-  position: absolute;
-  right: 0;
+        .close-button {
+            padding: clamp(0.6rem, 2vw, 0.9rem) clamp(1.2rem, 4vw, 1.8rem);
+            font-size: clamp(1rem, 3.5vw, 1.2rem);
 
-  width: clamp(120px, 35vw, 160px);
-  height: clamp(18px, 2.6vw, 24px);
+            background: #6a4a2c;
+            background-image:
+                repeating-linear-gradient(
+                  90deg,
+                  rgba(255,255,255,0.02) 0px,
+                  rgba(255,255,255,0.02) 2px,
+                  rgba(0,0,0,0.10) 3px,
+                  rgba(0,0,0,0.10) 5px
+                ),
+                radial-gradient(circle at 25% 30%, rgba(255,255,255,0.10), transparent 60%),
+                radial-gradient(circle at 75% 70%, rgba(255,255,255,0.08), transparent 70%),
+                linear-gradient(135deg, rgba(0,0,0,0.45), rgba(0,0,0,0.65));
 
-  background: #4f3a26;
-  border-radius: 4px;
+            background-blend-mode: overlay, overlay, multiply, normal;
 
-  background-image:
-    linear-gradient(
-      90deg,
-      rgba(255,255,255,0.10),
-      rgba(0,0,0,0.25),
-      rgba(255,255,255,0.10)
-    ),
-    repeating-linear-gradient(
-      0deg,
-      rgba(255,255,255,0.03) 0px,
-      rgba(255,255,255,0.03) 2px,
-      rgba(0,0,0,0.15) 3px,
-      rgba(0,0,0,0.15) 5px
-    );
+            border: 1px solid #f5d99c;
+            color: #f5d99c;
 
-  box-shadow:
-    inset 0 0 6px rgba(0,0,0,0.45),
-    inset 0 0 12px rgba(0,0,0,0.25);
-}
+            border-radius: 4px;
+            text-decoration: none;
 
-/* --- Open button --- */
-.open-button {
-  position: relative;
-  z-index: 2;
+            cursor: pointer;
 
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+            box-shadow:
+                inset 0 0 6px rgba(255,255,255,0.2),
+                0 0 8px rgba(0,0,0,0.45);
 
-  padding: clamp(0.55rem, 2vw, 0.9rem) clamp(1.2rem, 4vw, 1.8rem);
-  font-size: clamp(1rem, 4vw, 1.3rem);
-  line-height: 1;
+            transition: background 0.25s, color 0.25s, box-shadow 0.25s;
+        }
 
-  border: 1px solid #f5d99c;
-  color: #f5d99c;
-  text-decoration: none;
+        .close-button:hover {
+            background: #f5d99c;
+            color: #7a5634;
+            box-shadow:
+                inset 0 0 10px rgba(0,0,0,0.35),
+                0 0 14px rgba(255,220,150,0.6);
+        }
 
-  box-shadow:
-    inset 0 0 6px rgba(255,255,255,0.2),
-    0 0 8px rgba(0,0,0,0.45);
+        /* --- Mobile: portrait pages --- */
+        @media (max-width: 700px) {
 
-  transition: background 0.25s, color 0.25s, box-shadow 0.25s;
-}
+            .spread {
+                flex-direction: column;
+                height: auto;
+                width: 100%;
+                align-items: center;
+                gap: 1.5rem;
+            }
 
-.open-button:hover {
-  background: #f5d99c;
-  color: #6a4a2c;
-  box-shadow:
-    inset 0 0 10px rgba(0,0,0,0.35),
-    0 0 14px rgba(255,220,150,0.6);
-}
-</style>
+            .page {
+                flex: none !important;
+                width: 90%;
+                max-width: 380px;
+                height: 70vh;
+                margin: 0 auto;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 
+    <script>
+        function fadeAndClose() {
+            document.body.classList.add('fade-out');
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 450);
+        }
+    </script>
 </head>
+
 <body>
 
-<div class="cover-frame">
+<div class="spread">
 
-  <h1 class="gold-title">The Poets Codex</h1>
+    <section class="page preface">
+        <h2>Preface</h2>
+        <p>
+            Welcome to all. This codex is more metaphysical than literal, where poets who never shared a moment in history can sit together for a while. I have always felt though they are separated by time and distance, they could be brought together here, as if they are in a room, and we can be the ones walking into it and inhabiting it with them.
+        </p>
+    </section>
 
-  <div class="footer">
-    <a href="hub.html" class="open-button">Open</a>
-  </div>
+    <section class="page contents-section">
+        <h2>Contents</h2>
+
+        <h3>Poets</h3>
+        <ul>
+            <li><a href="poets/rumi.html">Jalal al‑Din Rumi (1207–1273)</a></li>
+            <li><a href="poets/shakespeare.html">William Shakespeare (1564–1616)</a></li>
+            <li><a href="poets/iqbal.html">Muhammad Iqbal (1877–1938)</a></li>
+        </ul>
+    </section>
 
 </div>
 
+<div class="close-wrapper">
+    <a onclick="fadeAndClose()" class="close-button">Close</a>
+</div>
+
+<!-- 🌿 Future‑proof mobile auto‑scroll logic -->
 <script>
-  // Fade in ONLY when arriving from hub.html
-  if (document.referrer.includes("hub.html")) {
-    document.body.classList.add("fade-in");
-  }
+document.addEventListener("DOMContentLoaded", () => {
+    const isMobile = window.innerWidth < 700;
+
+    const fromInterior = document.referrer.includes("poets/") 
+                      || localStorage.getItem("visitedContents") === "true";
+
+    if (document.referrer.includes("poets/")) {
+        localStorage.setItem("visitedContents", "true");
+    }
+
+    if (isMobile && fromInterior) {
+        const contents = document.querySelector(".contents-section");
+        if (contents) {
+            contents.scrollIntoView({ behavior: "smooth" });
+        }
+    }
+});
 </script>
 
 </body>
