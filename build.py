@@ -1,7 +1,8 @@
 import os
-import markdown
 import yaml
+import markdown
 from pathlib import Path
+from jinja2 import Template
 
 # paths
 ROOT = Path(__file__).parent
@@ -16,53 +17,71 @@ POETS_OUT.mkdir(parents=True, exist_ok=True)
 
 
 def load_template(name):
-    """load an html template from source/templates"""
+    """Load an HTML template from source/templates."""
     return (TEMPLATES / name).read_text(encoding="utf-8")
 
 
 def parse_markdown(path):
-    """extract yaml frontmatter + markdown content"""
+    """
+    Extract YAML frontmatter + markdown body.
+    Supports both:
+    ---
+    yaml
+    ---
+    body
+    and pure YAML-only files (your current format).
+    """
     raw = path.read_text(encoding="utf-8").strip()
 
-    front = {}
-    body = raw
-
+    # If file starts with '---', treat it as fenced frontmatter
     if raw.startswith("---"):
         end = raw.find("\n---", 3)
         if end != -1:
             fm = raw[3:end]
             body = raw[end + 4:]
             front = yaml.safe_load(fm) or {}
+        else:
+            front = {}
+            body = raw
+    else:
+        # Pure YAML-only file (your current poet format)
+        try:
+            front = yaml.safe_load(raw) or {}
+        except Exception:
+            front = {}
+        body = ""
 
+    # Convert markdown body to HTML (not used for poets anymore)
     html = markdown.markdown(body, extensions=["fenced_code", "tables"])
     return front, html
 
 
 def build_poet_pages():
-    """convert each poet markdown file into a full html page"""
-    poet_template = load_template("poet.html")
+    """Convert each poet markdown file into a full HTML page."""
+    poet_template = Template(load_template("poet.html"))
     poets_data = []
 
     for md_file in sorted(POETS_SRC.glob("*.md")):
-        front, html_content = parse_markdown(md_file)
+        front, _ = parse_markdown(md_file)
 
         title = front.get("title", md_file.stem.title())
-        image = front.get("image", None)
+        image = front.get("image")
 
-        # inject into template
-        page_html = poet_template.replace("{{ title }}", title)
-        page_html = page_html.replace("{{ content }}", html_content)
+        # Render template with all YAML fields
+        page_html = poet_template.render(
+            title=title,
+            image=image,
+            profile=front.get("profile"),
+            trivia=front.get("trivia"),
+            recommended=front.get("recommended"),
+            poetry=front.get("poetry")
+        )
 
-        if image:
-            page_html = page_html.replace("{{ image }}", image)
-        else:
-            page_html = page_html.replace("{{ image }}", "")
-
-        # write output
+        # Write output
         out_path = POETS_OUT / f"{md_file.stem}.html"
         out_path.write_text(page_html, encoding="utf-8")
 
-        # store metadata for poets list
+        # Store metadata for hub list
         poets_data.append({
             "title": title,
             "file": f"poets/{md_file.stem}.html",
@@ -73,7 +92,7 @@ def build_poet_pages():
 
 
 def build_poets_list(poets_data):
-    """generate the <ul> list for the hub page"""
+    """Generate the <ul> list for the hub page."""
     items = []
 
     for poet in poets_data:
@@ -96,7 +115,7 @@ def build_poets_list(poets_data):
 
 
 def build_hub(poets_data):
-    """inject poets list into hub.html"""
+    """Inject poets list into hub.html."""
     hub_template = load_template("hub.html")
     poets_list_html = build_poets_list(poets_data)
 
@@ -105,7 +124,7 @@ def build_hub(poets_data):
 
 
 def build_cover():
-    """copy index.html directly into docs"""
+    """Copy index.html directly into docs."""
     index_template = load_template("index.html")
     (DOCS / "index.html").write_text(index_template, encoding="utf-8")
 
