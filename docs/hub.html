@@ -121,6 +121,12 @@
             text-decoration: none;
             color: #3b2a22;
             font-weight: 500;
+            transition: color 0.2s ease, text-decoration 0.2s ease;
+        }
+
+        .contents-section a:hover {
+            text-decoration: underline;
+            color: #5a4636;
         }
 
         /* --- Close button (matches book cover) --- */
@@ -238,16 +244,13 @@
 document.addEventListener("DOMContentLoaded", () => {
     const isMobile = window.innerWidth < 700;
 
-    // Detect if user has visited any interior page before
     const fromInterior = document.referrer.includes("poets/") 
                       || localStorage.getItem("visitedContents") === "true";
 
-    // Mark that the user has entered the interior of the Codex
     if (document.referrer.includes("poets/")) {
         localStorage.setItem("visitedContents", "true");
     }
 
-    // Auto-scroll only on mobile and only after interior has been visited
     if (isMobile && fromInterior) {
         const contents = document.querySelector(".contents-section");
         if (contents) {
