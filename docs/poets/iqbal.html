@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Muhammad Iqbal — The Poets Codex</title>
+    <title>The Poets Codex</title>
 
     <style>
-        /* --- Fade animations --- */
+        /* Fade animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to   { opacity: 1; transform: translateY(0); }
@@ -20,7 +20,7 @@
             animation: fadeOut 0.5s ease-out forwards;
         }
 
-        /* --- Wooden background (same as hub) --- */
+        /* Wooden desk background */
         body {
             margin: 0;
             padding: 0;
@@ -50,13 +50,23 @@
             animation: fadeIn 0.6s ease-out;
         }
 
-        /* --- Page container (single page) --- */
-        .page {
-            width: min(800px, 90vw);
+        /* Two-page spread */
+        .spread {
+            width: min(1000px, 95vw);
             height: 75vh;
 
-            padding: clamp(1rem, 2vw, 2rem);
+            display: flex;
+            gap: 1rem;
+
             margin-top: 2rem;
+        }
+
+        /* Page styling */
+        .page {
+            flex: 1;
+            padding: clamp(1rem, 2vw, 2rem);
+            border-radius: 10px;
+            overflow-y: auto;
 
             background: #ddc8a9;
 
@@ -72,9 +82,6 @@
                     rgba(255,255,255,0.45),
                     rgba(255,255,255,0.10)
                 );
-
-            border-radius: 10px;
-            overflow-y: auto;
 
             box-shadow:
                 inset 0 0 32px rgba(0,0,0,0.30),
@@ -104,7 +111,7 @@
             margin-top: 1.5rem;
         }
 
-        /* --- Back button (styled like the pages) --- */
+        /* Back button */
         .back-wrapper {
             margin-top: 1.4rem;
             margin-bottom: 2rem;
@@ -153,8 +160,16 @@
                 0 0 14px rgba(0,0,0,0.35);
         }
 
-        /* --- Mobile adjustments --- */
+        /* Mobile: single page */
         @media (max-width: 700px) {
+            .spread {
+                flex-direction: column;
+                height: auto;
+                width: 100%;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
             .page {
                 width: 90%;
                 max-width: 380px;
@@ -176,17 +191,21 @@
 
 <body>
 
-<div class="page">
-    <h1>Muhammad Iqbal</h1>
+<div class="spread">
 
-    {% if image %}
-    <div class="poet-image">
-        <img src="../../../assets/images/placeholder.jpg" alt="Muhammad Iqbal">
-    </div>
-    {% endif %}
+    <section class="page">
+        <h1>Muhammad Iqbal</h1>
 
-    <article>
-        <p>Muhammad Iqbal was born in 1877 in Sialkot, in present day Pakistan. He was a philosopher, poet, and thinker who moved between worlds with ease, writing in Persian and Urdu while studying in Europe and engaging deeply with questions of selfhood, destiny, and the future of the human spirit. His work carries a sense of awakening, as if he was always urging the reader to rise a little higher than they thought possible.</p>
+        {% if image %}
+        <div class="poet-image">
+            <img src="../../../assets/images/placeholder.jpg" alt="Muhammad Iqbal">
+        </div>
+        {% endif %}
+    </section>
+
+    <section class="page">
+        <article>
+            <p>Muhammad Iqbal was born in 1877 in Sialkot, in present day Pakistan. He was a philosopher, poet, and thinker who moved between worlds with ease, writing in Persian and Urdu while studying in Europe and engaging deeply with questions of selfhood, destiny, and the future of the human spirit. His work carries a sense of awakening, as if he was always urging the reader to rise a little higher than they thought possible.</p>
 <p>A short excerpt from one of his Persian verses:</p>
 <blockquote>
 <p>Raise yourself to such heights<br />
@@ -194,7 +213,9 @@ That God Himself may ask you<br />
 What it is you desire</p>
 </blockquote>
 <p>Something not commonly known is that Iqbal wrote much of his early work during long solitary walks at night. He believed that ideas arrived more clearly when the world was quiet, and many of his poems were first shaped in those hours when most people were asleep.</p>
-    </article>
+        </article>
+    </section>
+
 </div>
 
 <div class="back-wrapper">

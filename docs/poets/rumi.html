@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Jalal al-Din Rumi — The Poets Codex</title>
+    <title>The Poets Codex</title>
 
     <style>
-        /* --- Fade animations --- */
+        /* Fade animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to   { opacity: 1; transform: translateY(0); }
@@ -20,7 +20,7 @@
             animation: fadeOut 0.5s ease-out forwards;
         }
 
-        /* --- Wooden background (same as hub) --- */
+        /* Wooden desk background */
         body {
             margin: 0;
             padding: 0;
@@ -50,13 +50,23 @@
             animation: fadeIn 0.6s ease-out;
         }
 
-        /* --- Page container (single page) --- */
-        .page {
-            width: min(800px, 90vw);
+        /* Two-page spread */
+        .spread {
+            width: min(1000px, 95vw);
             height: 75vh;
 
-            padding: clamp(1rem, 2vw, 2rem);
+            display: flex;
+            gap: 1rem;
+
             margin-top: 2rem;
+        }
+
+        /* Page styling */
+        .page {
+            flex: 1;
+            padding: clamp(1rem, 2vw, 2rem);
+            border-radius: 10px;
+            overflow-y: auto;
 
             background: #ddc8a9;
 
@@ -72,9 +82,6 @@
                     rgba(255,255,255,0.45),
                     rgba(255,255,255,0.10)
                 );
-
-            border-radius: 10px;
-            overflow-y: auto;
 
             box-shadow:
                 inset 0 0 32px rgba(0,0,0,0.30),
@@ -104,7 +111,7 @@
             margin-top: 1.5rem;
         }
 
-        /* --- Back button (styled like the pages) --- */
+        /* Back button */
         .back-wrapper {
             margin-top: 1.4rem;
             margin-bottom: 2rem;
@@ -153,8 +160,16 @@
                 0 0 14px rgba(0,0,0,0.35);
         }
 
-        /* --- Mobile adjustments --- */
+        /* Mobile: single page */
         @media (max-width: 700px) {
+            .spread {
+                flex-direction: column;
+                height: auto;
+                width: 100%;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
             .page {
                 width: 90%;
                 max-width: 380px;
@@ -176,24 +191,30 @@
 
 <body>
 
-<div class="page">
-    <h1>Jalal al-Din Rumi</h1>
+<div class="spread">
 
-    {% if image %}
-    <div class="poet-image">
-        <img src="../../../assets/images/placeholder.jpg" alt="Jalal al-Din Rumi">
-    </div>
-    {% endif %}
+    <section class="page">
+        <h1>Jalal al-Din Rumi</h1>
 
-    <article>
-        <p>Jalal al-Din Rumi was born in 1207 in Balkh, in what is now Afghanistan. He spent much of his life in Konya, where he became a teacher, a jurist, and eventually a poet whose work feels as if it was written for every century at once. His writing carries a sense of longing that moves between the earthly and the spiritual, as if he was always reaching for something just beyond the visible world.</p>
+        {% if image %}
+        <div class="poet-image">
+            <img src="../../../assets/images/placeholder.jpg" alt="Jalal al-Din Rumi">
+        </div>
+        {% endif %}
+    </section>
+
+    <section class="page">
+        <article>
+            <p>Jalal al-Din Rumi was born in 1207 in Balkh, in what is now Afghanistan. He spent much of his life in Konya, where he became a teacher, a jurist, and eventually a poet whose work feels as if it was written for every century at once. His writing carries a sense of longing that moves between the earthly and the spiritual, as if he was always reaching for something just beyond the visible world.</p>
 <p>A few lines often attributed to him:</p>
 <blockquote>
 <p>The breeze at dawn has secrets to tell you<br />
 Do not go back to sleep</p>
 </blockquote>
 <p>A small piece of trivia that is not widely known is that Rumi never wrote with the intention of being a poet in the modern sense. Many of his verses were spoken aloud during gatherings, recorded by students, and shaped into collections long after the moment had passed. His poetry was lived before it was written.</p>
-    </article>
+        </article>
+    </section>
+
 </div>
 
 <div class="back-wrapper">
