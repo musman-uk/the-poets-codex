@@ -233,5 +233,29 @@
     <a onclick="fadeAndClose()" class="close-button">Close</a>
 </div>
 
+<!-- 🌿 Future‑proof mobile auto‑scroll logic -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const isMobile = window.innerWidth < 700;
+
+    // Detect if user has visited any interior page before
+    const fromInterior = document.referrer.includes("poets/") 
+                      || localStorage.getItem("visitedContents") === "true";
+
+    // Mark that the user has entered the interior of the Codex
+    if (document.referrer.includes("poets/")) {
+        localStorage.setItem("visitedContents", "true");
+    }
+
+    // Auto-scroll only on mobile and only after interior has been visited
+    if (isMobile && fromInterior) {
+        const contents = document.querySelector(".contents-section");
+        if (contents) {
+            contents.scrollIntoView({ behavior: "smooth" });
+        }
+    }
+});
+</script>
+
 </body>
 </html>
