@@ -2,7 +2,7 @@ title: Sir Muhammad Iqbal
 
 introduction: |
     
-  Sir Muhammad Iqbal, given the honorific of Allama Iqbal, as Allama means “learned ” and is given to scholars recognised for their depth of insight, was born in Sialkot in the Punjab, a place shaped by the meeting of languages, traditions, and the quiet discipline of scholarship. He grew up in a household where faith and learning were held close, and this early world of devotion and reflection stayed with him throughout his life. His studies carried him from Lahore to Cambridge and Munich, where philosophy, poetry, and the questions of the modern age shaped his thinking.
+  Sir Muhammad Iqbal, given the honorific of Allama Iqbal, as Allama means “learned ” and is given to scholars recognised for their depth of insight, was born in Sialkot in the Punjab – a region in Pakistan and India, meaning "five waters" and named so due to the five rivers that run through it. He grew up in a household where faith and learning were held close, and this early world of devotion and reflection stayed with him throughout his life. His studies carried him from Lahore to Cambridge and Munich, where philosophy, poetry, and the questions of the modern age shaped his thinking.
 
    He wrote with a voice that moved between longing, awakening, and the search for the self. His poetry carries the sense that the human spirit is always in motion, called toward a higher purpose and a deeper awareness. Even now, his lines feel near, as if he is urging us to rise, to know ourselves, and to recognise the quiet strength placed within us. His work holds the belief that faith, thought, and action are threads of the same fabric.
 
