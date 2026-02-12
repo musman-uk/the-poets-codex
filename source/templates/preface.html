@@ -73,13 +73,12 @@ body {
   line-height: 1.55;
 }
 
-/* --- Back button (lighter, smoother leather) --- */
+/* --- Back button (refined: smaller, lower, more left — matches poet pages) --- */
 .back-button {
-  padding: clamp(0.55rem, 2vw, 0.9rem) clamp(1.2rem, 4vw, 1.8rem);
-  font-size: clamp(1rem, 4vw, 1.3rem);
+  padding: clamp(0.2rem, 1.4vw, 0.7rem) clamp(0.2rem, 3vw, 1.3rem);
+  font-size: clamp(0.85rem, 3vw, 1.1rem);
 
-  background: #6e5135; /* lighter leather tone */
-
+  background: #6e5135;
   border: 1px solid #f5d99c;
   color: #f5d99c;
 
@@ -87,14 +86,21 @@ body {
   text-decoration: none;
   cursor: pointer;
 
+  margin: 2rem; /* your spacing preserved */
+
   box-shadow:
     inset 0 0 4px rgba(255,255,255,0.15),
     0 0 6px rgba(0,0,0,0.35);
 
   transition: background 0.25s, color 0.25s, box-shadow 0.25s, transform 0.1s;
+
+  /* refined placement */
+  align-self: flex-start;
+  margin-left: 0.05rem;
+  transform: translateX(-1.5rem);
+  margin-bottom: -1.7rem;
 }
 
-/* Desktop hover */
 .back-button:hover {
   background: #f5d99c;
   color: #6a4a2c;
@@ -103,14 +109,15 @@ body {
     0 0 12px rgba(255,220,150,0.6);
 }
 
-/* Mobile + desktop active */
 .back-button:active {
   background: #f5d99c;
   color: #6a4a2c;
   box-shadow:
     inset 0 0 10px rgba(0,0,0,0.45),
     0 0 8px rgba(255,220,150,0.5);
-  transform: translateY(1px);
+
+  /* FIXED: preserve X-offset so it no longer jumps right */
+  transform: translateX(-1.5rem) translateY(1px);
 }
 </style>
 
@@ -139,4 +146,3 @@ function goBack() {
 
 </body>
 </html>
-
