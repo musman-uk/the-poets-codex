@@ -10,17 +10,21 @@ He wrote with an instinct for the inner life. His lines move between clarity and
 poetry:
   
   - source: Sonnet 18
-    original: |
+
+     original: |
         Shall I compare thee to a summer day
         Thou art more lovely and more temperate
-    translation: |
+
+     translation: |
         Should I compare you to a summer day
         You are gentler and more beautiful
 
   - source: Sonnet 116
+
     original: |
         Let me not to the marriage of true minds
         Admit impediments
+
     translation: |
         I will not claim that true and steady love
         Can be blocked by anything
