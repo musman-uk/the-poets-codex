@@ -1,244 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Poets Codex</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        /* Fade animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
+<title>The Poets Codex</title>
 
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to   { opacity: 0; }
-        }
+<style>
+/* --- Unified wooden desk background (same as Contents/Preface) --- */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 
-        body.fade-out {
-            animation: fadeOut 0.5s ease-out forwards;
-        }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-        /* Wooden desk background */
-        body {
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
+  background: #d5b485;
+  background-image:
+    radial-gradient(circle at 20% 40%, rgba(0,0,0,0.07), transparent 60%),
+    radial-gradient(circle at 80% 70%, rgba(0,0,0,0.05), transparent 70%),
+    radial-gradient(circle at center, transparent 55%, rgba(0,0,0,0.40) 100%);
+  background-blend-mode: multiply, overlay, overlay, normal;
 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  color: #3b2a22;
+}
 
-            background: #e0c7a3;
-            background-image:
-                repeating-linear-gradient(
-                    0deg,
-                    rgba(120, 80, 40, 0.16) 0px,
-                    rgba(120, 80, 40, 0.16) 4px,
-                    rgba(210, 180, 140, 0.16) 6px,
-                    rgba(210, 180, 140, 0.16) 12px
-                ),
-                radial-gradient(circle at 20% 40%, rgba(0,0,0,0.07), transparent 60%),
-                radial-gradient(circle at 80% 70%, rgba(0,0,0,0.05), transparent 70%),
-                radial-gradient(circle at center, transparent 55%, rgba(0,0,0,0.40) 100%);
-            background-blend-mode: multiply, overlay, overlay, normal;
+/* --- Two-page spread --- */
+.spread {
+  width: min(900px, 95vw);
+  height: 85vh;
 
-            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-            color: #3b2a22;
+  display: flex;
+  gap: 1rem;
 
-            animation: fadeIn 0.6s ease-out;
-        }
+  margin-top: 2rem;
+}
 
-        /* Two-page spread */
-        .spread {
-            width: min(1000px, 95vw);
-            height: 75vh;
+/* --- Page styling (matching Preface frame) --- */
+.page {
+  flex: 1;
+  padding: clamp(1rem, 2vw, 2rem);
+  border-radius: 12px;
+  overflow-y: auto;
 
-            display: flex;
-            gap: 1rem;
+  background: #ddc8a9;
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.45),
+      rgba(255,255,255,0.10)
+    );
 
-            margin-top: 2rem;
-        }
+  box-shadow:
+    inset 0 0 32px rgba(0,0,0,0.30),
+    inset 0 0 14px rgba(0,0,0,0.12),
+    0 0 24px rgba(0,0,0,0.30),
+    0 0 0 2px rgba(0,0,0,0.18);
+}
 
-        /* Page styling */
-        .page {
-            flex: 1;
-            padding: clamp(1rem, 2vw, 2rem);
-            border-radius: 10px;
-            overflow-y: auto;
+.page h1 {
+  margin-top: 0;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 600;
+}
 
-            background: #ddc8a9;
+/* --- Back button (same as Contents/Preface) --- */
+.back-wrapper {
+  margin-top: 1.4rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
 
-            background-image:
-                repeating-linear-gradient(
-                    0deg,
-                    rgba(0,0,0,0.07) 0px,
-                    rgba(0,0,0,0.07) 1px,
-                    transparent 2px
-                ),
-                linear-gradient(
-                    to bottom,
-                    rgba(255,255,255,0.45),
-                    rgba(255,255,255,0.10)
-                );
+.back-button {
+  padding: clamp(0.55rem, 2vw, 0.9rem) clamp(1.2rem, 4vw, 1.8rem);
+  font-size: clamp(1rem, 4vw, 1.3rem);
 
-            box-shadow:
-                inset 0 0 32px rgba(0,0,0,0.30),
-                inset 0 0 14px rgba(0,0,0,0.12),
-                0 0 24px rgba(0,0,0,0.30),
-                0 0 0 2px rgba(0,0,0,0.18);
-        }
+  background: #6e5135;
+  border: 1px solid #f5d99c;
+  color: #f5d99c;
 
-        .page h1 {
-            margin-top: 0;
-            font-size: clamp(1.6rem, 4vw, 2.2rem);
-            font-weight: 600;
-        }
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
 
-        .poet-image {
-            margin: 1.5rem 0;
-            text-align: center;
-        }
+  box-shadow:
+    inset 0 0 4px rgba(255,255,255,0.15),
+    0 0 6px rgba(0,0,0,0.35);
 
-        .poet-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
-        }
+  transition: background 0.25s, color 0.25s, box-shadow 0.25s, transform 0.1s;
+}
 
-        article {
-            margin-top: 1.5rem;
-        }
+.back-button:hover {
+  background: #f5d99c;
+  color: #6a4a2c;
+  box-shadow:
+    inset 0 0 8px rgba(0,0,0,0.35),
+    0 0 12px rgba(255,220,150,0.6);
+}
 
-        /* Back button */
-        .back-wrapper {
-            margin-top: 1.4rem;
-            margin-bottom: 2rem;
-            display: flex;
-            justify-content: center;
-        }
+.back-button:active {
+  background: #f5d99c;
+  color: #6a4a2c;
+  box-shadow:
+    inset 0 0 10px rgba(0,0,0,0.45),
+    0 0 8px rgba(255,220,150,0.5);
+  transform: translateY(1px);
+}
 
-        .back-button {
-            padding: clamp(0.6rem, 2vw, 0.9rem) clamp(1.2rem, 4vw, 1.8rem);
-            font-size: clamp(1rem, 3.5vw, 1.2rem);
+/* --- Mobile: single page --- */
+@media (max-width: 700px) {
+  .spread {
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    align-items: center;
+    gap: 1.5rem;
+  }
 
-            background: #ddc8a9;
+  .page {
+    width: 90%;
+    max-width: 380px;
+    height: 70vh;
+    font-size: 0.9rem;
+  }
+}
+</style>
 
-            background-image:
-                repeating-linear-gradient(
-                    0deg,
-                    rgba(0,0,0,0.07) 0px,
-                    rgba(0,0,0,0.07) 1px,
-                    transparent 2px
-                ),
-                linear-gradient(
-                    to bottom,
-                    rgba(255,255,255,0.45),
-                    rgba(255,255,255,0.10)
-                );
-
-            border: 1px solid #b8a78f;
-            color: #3b2a22;
-
-            border-radius: 6px;
-            text-decoration: none;
-
-            cursor: pointer;
-
-            box-shadow:
-                inset 0 0 6px rgba(0,0,0,0.15),
-                0 0 8px rgba(0,0,0,0.25);
-
-            transition: background 0.25s, color 0.25s, box-shadow 0.25s;
-        }
-
-        .back-button:hover {
-            background: #cbb79a;
-            box-shadow:
-                inset 0 0 10px rgba(0,0,0,0.25),
-                0 0 14px rgba(0,0,0,0.35);
-        }
-
-        /* Mobile: single page */
-        @media (max-width: 700px) {
-            .spread {
-                flex-direction: column;
-                height: auto;
-                width: 100%;
-                align-items: center;
-                gap: 1.5rem;
-            }
-
-            .page {
-                width: 90%;
-                max-width: 380px;
-                height: 70vh;
-                font-size: 0.9rem;
-            }
-        }
-    </style>
-
-    <script>
-        function fadeAndBack() {
-            document.body.classList.add('fade-out');
-            setTimeout(() => {
-                window.location.href = "../hub.html";
-            }, 450);
-        }
-    </script>
+<script>
+function goBack() {
+  window.location.href = "../contents.html";
+}
+</script>
 </head>
 
 <body>
 
 <div class="spread">
 
-    <!-- LEFT PAGE -->
-    <section class="page">
-        <h1>{{ title }}</h1>
+  <!-- LEFT PAGE -->
+  <section class="page">
+    <h1>{{ title }}</h1>
 
-        <h2>Profile</h2>
-        {{ profile }}
+    <h2>Profile</h2>
+    {{ profile }}
 
-        <h3>Trivia</h3>
-        <ul>
-            {% for fact in trivia %}
-            <li>{{ fact }}</li>
-            {% endfor %}
-        </ul>
+    <h3>Trivia</h3>
+    <ul>
+      {% for fact in trivia %}
+      <li>{{ fact }}</li>
+      {% endfor %}
+    </ul>
 
-        <h3>Recommended Reading</h3>
-        <ul>
-            {% for book in recommended %}
-            <li>{{ book }}</li>
-            {% endfor %}
-        </ul>
-    </section>
+    <h3>Recommended Reading</h3>
+    <ul>
+      {% for book in recommended %}
+      <li>{{ book }}</li>
+      {% endfor %}
+    </ul>
+  </section>
 
-    <!-- RIGHT PAGE -->
-    <section class="page">
-        <h2>Selected Poetry</h2>
+  <!-- RIGHT PAGE -->
+  <section class="page">
+    <h2>Selected Poetry</h2>
 
-        {% for poem in poetry %}
-        <h3>{{ poem.title }}</h3>
+    {% for poem in poetry %}
+    <h3>{{ poem.title }}</h3>
 
-        {% if poem.original %}
-        <p><strong>Original:</strong></p>
-        <pre>{{ poem.original }}</pre>
-        {% endif %}
+    {% if poem.original %}
+    <p><strong>Original:</strong></p>
+    <pre>{{ poem.original }}</pre>
+    {% endif %}
 
-        {% if poem.translation %}
-        <p><strong>Translation:</strong></p>
-        <pre>{{ poem.translation }}</pre>
-        {% endif %}
-        {% endfor %}
-    </section>
+    {% if poem.translation %}
+    <p><strong>Translation:</strong></p>
+    <pre>{{ poem.translation }}</pre>
+    {% endif %}
+    {% endfor %}
+  </section>
 
 </div>
 
 <div class="back-wrapper">
-    <a onclick="fadeAndBack()" class="back-button">Back</a>
+  <a onclick="goBack()" class="back-button">Back</a>
 </div>
 
 </body>
