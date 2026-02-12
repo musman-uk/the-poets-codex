@@ -28,7 +28,7 @@ body {
   color: #3b2a22;
 }
 
-/* --- Codex frame (identical to Preface) --- */
+/* --- Codex frame --- */
 .codex-frame {
   width: min(420px, 90vw);
   height: 85vh;
@@ -86,13 +86,7 @@ body {
   font-weight: 600;
 }
 
-.poet-section h5 {
-  margin-top: 0.8rem;
-  margin-bottom: 0.3rem;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
+/* --- Poem blocks --- */
 .poet-section pre {
   white-space: pre-wrap;
   background: rgba(255,255,255,0.25);
@@ -101,7 +95,23 @@ body {
   font-family: inherit;
 }
 
-/* --- Back button (refined: smaller, lower, more left) --- */
+/* --- Smaller labels --- */
+.label-small {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  margin-bottom: 0.2rem;
+}
+
+/* --- Poem source note (more emphasis) --- */
+.source-note {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  font-style: italic;
+  margin-top: 0.2rem;
+  margin-bottom: 0.6rem;
+}
+
+/* --- Back button --- */
 .back-button {
   padding: clamp(0.2rem, 1.4vw, 0.7rem) clamp(0.2rem, 3vw, 1.3rem);
   font-size: clamp(0.85rem, 3vw, 1.1rem);
@@ -113,7 +123,7 @@ body {
   border-radius: 4px;
   text-decoration: none;
   cursor: pointer;
-  margin: 2rem; /* your intentional spacing preserved */
+  margin: 2rem;
 
   box-shadow:
     inset 0 0 4px rgba(255,255,255,0.15),
@@ -121,7 +131,6 @@ body {
 
   transition: background 0.25s, color 0.25s, box-shadow 0.25s, transform 0.1s;
 
-  /* refined placement */
   align-self: flex-start;
   margin-left: 0.05rem;
   transform: translateX(-1.5rem);
@@ -142,8 +151,6 @@ body {
   box-shadow:
     inset 0 0 10px rgba(0,0,0,0.45),
     0 0 8px rgba(255,220,150,0.5);
-
-  /* FIXED: preserve X-offset so it no longer jumps right */
   transform: translateX(-1.5rem) translateY(1px);
 }
 </style>
@@ -159,69 +166,71 @@ function goBack() {
 
 <div class="codex-frame">
 
-  <h3 class="poet-title">Muhammad Iqbal</h3>
+  <h3 class="poet-title">Sir Muhammad Iqbal</h3>
 
   <div class="poet-section">
 
-    <h4>Profile</h4>
-    Iqbal wrote with a sense of awakening, urging the self to rise, to see, to act. His poetry carries both tenderness and resolve, shaped by a belief that the human spirit is capable of great transformation. He speaks to the inner life with clarity and purpose.
-
-
-    <h4>Trivia</h4>
-    <ul>
-      
-      <li>Wrote in Persian and Urdu</li>
-      
-      <li>Considered a philosopher poet</li>
-      
-      <li>His work influenced movements of selfhood and renewal</li>
-      
-    </ul>
-
-    <h4>Recommended Reading</h4>
-    <ul>
-      
-      <li>Bang e Dara</li>
-      
-      <li>Asrar e Khudi</li>
-      
-      <li>Zarb e Kaleem</li>
-      
-    </ul>
-
-    <h4>Selected Poetry</h4>
     
-      <h5>Khudi (Excerpt)</h5>
-
-      
-      <p><strong>Original:</strong></p>
-      <pre>خودی کو کر بلند اتنا
-کہ ہر تقدیر سے پہلے
-</pre>
-      
-
-      
-      <p><strong>Translation:</strong></p>
-      <pre>Raise the self so high
-That destiny pauses
-And asks what you desire
-</pre>
-      
+    <h4>An Introduction</h4>
+    <p>Sir Muhammad Iqbal, fondly called Allama Iqbal, was born in Sialkot in the Punjab region, a place shaped by the meeting of languages, traditions, and the quiet discipline of scholarship. He grew up in a household where faith and learning were held close, and this early world of devotion and reflection stayed with him throughout his life. His studies carried him from Lahore to Cambridge and Munich, where philosophy, poetry, and the questions of the modern age shaped his thinking.<br><br><br><br>He wrote with a voice that moved between longing, awakening, and the search for the self. His poetry carries the sense that the human spirit is always in motion, called toward a higher purpose and a deeper awareness. Even now, his lines feel near, as if he is urging us to rise, to know ourselves, and to recognise the quiet strength placed within us. His work holds the belief that faith, thought, and action are threads of the same fabric.<br><br></p>
     
-      <h5>Shikwa (Excerpt)</h5>
+
+    
+    <h4>Poetic Verses</h4>
+    
 
       
-      <p><strong>Original:</strong></p>
-      <pre>کیوں زیاں کار بنوں
-سود فراموش رہوں
+      <p class="source-note">From Bang-e-Dra</p>
+      
+
+      
+      <p class="label-small"><strong>Original</strong></p>
+      <pre>خودی کو کر بلند اتنا کہ ہر تقدیر سے پہلے
+خدا بندے سے خود پوچھے بتا تیری رضا کیا ہے
 </pre>
       
 
       
-      <p><strong>Translation:</strong></p>
-      <pre>Why should I remain silent
-Forgetting the worth of my own voice</pre>
+      <p class="label-small"><strong>Translation</strong></p>
+      <pre>Raise your selfhood to such a height
+That before every destiny is written
+God Himself will ask you
+Tell Me, what is it that you desire
+</pre>
       
+
+    
+
+      
+      <p class="source-note">From Bal-e-Jibril</p>
+      
+
+      
+      <p class="label-small"><strong>Original</strong></p>
+      <pre>ستاروں سے آگے جہاں اور بھی ہیں
+ابھی عشق کے امتحاں اور بھی ہیں
+</pre>
+      
+
+      
+      <p class="label-small"><strong>Translation</strong></p>
+      <pre>Beyond the stars are worlds still waiting
+And the trials of love are not yet done
+</pre>
+      
+
+    
+    
+
+    
+    <h4>Suggested Reading</h4>
+    
+      <p>Bang-e-Dra, an early collection that traces his movement from reflection to awakening</p>
+    
+      <p>Bal-e-Jibril, poems that explore the self, the spirit, and the call toward higher purpose</p>
+    
+      <p>Asrar-e-Khudi, a philosophical work that unfolds his vision of selfhood and inner strength</p>
+    
     
 
   </div>

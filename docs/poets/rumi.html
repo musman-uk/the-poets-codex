@@ -28,7 +28,7 @@ body {
   color: #3b2a22;
 }
 
-/* --- Codex frame (identical to Preface) --- */
+/* --- Codex frame --- */
 .codex-frame {
   width: min(420px, 90vw);
   height: 85vh;
@@ -86,13 +86,7 @@ body {
   font-weight: 600;
 }
 
-.poet-section h5 {
-  margin-top: 0.8rem;
-  margin-bottom: 0.3rem;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
+/* --- Poem blocks --- */
 .poet-section pre {
   white-space: pre-wrap;
   background: rgba(255,255,255,0.25);
@@ -101,7 +95,23 @@ body {
   font-family: inherit;
 }
 
-/* --- Back button (refined: smaller, lower, more left) --- */
+/* --- Smaller labels --- */
+.label-small {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  margin-bottom: 0.2rem;
+}
+
+/* --- Poem source note (more emphasis) --- */
+.source-note {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  font-style: italic;
+  margin-top: 0.2rem;
+  margin-bottom: 0.6rem;
+}
+
+/* --- Back button --- */
 .back-button {
   padding: clamp(0.2rem, 1.4vw, 0.7rem) clamp(0.2rem, 3vw, 1.3rem);
   font-size: clamp(0.85rem, 3vw, 1.1rem);
@@ -113,7 +123,7 @@ body {
   border-radius: 4px;
   text-decoration: none;
   cursor: pointer;
-  margin: 2rem; /* your intentional spacing preserved */
+  margin: 2rem;
 
   box-shadow:
     inset 0 0 4px rgba(255,255,255,0.15),
@@ -121,7 +131,6 @@ body {
 
   transition: background 0.25s, color 0.25s, box-shadow 0.25s, transform 0.1s;
 
-  /* refined placement */
   align-self: flex-start;
   margin-left: 0.05rem;
   transform: translateX(-1.5rem);
@@ -142,8 +151,6 @@ body {
   box-shadow:
     inset 0 0 10px rgba(0,0,0,0.45),
     0 0 8px rgba(255,220,150,0.5);
-
-  /* FIXED: preserve X-offset so it no longer jumps right */
   transform: translateX(-1.5rem) translateY(1px);
 }
 </style>
@@ -159,67 +166,68 @@ function goBack() {
 
 <div class="codex-frame">
 
-  <h3 class="poet-title">Jalal al Din Rumi</h3>
+  <h3 class="poet-title">Mawlānā Jalal al-Din Rumi</h3>
 
   <div class="poet-section">
 
-    <h4>Profile</h4>
-    Rumi wrote as if the heart were a doorway and the world a passing guest. His work moves between longing and recognition, always circling the idea that love is both the path and the destination. He speaks in a voice that feels close, as if he is reminding us of something we once knew.
-
-
-    <h4>Trivia</h4>
-    <ul>
-      
-      <li>Wrote primarily in Persian</li>
-      
-      <li>His son Sultan Walad preserved many of his works</li>
-      
-      <li>Inspired the Mevlevi order of dervishes</li>
-      
-    </ul>
-
-    <h4>Recommended Reading</h4>
-    <ul>
-      
-      <li>Masnavi</li>
-      
-      <li>Divan e Shams</li>
-      
-      <li>Fihi Ma Fihi</li>
-      
-    </ul>
-
-    <h4>Selected Poetry</h4>
     
-      <h5>The Guest House</h5>
+    <h4>An Introduction</h4>
+    <p>Mawlānā Jalal al-Din Rumi is remembered with the honorific Mawlānā, a title meaning our master. It was given to him in recognition of his spiritual insight, his teaching, and the depth of his presence within the Sufi tradition. He lived in the thirteenth-century Persian world, a landscape shaped by scholarship, wandering mystics, and the movement of peoples across empires. His work later inspired the Mevlevi order of dervishes, whose turning became a form of devotion.<br><br><br><br>He wrote as if the heart were a doorway and the world a passing guest. His poetry moves between longing and recognition, always circling the idea that love is both the path and the destination. His voice feels close, almost familiar, as if he is reminding us of something we once knew.<br><br></p>
+    
+
+    
+    <h4>Poetic Verses</h4>
+    
 
       
-      <p><strong>Original:</strong></p>
+      <p class="source-note">From Masnavi</p>
+      
+
+      
+      <p class="label-small"><strong>Original</strong></p>
       <pre>این خانه مهمان سراست
 هر صبح مهمانی تازه می رسد
 </pre>
       
 
       
-      <p><strong>Translation:</strong></p>
+      <p class="label-small"><strong>Translation</strong></p>
       <pre>This being human is a guest house
 Every morning a new arrival
 </pre>
       
+
     
-      <h5>Where the Light Enters</h5>
 
       
-      <p><strong>Original:</strong></p>
+      <p class="source-note">From Divan-e Shams</p>
+      
+
+      
+      <p class="label-small"><strong>Original</strong></p>
       <pre>از زخم توست که نور می آید
 </pre>
       
 
       
-      <p><strong>Translation:</strong></p>
+      <p class="label-small"><strong>Translation</strong></p>
       <pre>The wound is the place
-Where the light enters you</pre>
+Where the light enters you
+</pre>
       
+
+    
+    
+
+    
+    <h4>Suggested Reading</h4>
+    
+      <p>Masnavi, a long unfolding conversation on love and the inner life</p>
+    
+      <p>Divan-e Shams, intimate poems shaped by spiritual companionship</p>
+    
+      <p>Fihi Ma Fihi, prose reflections that reveal his teaching voice</p>
+    
     
 
   </div>
