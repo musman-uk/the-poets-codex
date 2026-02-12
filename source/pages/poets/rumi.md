@@ -10,7 +10,8 @@ He wrote as if the heart were a doorway and the world a passing guest. His poetr
 poetry:
   
   - source: Masnavi
-    original: |
+
+     original: |
         این خانه مهمان سراست
         هر صبح مهمانی تازه می رسد
     translation: |
@@ -19,7 +20,8 @@ poetry:
 
   
   - source: Divan-e Shams
-    original: |
+
+     original: |
         از زخم توست که نور می آید
     translation: |
         The wound is the place
