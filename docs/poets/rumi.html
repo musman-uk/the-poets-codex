@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Poets Codex</title>
+
+<style>
+/* --- Unified wooden desk background (same as Contents/Preface) --- */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: #d5b485;
+  background-image:
+    radial-gradient(circle at 20% 40%, rgba(0,0,0,0.07), transparent 60%),
+    radial-gradient(circle at 80% 70%, rgba(0,0,0,0.05), transparent 70%),
+    radial-gradient(circle at center, transparent 55%, rgba(0,0,0,0.40) 100%);
+  background-blend-mode: multiply, overlay, overlay, normal;
+
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  color: #3b2a22;
+}
+
+/* --- Two-page spread --- */
+.spread {
+  width: min(900px, 95vw);
+  height: 85vh;
+
+  display: flex;
+  gap: 1rem;
+
+  margin-top: 2rem;
+}
+
+/* --- Page styling (matching Preface frame) --- */
+.page {
+  flex: 1;
+  padding: clamp(1rem, 2vw, 2rem);
+  border-radius: 12px;
+  overflow-y: auto;
+
+  background: #ddc8a9;
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.45),
+      rgba(255,255,255,0.10)
+    );
+
+  box-shadow:
+    inset 0 0 32px rgba(0,0,0,0.30),
+    inset 0 0 14px rgba(0,0,0,0.12),
+    0 0 24px rgba(0,0,0,0.30),
+    0 0 0 2px rgba(0,0,0,0.18);
+}
+
+.page h1 {
+  margin-top: 0;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 600;
+}
+
+/* --- Back button (same as Contents/Preface) --- */
+.back-wrapper {
+  margin-top: 1.4rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.back-button {
+  padding: clamp(0.55rem, 2vw, 0.9rem) clamp(1.2rem, 4vw, 1.8rem);
+  font-size: clamp(1rem, 4vw, 1.3rem);
+
+  background: #6e5135;
+  border: 1px solid #f5d99c;
+  color: #f5d99c;
+
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+
+  box-shadow:
+    inset 0 0 4px rgba(255,255,255,0.15),
+    0 0 6px rgba(0,0,0,0.35);
+
+  transition: background 0.25s, color 0.25s, box-shadow 0.25s, transform 0.1s;
+}
+
+.back-button:hover {
+  background: #f5d99c;
+  color: #6a4a2c;
+  box-shadow:
+    inset 0 0 8px rgba(0,0,0,0.35),
+    0 0 12px rgba(255,220,150,0.6);
+}
+
+.back-button:active {
+  background: #f5d99c;
+  color: #6a4a2c;
+  box-shadow:
+    inset 0 0 10px rgba(0,0,0,0.45),
+    0 0 8px rgba(255,220,150,0.5);
+  transform: translateY(1px);
+}
+
+/* --- Mobile: single page --- */
+@media (max-width: 700px) {
+  .spread {
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .page {
+    width: 90%;
+    max-width: 380px;
+    height: 70vh;
+    font-size: 0.9rem;
+  }
+}
+</style>
+
+<script>
+function goBack() {
+  window.location.href = "../contents.html";
+}
+</script>
+</head>
+
+<body>
+
+<div class="spread">
+
+  <!-- LEFT PAGE -->
+  <section class="page">
+    <h1>Jalal al Din Rumi</h1>
+
+    <h2>Profile</h2>
+    Rumi wrote as if the heart were a doorway and the world a passing guest. His work moves between longing and recognition, always circling the idea that love is both the path and the destination. He speaks in a voice that feels close, as if he is reminding us of something we once knew.
+
+
+    <h3>Trivia</h3>
+    <ul>
+      
+      <li>Wrote primarily in Persian</li>
+      
+      <li>His son Sultan Walad preserved many of his works</li>
+      
+      <li>Inspired the Mevlevi order of dervishes</li>
+      
+    </ul>
+
+    <h3>Recommended Reading</h3>
+    <ul>
+      
+      <li>Masnavi</li>
+      
+      <li>Divan e Shams</li>
+      
+      <li>Fihi Ma Fihi</li>
+      
+    </ul>
+  </section>
+
+  <!-- RIGHT PAGE -->
+  <section class="page">
+    <h2>Selected Poetry</h2>
+
+    
+    <h3>The Guest House</h3>
+
+    
+    <p><strong>Original:</strong></p>
+    <pre>این خانه مهمان سراست
+هر صبح مهمانی تازه می رسد
+</pre>
+    
+
+    
+    <p><strong>Translation:</strong></p>
+    <pre>This being human is a guest house
+Every morning a new arrival
+</pre>
+    
+    
+    <h3>Where the Light Enters</h3>
+
+    
+    <p><strong>Original:</strong></p>
+    <pre>از زخم توست که نور می آید
+</pre>
+    
+
+    
+    <p><strong>Translation:</strong></p>
+    <pre>The wound is the place
+Where the light enters you</pre>
+    
+    
+  </section>
+
+</div>
+
+<div class="back-wrapper">
+  <a onclick="goBack()" class="back-button">Back</a>
+</div>
+
+</body>
+</html>
