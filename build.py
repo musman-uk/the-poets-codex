@@ -67,14 +67,13 @@ def build_poet_pages():
         title = front.get("title", md_file.stem.title())
         image = front.get("image")
 
-        # Render template with all YAML fields
+        # Render template with updated YAML fields
         page_html = poet_template.render(
             title=title,
             image=image,
-            profile=front.get("profile"),
-            trivia=front.get("trivia"),
-            recommended=front.get("recommended"),
-            poetry=front.get("poetry")
+            introduction=front.get("introduction"),
+            poetry=front.get("poetry"),
+            suggested_reading=front.get("suggested_reading")
         )
 
         # Write output
