@@ -81,7 +81,7 @@ def build_poet_pages():
         out_path = POETS_OUT / f"{md_file.stem}.html"
         out_path.write_text(page_html, encoding="utf-8")
 
-        # Store metadata for hub list
+        # Store metadata for contents list
         poets_data.append({
             "title": title,
             "file": f"poets/{md_file.stem}.html",
@@ -92,7 +92,7 @@ def build_poet_pages():
 
 
 def build_poets_list(poets_data):
-    """Generate the <ul> list for the hub page."""
+    """Generate the <ul> list for contents.html."""
     items = []
 
     for poet in poets_data:
@@ -114,13 +114,19 @@ def build_poets_list(poets_data):
     return "<ul>\n" + "\n".join(items) + "\n</ul>"
 
 
-def build_hub(poets_data):
-    """Inject poets list into hub.html."""
-    hub_template = load_template("hub.html")
+def build_contents(poets_data):
+    """Inject poets list into contents.html."""
+    contents_template = load_template("contents.html")
     poets_list_html = build_poets_list(poets_data)
 
-    final = hub_template.replace("<!-- poets_list -->", poets_list_html)
-    (DOCS / "hub.html").write_text(final, encoding="utf-8")
+    final = contents_template.replace("<!-- poets_list -->", poets_list_html)
+    (DOCS / "contents.html").write_text(final, encoding="utf-8")
+
+
+def build_preface():
+    """Copy preface.html directly into docs."""
+    preface_template = load_template("preface.html")
+    (DOCS / "preface.html").write_text(preface_template, encoding="utf-8")
 
 
 def build_cover():
@@ -133,7 +139,8 @@ def main():
     print("Building The Poets Codex...")
 
     poets_data = build_poet_pages()
-    build_hub(poets_data)
+    build_contents(poets_data)
+    build_preface()
     build_cover()
 
     print("Build complete.")
