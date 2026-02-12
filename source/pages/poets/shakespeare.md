@@ -1,7 +1,7 @@
-title: William Shakespeare
+title: William Shakespeare, Gentleman
 
 introduction: |
-    William Shakespeare, gentleman, was born in Stratford-upon-Avon, a market town shaped by the slow movement of the River Avon and the rhythms of provincial life. He grew up among craftsmen, schoolmasters, and the seasonal turning of the countryside, far from the courtly circles that would later echo through his plays. His path carried him from Stratford to the restless theatres of London, where the noise, ambition, and uncertainty of the city became the backdrop for his work.
+    William Shakespeare, Gentleman, was born in Stratford-upon-Avon, a market town shaped by the slow movement of the River Avon and the rhythms of provincial life. He grew up among craftsmen, schoolmasters, and the seasonal turning of the countryside, far from the courtly circles that would later echo through his plays. His path carried him from Stratford to the restless theatres of London, where the noise, ambition, and uncertainty of the city became the backdrop for his work.
 
     He wrote with an instinct for the inner life. His lines move between clarity and mystery, carrying the weight of thought and the quickness of feeling. Even now, his voice feels close, as if he is watching the world with us and offering language that helps us understand it. His work holds the sense that human experience, with its doubts, loyalties, griefs, and small recognitions, remains unchanged across time.
 
