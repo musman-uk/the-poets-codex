@@ -56,7 +56,7 @@ body {
     0 0 0 2px rgba(0,0,0,0.18);
 }
 
-/* --- Poet title (replaces h2) --- */
+/* --- Poet title --- */
 .poet-title {
   margin: 0;
   font-size: 1.6rem;
@@ -64,7 +64,7 @@ body {
   text-align: center;
 }
 
-/* --- Scrollable poet content (same as Preface text) --- */
+/* --- Scrollable poet content --- */
 .poet-section {
   width: 100%;
   flex: 1;
@@ -101,11 +101,11 @@ body {
   font-family: inherit;
 }
 
-/* --- Back button (same as Preface) --- */
+/* --- Back button (refined: smaller, lower, more left) --- */
 .back-button {
-  padding: clamp(0.55rem, 2vw, 0.9rem) clamp(1.2rem, 4vw, 1.8rem);
-  font-size: clamp(1rem, 4vw, 1.3rem);
-
+  padding: clamp(0.2rem, 1.4vw, 0.7rem) clamp(0.2rem, 3vw, 1.3rem);
+  font-size: clamp(0.85rem, 3vw, 1.1rem);
+  
   background: #6e5135;
   border: 1px solid #f5d99c;
   color: #f5d99c;
@@ -113,12 +113,19 @@ body {
   border-radius: 4px;
   text-decoration: none;
   cursor: pointer;
+  margin: 2rem; /* your intentional spacing preserved */
 
   box-shadow:
     inset 0 0 4px rgba(255,255,255,0.15),
     0 0 6px rgba(0,0,0,0.35);
 
   transition: background 0.25s, color 0.25s, box-shadow 0.25s, transform 0.1s;
+
+  /* refined placement */
+  align-self: flex-start;
+  margin-left: 0.05rem;
+  transform: translateX(-1.5rem);
+  margin-bottom: -1.7rem;
 }
 
 .back-button:hover {
@@ -135,7 +142,9 @@ body {
   box-shadow:
     inset 0 0 10px rgba(0,0,0,0.45),
     0 0 8px rgba(255,220,150,0.5);
-  transform: translateY(1px);
+
+  /* FIXED: preserve X-offset so it no longer jumps right */
+  transform: translateX(-1.5rem) translateY(1px);
 }
 </style>
 
@@ -150,7 +159,6 @@ function goBack() {
 
 <div class="codex-frame">
 
-  <!-- Poet name as the visible title -->
   <h3 class="poet-title">Jalal al Din Rumi</h3>
 
   <div class="poet-section">
