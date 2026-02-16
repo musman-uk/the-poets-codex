@@ -63,12 +63,25 @@ body {
   font-weight: 600;
 }
 
-/* --- Contents list --- */
+/* --- Scrollable contents section with fade + invisible scrollbar --- */
 .contents-section {
   width: 100%;
   flex: 1;
   overflow-y: auto;
   margin-top: 1rem;
+
+  /* fade visible immediately */
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+
+  /* invisible scrollbar */
+  scrollbar-width: none;
+}
+
+.contents-section::-webkit-scrollbar {
+  display: none;
 }
 
 .contents-section h3 {
@@ -78,25 +91,29 @@ body {
   font-weight: 600;
 }
 
-/* Preface link inside h3 */
+/* --- Unified link styling (lighter on hover, no bolding) --- */
+.contents-section a,
 .preface-link {
   text-decoration: none;
   color: #3b2a22;
-  font-weight: 600;
-  transition: color 0.2s ease, text-decoration 0.2s ease, transform 0.1s;
+  font-weight: 500;
+  transition: color 0.25s ease, letter-spacing 0.25s ease;
 }
 
+.contents-section a:hover,
 .preface-link:hover {
+  color: #7a5a42;          /* lighter + warmer */
+  letter-spacing: 0.4px;   /* subtle emphasis */
   text-decoration: underline;
-  color: #5a4636;
 }
 
+.contents-section a:active,
 .preface-link:active {
-  text-decoration: underline;
-  color: #5a4636;
+  color: #7a5a42;
   transform: translateY(1px);
 }
 
+/* --- List styling --- */
 .contents-section ul {
   list-style: none;
   padding: 0;
@@ -109,28 +126,7 @@ body {
   border-bottom: 1px solid #b8a78f;
 }
 
-/* --- Link interactions (desktop + mobile) --- */
-.contents-section a {
-  text-decoration: none;
-  color: #3b2a22;
-  font-weight: 500;
-  transition: color 0.2s ease, text-decoration 0.2s ease, transform 0.1s;
-}
-
-/* Desktop hover */
-.contents-section a:hover {
-  text-decoration: underline;
-  color: #5a4636;
-}
-
-/* Mobile + desktop active */
-.contents-section a:active {
-  text-decoration: underline;
-  color: #5a4636;
-  transform: translateY(1px);
-}
-
-/* --- Close button (same size as Open button on cover) --- */
+/* --- Close button (unchanged) --- */
 .close-button {
   padding: clamp(0.55rem, 2vw, 0.9rem) clamp(1.2rem, 4vw, 1.8rem);
   font-size: clamp(1rem, 4vw, 1.3rem);
@@ -162,13 +158,9 @@ body {
 
   transition: background 0.25s, color 0.25s, box-shadow 0.25s, transform 0.1s;
 
-  
   margin-bottom: -1.7rem;
-
 }
 
-
-/* Desktop hover */
 .close-button:hover {
   background: #f5d99c;
   color: #6a4a2c;
@@ -177,7 +169,6 @@ body {
     0 0 14px rgba(255,220,150,0.6);
 }
 
-/* Mobile + desktop active */
 .close-button:active {
   background: #f5d99c;
   color: #6a4a2c;
@@ -192,6 +183,28 @@ body {
 function closeCodex() {
   window.location.href = "index.html";
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const section = document.querySelector(".contents-section");
+
+  function updateFade() {
+    const atBottom =
+      section.scrollTop + section.clientHeight >= section.scrollHeight - 1;
+
+    if (atBottom) {
+      section.style.webkitMaskImage = "none";
+      section.style.maskImage = "none";
+    } else {
+      section.style.webkitMaskImage =
+        "linear-gradient(to bottom, black 60%, transparent 100%)";
+      section.style.maskImage =
+        "linear-gradient(to bottom, black 60%, transparent 100%)";
+    }
+  }
+
+  section.addEventListener("scroll", updateFade);
+  updateFade();
+});
 </script>
 
 </head>
@@ -212,6 +225,7 @@ function closeCodex() {
       <li><a href="poets/shakespeare.html">William Shakespeare, Gentleman (1564–1616)</a></li>
       <li><a href="poets/iqbal.html">Sir Muhammad Iqbal (1877–1938)</a></li>
     </ul>
+
   </div>
 
   <a onclick="closeCodex()" class="close-button">Close</a>
