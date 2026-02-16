@@ -7,7 +7,7 @@
 <title>The Poets Codex</title>
 
 <style>
-/* --- Wooden desk background (same as Contents page) --- */
+/* --- Wooden desk background --- */
 body {
   margin: 0;
   padding: 0;
@@ -28,7 +28,7 @@ body {
   color: #3b2a22;
 }
 
-/* --- Interior frame --- */
+/* --- Frame --- */
 .codex-frame {
   width: min(420px, 90vw);
   height: 85vh;
@@ -36,15 +36,10 @@ body {
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 
   background: #ddc8a9;
   background-image:
-    linear-gradient(
-      to bottom,
-      rgba(255,255,255,0.45),
-      rgba(255,255,255,0.10)
-    );
+    linear-gradient(to bottom, rgba(255,255,255,0.45), rgba(255,255,255,0.10));
 
   border-radius: 12px;
 
@@ -55,28 +50,60 @@ body {
     0 0 0 2px rgba(0,0,0,0.18);
 }
 
-/* --- Preface title --- */
+/* --- Title --- */
 .codex-frame h2 {
   margin: 0;
   font-size: 1.6rem;
   font-weight: 600;
 }
 
-/* --- Preface text --- */
+/* --- Scrollable text with fade --- */
 .preface-text {
   width: 100%;
-  flex: 1;
+  flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
   margin-top: 1rem;
+
   font-size: 1.05rem;
   line-height: 1.55;
+
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+
+  scrollbar-width: none;
 }
 
-/* --- Signature (calligraphic) --- */
+.preface-text::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- Unified hover styling --- */
+.preface-text a,
+.signature a {
+  text-decoration: none;
+  color: #3b2a22;
+  font-weight: 500;
+  transition: color 0.25s ease, letter-spacing 0.25s ease;
+}
+
+.preface-text a:hover,
+.signature a:hover {
+  color: #7a5a42;
+  letter-spacing: 0.4px;
+  text-decoration: underline;
+}
+
+/* --- Signature (hidden until scroll end) --- */
 .signature {
   width: 100%;
   text-align: right;
-  opacity: 0.75;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
   font-family: "Lucida Calligraphy", "Segoe Script", "Brush Script MT", cursive;
@@ -109,17 +136,9 @@ body {
 .back-button:hover {
   background: #f5d99c;
   color: #6a4a2c;
-  box-shadow:
-    inset 0 0 8px rgba(0,0,0,0.35),
-    0 0 12px rgba(255,220,150,0.6);
 }
 
 .back-button:active {
-  background: #f5d99c;
-  color: #6a4a2c;
-  box-shadow:
-    inset 0 0 10px rgba(0,0,0,0.45),
-    0 0 8px rgba(255,220,150,0.5);
   transform: translateX(-1.5rem) translateY(1px);
 }
 </style>
@@ -128,6 +147,39 @@ body {
 function goBack() {
   window.location.href = "contents.html";
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const scrollArea = document.querySelector(".preface-text");
+  const signature = document.querySelector(".signature");
+
+  function updateState() {
+    const atBottom =
+      scrollArea.scrollTop + scrollArea.clientHeight >= scrollArea.scrollHeight - 1;
+
+    /* Fade behaviour (same as Contents page) */
+    if (atBottom) {
+      scrollArea.style.webkitMaskImage = "none";
+      scrollArea.style.maskImage = "none";
+    } else {
+      scrollArea.style.webkitMaskImage =
+        "linear-gradient(to bottom, black 60%, transparent 100%)";
+      scrollArea.style.maskImage =
+        "linear-gradient(to bottom, black 60%, transparent 100%)";
+    }
+
+    /* Signature behaviour */
+    if (atBottom) {
+      signature.style.visibility = "visible";
+      signature.style.opacity = "1";
+    } else {
+      signature.style.visibility = "hidden";
+      signature.style.opacity = "0";
+    }
+  }
+
+  scrollArea.addEventListener("scroll", updateState);
+  updateState();
+});
 </script>
 
 </head>
@@ -138,13 +190,15 @@ function goBack() {
   <h2>Preface</h2>
 
   <div class="preface-text">
+
     <p>
       Welcome to all. This codex is more metaphysical than literal, a place where poets who never shared a moment in history can sit together for a while. Each poet lived in a different world, shaped by different landscapes, languages, and beliefs. Yet their words seem to recognise one another, and I have always felt that although they were separated by time and distance, they can be brought together here, as if they are in a room, and we can be the ones walking into it and inhabiting it with them.
     </p>
+
   </div>
 
   <div class="signature">
-    Mohammed Usman
+    <a href="https://github.com/musman-uk" target="_blank">Mohammed Usman</a>
   </div>
 
   <a onclick="goBack()" class="back-button">Back</a>
