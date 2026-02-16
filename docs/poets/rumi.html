@@ -64,7 +64,7 @@ body {
   text-align: center;
 }
 
-/* --- Scrollable poet content --- */
+/* --- Scrollable poet content WITH FADE --- */
 .poet-section {
   width: 100%;
   flex: 1;
@@ -72,6 +72,12 @@ body {
   margin-top: 1rem;
   font-size: 1.05rem;
   line-height: 1.55;
+
+  /* fade visible immediately */
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
 
   scrollbar-width: none;
 }
@@ -102,7 +108,7 @@ body {
   margin-bottom: 0.2rem;
 }
 
-/* --- Poem source note (more emphasis) --- */
+/* --- Poem source note --- */
 .source-note {
   font-size: 0.95rem;
   opacity: 0.9;
@@ -159,6 +165,28 @@ body {
 function goBack() {
   window.location.href = "../contents.html";
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const scrollArea = document.querySelector(".poet-section");
+
+  function updateFade() {
+    const atBottom =
+      scrollArea.scrollTop + scrollArea.clientHeight >= scrollArea.scrollHeight - 1;
+
+    if (atBottom) {
+      scrollArea.style.webkitMaskImage = "none";
+      scrollArea.style.maskImage = "none";
+    } else {
+      scrollArea.style.webkitMaskImage =
+        "linear-gradient(to bottom, black 60%, transparent 100%)";
+      scrollArea.style.maskImage =
+        "linear-gradient(to bottom, black 60%, transparent 100%)";
+    }
+  }
+
+  scrollArea.addEventListener("scroll", updateFade);
+  updateFade();
+});
 </script>
 
 </head>
