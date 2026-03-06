@@ -2,6 +2,8 @@
 
 This repository contains an in‑development project called The Poets Codex, which is a website aiming to bring together a curated set of esteemed poets.
 
+---
+
 ## Project Contents
 
 A short summary of what each part of the project contains:
@@ -15,6 +17,8 @@ A short summary of what each part of the project contains:
 - `DESIGN-NOTES.md` – design philosophy, layout decisions, and rationale  
 - `.github/workflows/` – automated workflow that runs the build process
 
+---
+
 ## Development Process
 
 A simplified view of how the website is being developed:
@@ -26,7 +30,15 @@ A simplified view of how the website is being developed:
 | Automate     | `.github/workflows/`   | Workflow triggers the build script upon manual dispatch     |
 | Deploy       | `docs/`                | Static HTML output used for GitHub Pages deployment   |
 
+---
+
 ## Status
 
 Version `0.0.0` – Draft  
 The project is in its earliest phase, with structure, templates, and generation logic being established.
+
+---
+
+<sub>© Mohammed Usman</sub>
+
+<sub>All rights reserved. No commercial use, redistribution, or modification.</sub>
