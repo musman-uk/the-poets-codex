@@ -65,7 +65,7 @@ body {
   overflow-y: auto;
   margin-top: 1rem;
 
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.55;
 
   -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
@@ -103,10 +103,19 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease;
+  margin-top: 10px;
 
-  font-size: 0.9rem;
+  font-size: 0.96rem;
   margin-bottom: 0.5rem;
   font-family: "Lucida Calligraphy", "Segoe Script", "Brush Script MT", cursive;
+}
+
+.license {
+  width: 100%;
+  font-size: 0.54rem;
+  color: #392d2d;
+  margin-top: 60px;
+  text-align: center;
 }
 
 /* --- Back button --- */
@@ -198,8 +207,13 @@ document.addEventListener("DOMContentLoaded", () => {
   </div>
 
   <div class="signature">
-    <a href="https://github.com/musman-uk" target="_blank">Mohammed Usman</a>
+    <a href="https://github.com/musman-uk" target="_blank">Mohammed Usman</a><br>
   </div>
+  
+  <div class="license">© Mohammed Usman<br>
+    <br> All rights reserved. No commercial use, redistribution, or modification.
+  </div>
+
 
   <a onclick="goBack()" class="back-button">Back</a>
 
