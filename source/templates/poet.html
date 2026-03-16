@@ -196,13 +196,11 @@ document.addEventListener("DOMContentLoaded", () => {
   <h3 class="poet-title">{{ title }}</h3>
 
   <div class="poet-section">
-
-
-  {% if introduction %}
-  <h4>Introduction</h4>
-  <p>{% for line in introduction.split('\n') %}{{ line }}<br>{% endfor %}</p>
-  {% endif %}
-
+    
+    {% if introduction %}
+    <h4>An Introduction</h4>
+    <p>{{ introduction | replace('\n', '<br><br>') | safe }}</p>
+    {% endif %}
 
 
     {% if poetry %}
