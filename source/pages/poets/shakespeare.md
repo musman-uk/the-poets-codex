@@ -10,7 +10,7 @@ poetry:
     original: |
         Shall I compare thee to a summer's day
         Thou art more lovely and more temperate:
-    translation: |
+    interpretation: |
         Should I compare you to a summer day
         You are gentler and more beautiful
 
@@ -18,7 +18,7 @@ poetry:
     original: |
         Let me not to the marriage of true minds
         Admit impediments
-    translation: |
+    interpretation: |
         I will not claim that true and steady love
         Can be blocked by anything
 
