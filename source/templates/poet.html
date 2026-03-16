@@ -73,7 +73,6 @@ body {
   font-size: 1.05rem;
   line-height: 1.55;
 
-  /* fade visible immediately */
   -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
   mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
   -webkit-mask-size: 100% 100%;
@@ -216,9 +215,19 @@ document.addEventListener("DOMContentLoaded", () => {
       <pre>{{ poem.original }}</pre>
       {% endif %}
 
+      {% if poem.transliteration %}
+      <p class="label-small"><strong>Transliteration</strong></p>
+      <pre>{{ poem.transliteration }}</pre>
+      {% endif %}
+
       {% if poem.translation %}
       <p class="label-small"><strong>Translation</strong></p>
       <pre>{{ poem.translation }}</pre>
+      {% endif %}
+
+      {% if poem.interpretation %}
+      <p class="label-small"><strong>Interpretation</strong></p>
+      <pre>{{ poem.interpretation }}</pre>
       {% endif %}
 
     {% endfor %}
