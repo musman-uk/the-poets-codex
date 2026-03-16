@@ -112,8 +112,8 @@ body {
   font-size: 0.95rem;
   opacity: 0.9;
   font-style: italic;
-  margin-top: 0.2rem;
-  margin-bottom: 0.6rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0.8rem;
 }
 
 /* --- Back button --- */
@@ -202,14 +202,9 @@ document.addEventListener("DOMContentLoaded", () => {
     <p>{{ introduction | replace('\n', '<br><br>') | safe }}</p>
     {% endif %}
 
-
     {% if poetry %}
     <h4>Poetry</h4>
     {% for poem in poetry %}
-
-      {% if poem.source %}
-      <p class="source-note">From {{ poem.source }}</p>
-      {% endif %}
 
       {% if poem.original %}
       <p class="label-small"><strong>Original</strong></p>
@@ -229,6 +224,10 @@ document.addEventListener("DOMContentLoaded", () => {
       {% if poem.interpretation %}
       <p class="label-small"><strong>Interpretation</strong></p>
       <pre>{{ poem.interpretation }}</pre>
+      {% endif %}
+
+      {% if poem.source %}
+      <p class="source-note">From {{ poem.source }}</p>
       {% endif %}
 
     {% endfor %}
