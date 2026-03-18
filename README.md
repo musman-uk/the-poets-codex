@@ -41,4 +41,4 @@ The project is in its earliest phase, with structure, templates, and generation 
 
 <sub>© Mohammed Usman</sub>
 
-<sub>All rights reserved. No commercial use, redistribution, or modification.</sub>
+<sub>All rights reserved. No commercial use, redistribution, or derivatives.</sub>
