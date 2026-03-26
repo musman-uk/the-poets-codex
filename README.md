@@ -11,7 +11,9 @@ A short summary of what each part of the project contains:
 - `source/` – Markdown pages and HTML templates used to generate the site  
 - `docs/` – the generated static site ready for deployment  
 - `assets/` – fonts, images, and supporting files  
-- `RECORD.md` – consolidated technical record of design style for the project
+- `build.py` – Python build script that compiles Markdown and templates into static HTML  
+- `requirements.txt` – Python dependencies required for the build process  
+- `RECORD.md` – consolidated technical record of design style, development process, milestones, and roadmap  
 - `README.md` – main overview of the project  
 - `.github/workflows/` – automated workflow that runs the build process
 
