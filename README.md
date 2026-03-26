@@ -11,15 +11,13 @@ A short summary of what each part of the project contains:
 - `source/` – Markdown pages and HTML templates used to generate the site  
 - `docs/` – the generated static site ready for deployment  
 - `assets/` – fonts, images, and supporting files  
+- `RECORD.md` – consolidated technical record of design style for the project
 - `README.md` – main overview of the project  
-- `ROADMAP.md` – planned development and future directions  
-- `DEVLOG.md` – notes on changes, iterations, and build progress  
-- `DESIGN-NOTES.md` – design philosophy, layout decisions, and rationale  
 - `.github/workflows/` – automated workflow that runs the build process
 
 ---
 
-## Development Process
+## Development Overview
 
 A simplified view of how the website is being developed:
 
