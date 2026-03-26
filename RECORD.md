@@ -1,9 +1,5 @@
 # RECORD
 
-A consolidated technical record covering design constraints, architectural decisions, version history, and planned work for The Poets Codex.
-
----
-
 ## 1. Design Style
 
 ### Reading Environment
