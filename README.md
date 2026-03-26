@@ -10,6 +10,7 @@ A short summary of what each part of the project contains:
 
 - `.github/workflows/` – automated workflow that runs the build process  
 - `docs/` – the generated static site ready for deployment  
+- `releases/` – optional snapshots of the site for versioned or archived builds  
 - `source/` – Markdown pages and HTML templates used to generate the site  
 - `.gitignore` – patterns specifying files and directories excluded from version control  
 - `RECORD.md` – consolidated technical record of design style, development process, milestones, and roadmap  
