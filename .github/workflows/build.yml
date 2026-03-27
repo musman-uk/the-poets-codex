@@ -1,9 +1,7 @@
 name: Build Site
 
 on:
-  workflow_dispatch:        # Manual trigger
-  # pull_request:
-  #   branches: [ main ]    # Uncomment later when you want PR-based builds
+  workflow_dispatch:       
 
 permissions:
   contents: write
