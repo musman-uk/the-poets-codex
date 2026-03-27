@@ -7,12 +7,8 @@
 <title>The Poets Codex</title>
 
 <style>
-:root {
-  color-scheme: light;
-  forced-color-adjust: none;
-}
 
-/* --- Wooden desk background --- */
+/* --- Wooden desk background (light mode) --- */
 body {
   margin: 0;
   padding: 0;
@@ -33,7 +29,7 @@ body {
   color: #3b2a22;
 }
 
-/* --- Frame --- */
+/* --- Frame (light parchment) --- */
 .codex-frame {
   width: min(420px, 90vw);
   height: 85vh;
@@ -101,7 +97,7 @@ body {
   text-decoration: underline;
 }
 
-/* --- Signature (hidden until scroll end) --- */
+/* --- Signature (revealed at bottom) --- */
 .signature {
   width: 100%;
   text-align: right;
@@ -155,6 +151,54 @@ body {
 .back-button:active {
   transform: translateX(-1.5rem) translateY(1px);
 }
+
+/* ------------------------------------------------------ */
+/* ---------------------- Dark mode ---------------------- */
+/* ------------------------------------------------------ */
+
+@media (prefers-color-scheme: dark) {
+
+  /* Desk background (same across all pages) */
+  body {
+    background: #c2a06f;
+    background-image:
+      radial-gradient(circle at 20% 40%, rgba(0,0,0,0.12), transparent 60%),
+      radial-gradient(circle at 80% 70%, rgba(0,0,0,0.10), transparent 70%),
+      radial-gradient(circle at center, transparent 55%, rgba(0,0,0,0.55) 100%);
+  }
+
+  /* Dark parchment */
+  .codex-frame {
+    background: #c9b08a;
+    background-image:
+      linear-gradient(to bottom, rgba(255,255,255,0.25), rgba(255,255,255,0.05));
+
+    box-shadow:
+      inset 0 0 32px rgba(0,0,0,0.40),
+      inset 0 0 14px rgba(0,0,0,0.18),
+      0 0 24px rgba(0,0,0,0.40),
+      0 0 0 2px rgba(0,0,0,0.25);
+  }
+
+  /* Text colour */
+  body,
+  .preface-text,
+  .preface-text p {
+    color: #2e221b;
+  }
+
+  /* Links */
+  .preface-text a,
+  .signature a {
+    color: #2e221b;
+  }
+
+  .preface-text a:hover,
+  .signature a:hover {
+    color: #8a6a4e;
+  }
+}
+
 </style>
 
 <script>
@@ -170,22 +214,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const atBottom =
       scrollArea.scrollTop + scrollArea.clientHeight >= scrollArea.scrollHeight - 1;
 
-    /* Fade behaviour (same as Contents page) */
     if (atBottom) {
       scrollArea.style.webkitMaskImage = "none";
       scrollArea.style.maskImage = "none";
+      signature.style.visibility = "visible";
+      signature.style.opacity = "1";
     } else {
       scrollArea.style.webkitMaskImage =
         "linear-gradient(to bottom, black 60%, transparent 100%)";
       scrollArea.style.maskImage =
         "linear-gradient(to bottom, black 60%, transparent 100%)";
-    }
-
-    /* Signature behaviour */
-    if (atBottom) {
-      signature.style.visibility = "visible";
-      signature.style.opacity = "1";
-    } else {
       signature.style.visibility = "hidden";
       signature.style.opacity = "0";
     }
@@ -204,24 +242,22 @@ document.addEventListener("DOMContentLoaded", () => {
   <h2>Preface</h2>
 
   <div class="preface-text">
-
     <p>
       The Poets Codex brings esteemed poets from across history together. Their respective languages, worlds 
       and beliefs would have differed, but their words and ideas warmly welcome each other. Although the poets might 
       never have crossed paths, they can be brought together here. It is as if they are in a room and 
       we are the ones walking into it and inhabiting it, however briefly, with them.
     </p>
-
   </div>
 
   <div class="signature">
     <a href="https://github.com/musman-uk" target="_blank">Mohammed Usman</a><br>
   </div>
-  
-  <div class="license">© Mohammed Usman<br>
-    <br> All rights reserved. No commercial use, redistribution, or derivatives.
-  </div>
 
+  <div class="license">
+    © Mohammed Usman<br><br>
+    All rights reserved. No commercial use, redistribution, or derivatives.
+  </div>
 
   <a onclick="goBack()" class="back-button">Back</a>
 
