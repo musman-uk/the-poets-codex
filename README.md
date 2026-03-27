@@ -35,8 +35,7 @@ A simplified view of how the website is being developed:
 
 ## Status
 
-Version `0.0.0` – Draft  
-The project is in its earliest phase, with structure, templates, and generation logic being established.
+Version ``1.0.0` – Published  
 
 ---
 
