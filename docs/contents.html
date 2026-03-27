@@ -7,12 +7,8 @@
 <title>The Poets Codex</title>
 
 <style>
-:root {
-  color-scheme: light;
-  forced-color-adjust: none;
-}
 
-/* --- Wooden desk background (same as cover) --- */
+/* --- Wooden desk background (light mode) --- */
 body {
   margin: 0;
   padding: 0;
@@ -33,7 +29,7 @@ body {
   color: #3b2a22;
 }
 
-/* --- Interior frame (same dimensions as cover) --- */
+/* --- Interior frame (light mode parchment) --- */
 .codex-frame {
   width: min(420px, 90vw);
   height: 85vh;
@@ -68,20 +64,18 @@ body {
   font-weight: 600;
 }
 
-/* --- Scrollable contents section with fade + invisible scrollbar --- */
+/* --- Scrollable contents section --- */
 .contents-section {
   width: 100%;
   flex: 1;
   overflow-y: auto;
   margin-top: 1rem;
 
-  /* fade visible immediately */
   -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
   mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
 
-  /* invisible scrollbar */
   scrollbar-width: none;
 }
 
@@ -96,7 +90,7 @@ body {
   font-weight: 600;
 }
 
-/* --- Unified link styling (lighter on hover, no bolding) --- */
+/* --- Unified link styling --- */
 .contents-section a,
 .preface-link {
   text-decoration: none;
@@ -107,8 +101,8 @@ body {
 
 .contents-section a:hover,
 .preface-link:hover {
-  color: #7a5a42;          /* lighter + warmer */
-  letter-spacing: 0.4px;   /* subtle emphasis */
+  color: #7a5a42;
+  letter-spacing: 0.4px;
   text-decoration: underline;
 }
 
@@ -131,7 +125,7 @@ body {
   border-bottom: 1px solid #b8a78f;
 }
 
-/* --- Close button (unchanged) --- */
+/* --- Close button --- */
 .close-button {
   padding: clamp(0.55rem, 2vw, 0.9rem) clamp(1.2rem, 4vw, 1.8rem);
   font-size: clamp(1rem, 4vw, 1.3rem);
@@ -155,7 +149,6 @@ body {
   border-radius: 4px;
   text-decoration: none;
   cursor: pointer;
-  margin: 2rem;
 
   box-shadow:
     inset 0 0 6px rgba(255,255,255,0.2),
@@ -182,6 +175,52 @@ body {
     0 0 10px rgba(255,220,150,0.5);
   transform: translateY(1px);
 }
+
+/* ------------------------------------------------------ */
+/* ------------------- Dark mode ----------------------- */
+/* ------------------------------------------------------ */
+
+@media (prefers-color-scheme: dark) {
+
+  /* Darker desk background (same as index dark mode) */
+  body {
+    background: #c2a06f;
+    background-image:
+      radial-gradient(circle at 20% 40%, rgba(0,0,0,0.12), transparent 60%),
+      radial-gradient(circle at 80% 70%, rgba(0,0,0,0.10), transparent 70%),
+      radial-gradient(circle at center, transparent 55%, rgba(0,0,0,0.55) 100%);
+  }
+
+  /* Darker parchment interior */
+  .codex-frame {
+    background: #c9b08a;
+    background-image:
+      linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.25),
+        rgba(255,255,255,0.05)
+      );
+
+    box-shadow:
+      inset 0 0 32px rgba(0,0,0,0.40),
+      inset 0 0 14px rgba(0,0,0,0.18),
+      0 0 24px rgba(0,0,0,0.40),
+      0 0 0 2px rgba(0,0,0,0.25);
+  }
+
+  /* Dark-mode text colour */
+  body,
+  .contents-section a,
+  .preface-link {
+    color: #2e221b;
+  }
+
+  .contents-section a:hover,
+  .preface-link:hover {
+    color: #8a6a4e;
+  }
+}
+
 </style>
 
 <script>
@@ -221,7 +260,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   <div class="contents-section">
 
-    <!-- Preface as an h3 link -->
     <h3><a href="preface.html" class="preface-link">Preface</a></h3>
 
     <h3>Poets</h3>
