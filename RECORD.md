@@ -63,22 +63,18 @@
 
 ## 4. Version History
 
-### Unreleased
+### v0.0.0 - Draft
 - Added foundational templates and layout system  
-- Drafted Home, About, and Poets pages  
+- Drafted index, contents, preface, and poets pages  
 - Implemented early build pipeline  
 - Introduced design constraints and structural principles  
-
-(Versioning begins at first full release.)
-
----
-
-## 5. Roadmap
 
 ### v1.0.0 — First Release
 - Populate Poets section with initial entries  
 - Finalise metadata schema (`metadata.json`)  
 - Add cross‑links between related poets/themes  
 - Ensure stable static generation across all content  
-- Prepare structure for incremental expansion  
+- Prepare structure for incremental expansion
+
+---
 
