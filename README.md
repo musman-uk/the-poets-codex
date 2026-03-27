@@ -1,6 +1,6 @@
 # The Poets Codex
 
-This repository contains The Poets Codex, which is a website aiming to bring together a curated set of esteemed poets.
+This repository contains [The Poets Codex](https://musman-uk.github.io/the-poets-codex/), which is a website aiming to bring together a curated set of esteemed poets.
 
 ---
 
