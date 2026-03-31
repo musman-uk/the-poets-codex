@@ -5,46 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="icon" type="image/png" href="/the-poets-codex/assets/images/favicon.png">
+
 <title>The Poets Codex</title>
 
 <style>
 
-/* ------------------------------------------------------ */
-/* ------------------ THEME VARIABLES ------------------- */
-/* ------------------------------------------------------ */
-
-/* Default = DARK (for everyone) */
-:root {
-  --bg: #18110a;
-  --cover: #241a0d;
-
-  --button-border: #e8c98a;
-  --button-text: #e8c98a;
-
-  --gold-1: #fff4d0;
-  --gold-2: #d4a84f;
-  --gold-3: #f7e7b5;
-
-  --strap: #4f3a26;
-}
-
-/* LIGHT MODE — only for non-Samsung browsers */
-@media (prefers-color-scheme: light) {
-  :root:not(.samsung) {
-    --bg: #d5b485;
-    --cover: #6a4a2c;
-
-    --button-border: #f5d99c;
-    --button-text: #f5d99c;
-
-    --strap: #4f3a26;
-  }
-}
-
-/* ------------------------------------------------------ */
-/* ------------------- BASE STYLING --------------------- */
-/* ------------------------------------------------------ */
-
+/* --- Wooden desk background (light mode) --- */
 body {
   margin: 0;
   padding: 0;
@@ -54,7 +20,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  background: var(--bg);
+  background: #d5b485;
   background-image:
     radial-gradient(circle at 20% 40%, rgba(0,0,0,0.07), transparent 60%),
     radial-gradient(circle at 80% 70%, rgba(0,0,0,0.05), transparent 70%),
@@ -64,12 +30,13 @@ body {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
+/* --- Portrait book cover frame (light mode) --- */
 .cover-frame {
   width: min(420px, 90vw);
   height: 85vh;
   padding: 2rem;
 
-  background: var(--cover);
+  background: #6a4a2c;
 
   background-image:
     repeating-linear-gradient(
@@ -101,6 +68,7 @@ body {
   gap: clamp(2.8rem, 8vw, 5rem);
 }
 
+/* --- Title --- */
 .gold-title {
   font-size: clamp(2rem, 7vw, 2.6rem);
   letter-spacing: clamp(0.06em, 0.4vw, 0.15em);
@@ -112,11 +80,11 @@ body {
 
   background: linear-gradient(
     90deg,
-    var(--gold-1) 0%,
-    var(--gold-2) 20%,
-    var(--gold-3) 50%,
-    var(--gold-2) 80%,
-    var(--gold-1) 100%
+    #fff4d0 0%,
+    #d4a84f 20%,
+    #f7e7b5 50%,
+    #d4a84f 80%,
+    #fff4d0 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -127,6 +95,7 @@ body {
     2px 2px 6px rgba(0,0,0,0.7);
 }
 
+/* --- Thin right-side leather strap --- */
 .footer {
   position: relative;
   width: 100%;
@@ -144,7 +113,7 @@ body {
   width: clamp(120px, 35vw, 160px);
   height: clamp(18px, 2.6vw, 24px);
 
-  background: var(--strap);
+  background: #4f3a26;
   border-radius: 4px;
 
   background-image:
@@ -167,6 +136,7 @@ body {
     inset 0 0 12px rgba(0,0,0,0.25);
 }
 
+/* --- Open button --- */
 .open-button {
   position: relative;
   z-index: 2;
@@ -179,8 +149,8 @@ body {
   font-size: clamp(1rem, 4vw, 1.3rem);
   line-height: 1;
 
-  border: 1px solid var(--button-border);
-  color: var(--button-text);
+  border: 1px solid #f5d99c;
+  color: #f5d99c;
   text-decoration: none;
 
   box-shadow:
@@ -191,31 +161,75 @@ body {
 }
 
 .open-button:hover {
-  background: var(--button-border);
-  color: var(--cover);
+  background: #f5d99c;
+  color: #6a4a2c;
   box-shadow:
     inset 0 0 10px rgba(0,0,0,0.35),
-    0 0 14px rgba(169, 141, 84, 0.6);
+    0 0 14px rgba(255,220,150,0.6);
+}
+
+/* ------------------------------------------------------ */
+/* ------------------- Dark mode ----------------------- */
+/* ------------------------------------------------------ */
+
+@media (prefers-color-scheme: dark) {
+
+  /* Deep night desk background (same as Contents) */
+  body {
+    background: #62482a;
+    background-image:
+      radial-gradient(circle at 20% 40%, rgba(0,0,0,0.25), transparent 60%),
+      radial-gradient(circle at 80% 70%, rgba(0,0,0,0.20), transparent 70%),
+      radial-gradient(circle at center, transparent 55%, rgba(0,0,0,0.70) 100%);
+  }
+
+  /* Darker leather cover */
+  .cover-frame {
+    background: #3a2a18;
+    background-image:
+      repeating-linear-gradient(
+        90deg,
+        rgba(255,255,255,0.02) 0px,
+        rgba(255,255,255,0.02) 2px,
+        rgba(0,0,0,0.18) 3px,
+        rgba(0,0,0,0.18) 5px
+      ),
+      radial-gradient(circle at 25% 30%, rgba(255,255,255,0.06), transparent 60%),
+      radial-gradient(circle at 75% 70%, rgba(255,255,255,0.04), transparent 70%),
+      linear-gradient(135deg, rgba(0,0,0,0.65), rgba(0,0,0,0.85));
+
+    box-shadow:
+      inset 0 0 30px rgba(0,0,0,0.65),
+      inset 0 0 50px rgba(0,0,0,0.45),
+      0 0 50px rgba(0,0,0,0.75);
+  }
+
+  /* Button tuned for darker environment */
+  .open-button {
+    border-color: #e8c98a;
+    color: #e8c98a;
+  }
+
+  .open-button:hover {
+    background: #e8c98a;
+    color: #3a2a18;
+  }
 }
 
 </style>
-</head>
 
+</head>
 <body>
 
 <div class="cover-frame">
+
   <h1 class="gold-title">The Poets Codex</h1>
+
   <div class="footer">
     <a href="contents.html" class="open-button">Open</a>
   </div>
-</div>
 
-<script>
-/* Detect Samsung Internet */
-if (navigator.userAgent.includes("SamsungBrowser")) {
-  document.documentElement.classList.add("samsung");
-}
-</script>
+</div>
 
 </body>
 </html>
