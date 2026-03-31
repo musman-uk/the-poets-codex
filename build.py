@@ -3,6 +3,7 @@ import yaml
 import markdown
 from pathlib import Path
 from jinja2 import Template
+import shutil  # ← ADDED
 
 # paths
 ROOT = Path(__file__).parent
@@ -11,6 +12,9 @@ TEMPLATES = SOURCE / "templates"
 POETS_SRC = SOURCE / "pages" / "poets"
 DOCS = ROOT / "docs"
 POETS_OUT = DOCS / "poets"
+
+ASSETS_SRC = SOURCE / "assets"        # ← ADDED
+ASSETS_OUT = DOCS / "assets"          # ← ADDED
 
 # ensure output directories exist
 POETS_OUT.mkdir(parents=True, exist_ok=True)
@@ -134,6 +138,14 @@ def build_cover():
     (DOCS / "index.html").write_text(index_template, encoding="utf-8")
 
 
+# -----------------------------
+# ADDED: Copy assets directory
+# -----------------------------
+def copy_assets():
+    if ASSETS_SRC.exists():
+        shutil.copytree(ASSETS_SRC, ASSETS_OUT, dirs_exist_ok=True)
+
+
 def main():
     print("Building The Poets Codex...")
 
@@ -141,6 +153,7 @@ def main():
     build_contents(poets_data)
     build_preface()
     build_cover()
+    copy_assets()   # ← ADDED
 
     print("Build complete.")
 
