@@ -63,16 +63,12 @@
 
 ## 4. Version History
 
-### v0.0.0 - Draft
+### v1.0.0 - Published
 - Added foundational templates and layout system  
 - Drafted index, contents, preface, and poets pages  
 - Implemented early build pipeline  
-- Introduced design constraints and structural principles  
-
-### v1.0.0 — First Release
-- Populate Poets section with initial entries  
-- Ensure stable static generation across all content  
-- Prepare structure for incremental expansion
-
----
+- Introduced design constraints and structural principles
+- Populated Poets section with initial entries  
+- Ensured stable static generation across all content  
+- Prepared structure for incremental expansion
 
