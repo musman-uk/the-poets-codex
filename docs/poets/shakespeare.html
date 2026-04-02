@@ -10,11 +10,14 @@
 
   <style>
     /* --- Wooden desk background (light mode) --- */
-    body {
+    html, body {
+      height: 100%;
       margin: 0;
-      padding: 0;
-      height: 100vh;
+      overflow: hidden;
+      overscroll-behavior: none;
+    }
 
+    body {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -30,15 +33,19 @@
       color: #3b2a22;
     }
 
-    /* --- Codex frame (light parchment) --- */
+    /* --- Codex frame (match Preface/Contents proportions) --- */
     .codex-frame {
-      width: min(420px, 90vw);
-      height: 85vh;
+      width: min(420px, 100vw);
+      height: min(700px, 100vh);
+
+      max-width: 420px;
+      max-height: 700px;
+
       padding: 2rem;
 
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
 
       background: #ddc8a9;
@@ -56,18 +63,19 @@
 
     /* --- Poet title --- */
     .poet-title {
-      margin: 0;
+      margin-top: 1.2rem;
       font-size: 1.6rem;
       font-weight: 600;
       text-align: center;
     }
 
-    /* --- Scrollable poet content --- */
+    /* --- Scrollable poet content (with fade) --- */
     .poet-section {
       width: 100%;
       flex: 1;
       overflow-y: auto;
       margin-top: 1rem;
+
       font-size: 1.05rem;
       line-height: 1.55;
 
@@ -115,7 +123,7 @@
       margin-bottom: 0.8rem;
     }
 
-    /* --- Back button --- */
+    /* --- Back button (raised, centered like Preface) --- */
     .back-button {
       padding: clamp(0.2rem, 1.4vw, 0.7rem) clamp(0.2rem, 3vw, 1.3rem);
       font-size: clamp(0.85rem, 3vw, 1.1rem);
@@ -134,9 +142,9 @@
 
       transition: background 0.25s, color 0.25s, box-shadow 0.25s, transform 0.1s;
 
-      align-self: flex-start;
-      transform: translateX(-1.5rem);
-      margin-bottom: -1.7rem;
+      align-self: center;
+      margin-top: 1.2rem;
+      margin-bottom: 1rem;
     }
 
     .back-button:hover {
@@ -144,13 +152,9 @@
       color: #6a4a2c;
     }
 
-    /* ------------------------------------------------------ */
     /* ------------------- Dark theme ------------------------ */
-    /* ------------------------------------------------------ */
-
     @media (prefers-color-scheme: dark) {
 
-      /* Deep night desk background */
       body {
         background: #62482a;
         background-image:
@@ -160,7 +164,6 @@
         color: #f5e7cf;
       }
 
-      /* Deep parchment interior */
       .codex-frame {
         background: #2a1f12;
         background-image:
@@ -173,27 +176,22 @@
           0 0 0 2px rgba(0,0,0,0.40);
       }
 
-      /* Text colour */
-      body,
       .poet-section,
       .poet-section p,
       .poet-section h4 {
         color: #f5e7cf;
       }
 
-      /* Poem blocks */
       .poet-section pre {
         background: rgba(255,255,255,0.12);
       }
 
-      /* Labels + source notes */
       .label-small,
       .source-note {
         color: #f5e7cf;
         opacity: 0.85;
       }
 
-      /* Back button — dark leather */
       .back-button {
         background: #3a2a18;
         border-color: #e8c98a;
