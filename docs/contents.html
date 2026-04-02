@@ -9,12 +9,16 @@
   <title>Contents</title>
 
   <style>
+    /* Make percentage heights meaningful + prevent scroll */
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      overscroll-behavior: none;
+    }
+
     /* --- Wooden desk background (light mode) --- */
     body {
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-
       display: flex;
       justify-content: center;
       align-items: center;
@@ -30,16 +34,19 @@
       color: #3b2a22;
     }
 
-    /* --- Interior frame (light parchment) --- */
+    /* --- Codex frame (full cover on phone, centered card on desktop) --- */
     .codex-frame {
-      width: min(420px, 90vw);
-      height: 85vh;
+      width: min(420px, 100vw);
+      height: min(700px, 100vh);
+
+      max-width: 420px;
+      max-height: 700px;
+
       padding: 2rem;
 
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
+      justify-content: space-evenly;
 
       background: #ddc8a9;
       background-image:
@@ -61,8 +68,10 @@
     /* --- Contents title --- */
     .codex-frame h2 {
       margin: 0;
+      margin-top: 1.2rem; /* lowered slightly */
       font-size: 1.6rem;
       font-weight: 600;
+      text-align: center;
     }
 
     /* --- Scrollable contents section --- */
@@ -70,7 +79,7 @@
       width: 100%;
       flex: 1;
       overflow-y: auto;
-      margin-top: 1rem;
+      margin-top: 0.5rem;
 
       -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
       mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
@@ -85,8 +94,8 @@
     }
 
     .contents-section h3 {
-      margin-top: 1.2rem;
-      margin-bottom: 0.6rem;
+      margin-top: 1.6em;
+      margin-bottom: 1.5rem;
       font-size: 1.1rem;
       font-weight: 600;
     }
@@ -126,8 +135,14 @@
       border-bottom: 1px solid #b8a78f;
     }
 
-    /* --- Close button (light mode) --- */
+    /* --- Close button (compact, centered) --- */
     .close-button {
+      width: auto;
+      align-self: center;
+      display: inline-block;
+
+      margin-bottom: 0.7rem; /* raised slightly */
+
       padding: clamp(0.55rem, 2vw, 0.9rem) clamp(1.2rem, 4vw, 1.8rem);
       font-size: clamp(1rem, 4vw, 1.3rem);
 
@@ -156,8 +171,6 @@
         0 0 8px rgba(0,0,0,0.45);
 
       transition: background 0.25s, color 0.25s, box-shadow 0.25s, transform 0.1s;
-
-      margin-bottom: -1.7rem;
     }
 
     .close-button:hover {
@@ -174,13 +187,8 @@
       transform: translateY(1px);
     }
 
-    /* ------------------------------------------------------ */
-    /* ------------------- Dark mode ------------------------ */
-    /* ------------------------------------------------------ */
-
+    /* --- Dark mode --- */
     @media (prefers-color-scheme: dark) {
-
-      /* Deep night desk background */
       body {
         background: #62482a;
         background-image:
@@ -190,7 +198,6 @@
         color: #f5e7cf;
       }
 
-      /* Deep parchment interior */
       .codex-frame {
         background: #2a1f12;
         background-image:
@@ -207,7 +214,6 @@
           0 0 0 2px rgba(0,0,0,0.40);
       }
 
-      /* Text inside frame */
       .codex-frame,
       .codex-frame p,
       .codex-frame a,
@@ -221,7 +227,6 @@
         color: #f0d7b0;
       }
 
-      /* --- Close button (dark mode leather) --- */
       .close-button {
         background: #3a2a18;
         border-color: #e8c98a;
