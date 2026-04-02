@@ -9,12 +9,16 @@
   <title>The Poets Codex</title>
 
   <style>
+    /* Make percentage heights meaningful */
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;          /* Prevent scroll */
+      overscroll-behavior: none; /* Prevent bounce */
+    }
+
     /* --- Wooden desk background (light mode) --- */
     body {
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-
       display: flex;
       justify-content: center;
       align-items: center;
@@ -29,10 +33,15 @@
       font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     }
 
-    /* --- Portrait book cover frame (light mode) --- */
+    /* --- Cover frame that adapts to phone + desktop without media queries --- */
     .cover-frame {
-      width: min(420px, 90vw);
-      height: 85vh;
+      /* The magic constraints */
+      width: min(420px, 100vw);   /* Full width on phone, capped on desktop */
+      height: min(700px, 100vh);  /* Full height on phone, capped on desktop */
+
+      max-width: 420px;           /* Desktop card width */
+      max-height: 700px;          /* Desktop card height */
+
       padding: 2rem;
 
       background: #6a4a2c;
@@ -167,13 +176,8 @@
         0 0 14px rgba(255,220,150,0.6);
     }
 
-    /* ------------------------------------------------------ */
-    /* ------------------- Dark mode ------------------------ */
-    /* ------------------------------------------------------ */
-
+    /* --- Dark mode --- */
     @media (prefers-color-scheme: dark) {
-
-      /* Deep night desk background (same as Contents) */
       body {
         background: #62482a;
         background-image:
@@ -182,7 +186,6 @@
           radial-gradient(circle at center, transparent 55%, rgba(0,0,0,0.70) 100%);
       }
 
-      /* Darker leather cover */
       .cover-frame {
         background: #3a2a18;
         background-image:
@@ -203,7 +206,6 @@
           0 0 50px rgba(0,0,0,0.75);
       }
 
-      /* Button tuned for darker environment */
       .open-button {
         border-color: #e8c98a;
         color: #e8c98a;
