@@ -6,7 +6,7 @@ introduction: |
     He wrote with an instinct for the inner life, giving his characters room to think aloud in soliloquies that reveal their doubts, loyalties, and contradictions. His lines move between plain speech and sudden metaphor, carrying the weight of thought and the quickness of feeling. Even now, his words hold true, as if he is watching the world with us and offering language for the things we struggle to name. His work carries the sense that human experience, from the grief of Lear to the hesitation of Hamlet and the small recognitions of everyday people, remains unchanged across time.
 
 poetry:
-  - source: Sonnet 18
+  - source: 1609 Quarto · Sonnet 18
 
     original_label: Englishe – Original Early Modern English
     original: |
@@ -18,7 +18,7 @@ poetry:
         Should I compare you to a summer day?
         You are gentler and more beautiful.
 
-  - source: Hamlet
+  - source: The Tragicall Historie of Hamlet Prince of Denmarke · Hamlet
 
     original_label: Englishe – Original Early Modern English
     original: |
@@ -28,7 +28,7 @@ poetry:
     modern: |
         To live or not to live – that is the question.
 
-  - source: King Lear
+  - source: His True Chronicle Historie of the life and death of King Lear and his three Daughters · King Lear
 
     original_label: Englishe – Original Early Modern English
     original: |
