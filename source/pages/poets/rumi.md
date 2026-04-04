@@ -2,7 +2,7 @@ title: Mawlānā Jalal al-Din Rumi
 
 language: Persian
 script_label: فارسی
-language_code: fa
+
 
 introduction: |
     Mawlānā Jalal al-Din Rumi – affectionately known in the western hemisphere as simply Rumi, is remembered with the honorific Mawlānā, a title meaning "our master" and given to him in recognition of his spiritual insight, his teaching, and the depth of his presence within the Sufi tradition. He lived in the thirteenth-century Persian world, a landscape shaped by scholarship, wandering mystics, and the fruits of the Islamic Golden Age. His work later inspired the Mevlevi order of dervishes, whose turning became a form of devotion.
