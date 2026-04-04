@@ -13,8 +13,8 @@ poetry:
         Shall I compare thee to a summer's day?
         Thou art more lovely and more temperate:
 
-    translation_label: Modern English Translation
-    translation: |
+    modern_label: Modern English
+    modern: |
         Should I compare you to a summer day?
         You are gentler and more beautiful.
 
@@ -24,8 +24,8 @@ poetry:
     original: |
         To be, or not to be — that is the question.
 
-    translation_label: Modern English Translation
-    translation: |
+    modern_label: Modern English
+    modern: |
         To live or not to live — that is the question.
 
   - source: King Lear
@@ -34,11 +34,11 @@ poetry:
     original: |
         Nothing will come of nothing.
 
-    translation_label: Modern English Translation
-    translation: |
+    modern_label: Modern English
+    modern: |
         If you say nothing, nothing can follow from it.
 
 suggested_reading:
-  - Sonnets – a collection that reveals his most intimate reflections on love and time
+  - Sonnets – a collection that gathers his most intimate reflections on love, time, and the inner life
   - Hamlet – a play where grief sharpens thought until action falters, turning conscience into its own obstacle
   - King Lear – a tragedy that explores loyalty, loss, and the unraveling of a kingdom
