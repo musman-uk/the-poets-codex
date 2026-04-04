@@ -8,7 +8,7 @@ introduction: |
 poetry:
   - source: Sonnet 18
 
-    original_label: Original Early Modern English
+    original_label: Englishe – Original Early Modern English
     original: |
         Shall I compare thee to a summer's day?
         Thou art more lovely and more temperate:
@@ -20,7 +20,7 @@ poetry:
 
   - source: Hamlet
 
-    original_label: Original Early Modern English
+    original_label: Englishe – Original Early Modern English
     original: |
         To be, or not to be – that is the question.
 
@@ -30,7 +30,7 @@ poetry:
 
   - source: King Lear
 
-    original_label: Original Early Modern English
+    original_label: Englishe – Original Early Modern English
     original: |
         Nothing will come of nothing.
 
