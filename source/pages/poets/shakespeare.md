@@ -21,8 +21,8 @@ poetry:
   - source: Hamlet
 
     original_label: Original Early Modern English
-        To be, or not to be – that is the question.
     original: |
+        To be, or not to be – that is the question.
 
     modern_label: Modern English
     modern: |
