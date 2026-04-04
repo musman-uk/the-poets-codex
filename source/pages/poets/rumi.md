@@ -8,7 +8,7 @@ introduction: |
 poetry:
   - source: دیوان شمس تبریزی · Divan-e Shams-e Tabrizi · The Collected Poems of Shams of Tabriz
 
-    original_label: Original Persian – فارسی
+    original_label: فارسی – Original Persian
     original: |
         عشق آمد و شد چو خونم اندر رگ و پوست
         تا کرد مرا تهی، چو کرد مرا درست
@@ -25,7 +25,7 @@ poetry:
 
   - source: مثنوی معنوی · Masnavi-ye Ma’navi · The Spiritual Masnavi
 
-    original_label: Original Persian – فارسی
+    original_label: فارسی – Original Persian
     original: |
         ز رنجِ خار و سوزن، گل شکفتن‌هاست
         ز زخمِ تیغ، بر دل نورِ رحمت‌هاست
@@ -42,7 +42,7 @@ poetry:
 
   - source: فیه ما فیه · Fihi Ma Fihi · In It Is What Is In It
 
-    original_label: Original Persian – فارسی
+    original_label: فارسی – Original Persian
     original: |
         محبت دل را زنده می‌گرداند و دردها را دوا می‌کند؛
         که بی‌محبت هیچ دردی درمان نگیرد.
