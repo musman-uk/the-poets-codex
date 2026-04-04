@@ -78,8 +78,6 @@ def build_poet_pages():
             introduction=front.get("introduction"),
             poetry=front.get("poetry"),
             suggested_reading=front.get("suggested_reading"),
-            language=front.get("language"),
-            script_label=front.get("script_label")
         )
 
         # Write output
