@@ -7,44 +7,56 @@ introduction: |
 
 poetry:
   - source: دیوان شمس تبریزی · Divan-e Shams-e Tabrizi · The Collected Poems of Shams of Tabriz
-    language: Persian
-    script: فارسی
+
+    original_label: Original Persian – فارسی
     original: |
         عشق آمد و شد چو خونم اندر رگ و پوست
         تا کرد مرا تهی، چو کرد مرا درست
+
+    transliteration_label: Romanised Transliteration
     transliteration: |
         Eshq āmad o shod cho khūnam andar rag o pūst
         Tā kard marā tahī, cho kard marā dorost
+
+    translation_label: English Translation
     translation: |
         Love came and flowed like blood through my veins and skin.
         It emptied me out, and in emptying me, it made me whole.
 
   - source: مثنوی معنوی · Masnavi-ye Ma’navi · The Spiritual Masnavi
-    language: Persian
-    script: فارسی
+
+    original_label: Original Persian – فارسی
     original: |
         ز رنجِ خار و سوزن، گل شکفتن‌هاست
         ز زخمِ تیغ، بر دل نورِ رحمت‌هاست
+
+    transliteration_label: Romanised Transliteration
     transliteration: |
         Ze ranj-e khār o sozan, gol shekoftan-hā-st
         Ze zakhm-e tīgh, bar del nūr-e rahmat-hā-st
+
+    translation_label: English Translation
     translation: |
         From the pain of thorns and needles, flowers open.
         From the wound of the blade, the heart receives the light of mercy.
 
   - source: فیه ما فیه · Fihi Ma Fihi · In It Is What Is In It
-    language: Persian
-    script: فارسی
+
+    original_label: Original Persian – فارسی
     original: |
         محبت دل را زنده می‌گرداند و دردها را دوا می‌کند؛
         که بی‌محبت هیچ دردی درمان نگیرد.
         هر کجا محبت باشد، زندگی باشد؛
         و هر کجا محبت نباشد، مرگ باشد.
+
+    transliteration_label: Romanised Transliteration
     transliteration: |
         Mahabbat del rā zende mī-gardānad va dardhā rā davā mī-konad;
         ke bī-mahabbat hīch dardī darmān nagīrad.
         Har kojā mahabbat bāshad, zendegī bāshad;
         va har kojā mahabbat nabāshad, marg bāshad.
+
+    translation_label: English Translation
     translation: |
         Love revives the heart and cures its pains,
         for without love no pain is ever healed.
