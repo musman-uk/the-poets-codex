@@ -8,7 +8,7 @@ introduction: |
 poetry:
   - source: بانگِ درا · Bang‑e‑Dra · The Call of the Marching Bell
 
-    original_label: Original Urdu – اُردُو
+    original_label: اُردُو – Original Urdu
     original: |
         خودی کو کر بلند اتنا کہ ہر تقدیر سے پہلے
         خدا بندے سے خود پوچھے بتا تیری رضا کیا ہے
@@ -27,7 +27,7 @@ poetry:
 
   - source: بالِ جبریل · Bal‑e‑Jibril · Gabriel’s Wing
 
-    original_label: Original Urdu – اُردُو
+    original_label: اُردُو – Original Urdu
     original: |
         ستاروں سے آگے جہاں اور بھی ہیں
         ابھی عشق کے امتحاں اور بھی ہیں
@@ -44,7 +44,7 @@ poetry:
 
   - source: اسرارِ خودی · Asrār‑e‑Khudī · Secrets of the Self
 
-    original_label: Original Persian – فارسی
+    original_label: فارسی – Original Persian
     original: |
         خودی سوز است، سوز او ساز است
         جهانِ او زِ سوزِ او تاز است
