@@ -3,7 +3,7 @@ import yaml
 import markdown
 from pathlib import Path
 from jinja2 import Template
-import shutil  # ← ADDED
+import shutil 
 
 # paths
 ROOT = Path(__file__).parent
@@ -77,7 +77,9 @@ def build_poet_pages():
             image=image,
             introduction=front.get("introduction"),
             poetry=front.get("poetry"),
-            suggested_reading=front.get("suggested_reading")
+            suggested_reading=front.get("suggested_reading"),
+            language=front.get("language"),
+            script_label=front.get("script_label")
         )
 
         # Write output
