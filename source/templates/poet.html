@@ -257,28 +257,23 @@
 
           {% if poem.original %}
             <p class="label-small">
-              <strong>Original {{ poem.language }} – {{ poem.script }}</strong>
+              <strong>{{ poem.original_label }}</strong>
             </p>
             <pre>{{ poem.original }}</pre>
           {% endif %}
 
           {% if poem.transliteration %}
             <p class="label-small">
-              <strong>Romanised Transliteration</strong>
+              <strong>{{ poem.transliteration_label }}</strong>
             </p>
             <pre>{{ poem.transliteration }}</pre>
           {% endif %}
 
           {% if poem.translation %}
             <p class="label-small">
-              <strong>English Translation</strong>
+              <strong>{{ poem.translation_label }}</strong>
             </p>
             <pre>{{ poem.translation }}</pre>
-          {% endif %}
-
-          {% if poem.interpretation %}
-            <p class="label-small"><strong>Interpretation</strong></p>
-            <pre>{{ poem.interpretation }}</pre>
           {% endif %}
 
           {% if poem.source %}
