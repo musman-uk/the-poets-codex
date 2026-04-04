@@ -93,8 +93,8 @@
 
     .poet-section h4 {
       margin-top: 1.2rem;
-      margin-bottom: 0.4rem;
-      font-size: 1.1rem;
+      margin-bottom: 0.65rem;
+      font-size: 1.3rem;
       font-weight: 600;
     }
 
@@ -109,9 +109,9 @@
 
     /* --- Smaller labels --- */
     .label-small {
-      font-size: 0.85rem;
+      font-size: 0.95rem;
       opacity: 0.85;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.35rem;
     }
 
     /* --- Poem source note --- */
@@ -120,7 +120,7 @@
       opacity: 0.9;
       font-style: italic;
       margin-top: 0.6rem;
-      margin-bottom: 0.8rem;
+      margin-bottom: 3.2rem;
     }
 
     /* --- Back button (raised, centered like Preface) --- */
@@ -256,17 +256,23 @@
         {% for poem in poetry %}
 
           {% if poem.original %}
-            <p class="label-small"><strong>Original</strong></p>
+            <p class="label-small">
+              <strong>Original {{ language }} – {{ script_label }}</strong>
+            </p>
             <pre>{{ poem.original }}</pre>
           {% endif %}
 
           {% if poem.transliteration %}
-            <p class="label-small"><strong>Transliteration</strong></p>
+            <p class="label-small">
+              <strong>Romanised Transliteration</strong>
+            </p>
             <pre>{{ poem.transliteration }}</pre>
           {% endif %}
 
           {% if poem.translation %}
-            <p class="label-small"><strong>Translation</strong></p>
+            <p class="label-small">
+              <strong>English Translation</strong>
+            </p>
             <pre>{{ poem.translation }}</pre>
           {% endif %}
 
