@@ -7,42 +7,54 @@ introduction: |
 
 poetry:
   - source: بانگِ درا · Bang‑e‑Dra · The Call of the Marching Bell
-    language: Urdu
-    script: اُردُو
+
+    original_label: Original Urdu – اُردُو
     original: |
         خودی کو کر بلند اتنا کہ ہر تقدیر سے پہلے
         خدا بندے سے خود پوچھے بتا تیری رضا کیا ہے
+
+    transliteration_label: Romanised Transliteration
     transliteration: |
         Khudi ko kar buland itna ke har taqdeer se pehle
         Khuda bande se khud pooche, bata teri raza kya hai
+
+    translation_label: English Translation
     translation: |
         Raise your selfhood to such a height
         That before every destiny is written
-        God Himself will ask you
-        Tell Me, what is it that you desire
+        God Himself will ask you:
+        Tell Me, what is it that you desire?
 
   - source: بالِ جبریل · Bal‑e‑Jibril · Gabriel’s Wing
-    language: Urdu
-    script: اُردُو
+
+    original_label: Original Urdu – اُردُو
     original: |
         ستاروں سے آگے جہاں اور بھی ہیں
         ابھی عشق کے امتحاں اور بھی ہیں
+
+    transliteration_label: Romanised Transliteration
     transliteration: |
         Sitaron se aage jahan aur bhi hain
         Abhi ishq ke imtihaan aur bhi hain
+
+    translation_label: English Translation
     translation: |
-        Beyond the stars are worlds still waiting
-        And the trials of love are not yet done
+        Beyond the stars are worlds still waiting,
+        And the trials of love are not yet done.
 
   - source: اسرارِ خودی · Asrār‑e‑Khudī · Secrets of the Self
-    language: Persian
-    script: فارسی
+
+    original_label: Original Persian – فارسی
     original: |
         خودی سوز است، سوز او ساز است
         جهانِ او زِ سوزِ او تاز است
+
+    transliteration_label: Romanised Transliteration
     transliteration: |
         Khudi suz ast, suz‑e u saz ast
         Jahan‑e u ze suz‑e u taz ast
+
+    translation_label: English Translation
     translation: |
         The Self is a flame; its burning is its making,
         And its world is renewed by its fire.
