@@ -1,9 +1,5 @@
 title: Mawlānā Jalal al-Din Rumi
 
-language: Persian
-script_label: فارسی
-
-
 introduction: |
     Mawlānā Jalal al-Din Rumi – affectionately known in the western hemisphere as Rumi, is remembered with the honorific Mawlānā, a title meaning "our master" and given to him in recognition of his spiritual insight, his teaching, and the depth of his presence within the Sufi tradition. He lived in the thirteenth-century Persian world, a landscape shaped by scholarship, wandering mystics, and the fruits of the Islamic Golden Age. His work later inspired the Mevlevi order of dervishes, whose turning became a form of devotion.
 
@@ -11,6 +7,8 @@ introduction: |
 
 poetry:
   - source: دیوان شمس تبریزی · Divan-e Shams-e Tabrizi · The Collected Poems of Shams of Tabriz
+    language: Persian
+    script: فارسی
     original: |
         عشق آمد و شد چو خونم اندر رگ و پوست
         تا کرد مرا تهی، چو کرد مرا درست
@@ -22,6 +20,8 @@ poetry:
         It emptied me out, and in emptying me, it made me whole.
 
   - source: مثنوی معنوی · Masnavi-ye Ma’navi · The Spiritual Masnavi
+    language: Persian
+    script: فارسی
     original: |
         ز رنجِ خار و سوزن، گل شکفتن‌هاست
         ز زخمِ تیغ، بر دل نورِ رحمت‌هاست
@@ -33,6 +33,8 @@ poetry:
         From the wound of the blade, the heart receives the light of mercy.
 
   - source: فیه ما فیه · Fihi Ma Fihi · In It Is What Is In It
+    language: Persian
+    script: فارسی
     original: |
         محبت دل را زنده می‌گرداند و دردها را دوا می‌کند؛
         که بی‌محبت هیچ دردی درمان نگیرد.
