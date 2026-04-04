@@ -6,7 +6,9 @@ introduction: |
     He wrote in a way that moved between longing, awakening, and the search for the self, drawing on the spiritual imagination of Islam and the reflective traditions of Sufi thought. His poetry carries the sense that the human spirit is always in motion, called toward a higher purpose and a deeper awareness. Even now, his words echo near, as if he is urging us to rise, to know ourselves, and to recognise the quiet strength placed within us. His work holds the belief that faith, thought, and action are threads of the same fabric.
 
 poetry:
-  - source: Bang-e-Dra
+  - source: بانگِ درا · Bang‑e‑Dra · The Call of the Marching Bell
+    language: Urdu
+    script: اُردُو
     original: |
         خودی کو کر بلند اتنا کہ ہر تقدیر سے پہلے
         خدا بندے سے خود پوچھے بتا تیری رضا کیا ہے
@@ -19,7 +21,9 @@ poetry:
         God Himself will ask you
         Tell Me, what is it that you desire
 
-  - source: Bal-e-Jibril
+  - source: بالِ جبریل · Bal‑e‑Jibril · Gabriel’s Wing
+    language: Urdu
+    script: اُردُو
     original: |
         ستاروں سے آگے جہاں اور بھی ہیں
         ابھی عشق کے امتحاں اور بھی ہیں
@@ -30,7 +34,20 @@ poetry:
         Beyond the stars are worlds still waiting
         And the trials of love are not yet done
 
+  - source: اسرارِ خودی · Asrār‑e‑Khudī · Secrets of the Self
+    language: Persian
+    script: فارسی
+    original: |
+        خودی سوز است، سوز او ساز است
+        جهانِ او زِ سوزِ او تاز است
+    transliteration: |
+        Khudi suz ast, suz‑e u saz ast
+        Jahan‑e u ze suz‑e u taz ast
+    translation: |
+        The Self is a flame; its burning is its making,
+        And its world is renewed by its fire.
+
 suggested_reading:
-  - Bang-e-Dra, an early collection that traces his movement from reflection to awakening
-  - Bal-e-Jibril, poems that explore the self, the spirit, and the call toward higher purpose
-  - Asrar-e-Khudi, a philosophical work that unfolds his vision of selfhood and inner strength
+  - Bang‑e‑Dra – an early collection that traces his movement from reflection to awakening
+  - Bal‑e‑Jibril – poems that explore the self, the spirit, and the call toward higher purpose
+  - Asrar‑e‑Khudi – a philosophical work that unfolds his vision of selfhood and inner strength
