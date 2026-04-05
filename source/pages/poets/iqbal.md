@@ -1,4 +1,5 @@
 title: Sir Muhammad Iqbal
+years: 1877–1938
 
 introduction: |
     Sir Muhammad Iqbal, given the honorific Allama Iqbal, with Allama meaning “learned” and given to scholars recognised for their depth of insight, was born in Sialkot in the Punjab – a region whose name means “five waters,” shaped by the rivers that run through it. He grew up in a household where faith and learning were valued highly, and this early world of devotion and reflection stayed with him throughout his life. His studies carried him from Lahore to Cambridge and Munich, where philosophy, poetry, and the questions of the modern age shaped his thinking.
