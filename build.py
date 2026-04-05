@@ -150,6 +150,10 @@ def main():
     print("Building The Poets Codex...")
 
     poets_data = build_poet_pages()
+
+    # Chronological sorting by birth year
+    poets_data.sort(key=lambda p: p["frontmatter"].get("years", ""))
+   
     build_contents(poets_data)
     build_preface()
     build_cover()
