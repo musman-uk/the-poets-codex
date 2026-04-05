@@ -1,4 +1,5 @@
 title: William Shakespeare, Gentleman
+years: 1564–1616
 
 introduction: |
     William Shakespeare, Gentleman, was born in Stratford-upon-Avon, a quaint English market town, situated on the River Avon. He grew up among craftsmen, schoolmasters, and the seasonal turning of the countryside, far from the courtly circles that would later echo through his plays. His path carried him from Stratford to the restless theatres of London, where the noise, ambition, and uncertainty of the city became the backdrop for his work. He lived in the early modern world, a period shaped by humanist learning and the lingering influence of medieval thought, and his imagination was formed within a Christian culture that shaped the language, symbolism, and moral questions of his writing.
