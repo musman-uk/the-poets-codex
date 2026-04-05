@@ -111,7 +111,7 @@ def build_poets_list(poets_data):
         if origin:
             label_parts.append(origin)
 
-        label = ", ".join(label_parts)
+        label = " ".join(label_parts)
         items.append(f'<li><a href="{poet["file"]}">{label}</a></li>')
 
     return "<ul>\n" + "\n".join(items) + "\n</ul>"
