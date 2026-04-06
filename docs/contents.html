@@ -9,7 +9,7 @@
   <title>Contents</title>
 
   <style>
-    /* Make percentage heights meaningful + prevent scroll */
+    /* Prevent page-level scrolling; the codex is intended to remain visually fixed */
     html, body {
       height: 100%;
       margin: 0;
@@ -17,7 +17,7 @@
       overscroll-behavior: none;
     }
 
-    /* --- Wooden desk background (light mode) --- */
+    /* Background maintains the physical-desk metaphor established on the cover */
     body {
       display: flex;
       justify-content: center;
@@ -34,7 +34,7 @@
       color: #3b2a22;
     }
 
-    /* --- Codex frame (full cover on phone, centered card on desktop) --- */
+    /* Frame dimensions preserve a book-like proportion across devices */
     .codex-frame {
       width: min(420px, 100vw);
       height: min(700px, 100vh);
@@ -48,6 +48,7 @@
       flex-direction: column;
       justify-content: space-evenly;
 
+      /* Light vertical sheen to evoke aged paper rather than a flat panel */
       background: #ddc8a9;
       background-image:
         linear-gradient(
@@ -58,6 +59,7 @@
 
       border-radius: 12px;
 
+      /* Inner shadows reinforce depth and the physical codex metaphor */
       box-shadow:
         inset 0 0 32px rgba(0,0,0,0.30),
         inset 0 0 14px rgba(0,0,0,0.12),
@@ -65,16 +67,15 @@
         0 0 0 2px rgba(0,0,0,0.18);
     }
 
-    /* --- Contents title --- */
     .codex-frame h2 {
       margin: 0;
-      margin-top: 1.2rem; /* lowered slightly */
+      margin-top: 1.2rem;
       font-size: 1.6rem;
       font-weight: 600;
       text-align: center;
     }
 
-    /* --- Scrollable contents section --- */
+    /* Masked scroll region avoids visible scrollbars while still allowing overflow */
     .contents-section {
       width: 100%;
       flex: 1;
@@ -100,7 +101,7 @@
       font-weight: 600;
     }
 
-    /* --- Unified link styling --- */
+    /* Links styled to match the manuscript aesthetic rather than modern UI chrome */
     .contents-section a,
     .preface-link {
       text-decoration: none;
@@ -122,7 +123,7 @@
       transform: translateY(1px);
     }
 
-    /* --- List styling --- */
+    /* Minimal list styling to keep the hierarchy clean and unobtrusive */
     .contents-section ul {
       list-style: none;
       padding: 0;
@@ -135,13 +136,13 @@
       border-bottom: 1px solid #b8a78f;
     }
 
-    /* --- Close button (compact, centered) --- */
+    /* Button styling mirrors the metal-plate aesthetic used on the cover */
     .close-button {
       width: auto;
       align-self: center;
       display: inline-block;
 
-      margin-bottom: 0.7rem; /* raised slightly */
+      margin-bottom: 0.7rem;
 
       padding: clamp(0.55rem, 2vw, 0.9rem) clamp(1.2rem, 4vw, 1.8rem);
       font-size: clamp(1rem, 4vw, 1.3rem);
@@ -187,7 +188,7 @@
       transform: translateY(1px);
     }
 
-    /* --- Dark mode --- */
+    /* Dark mode maintains the material metaphor while adjusting luminance */
     @media (prefers-color-scheme: dark) {
       body {
         background: #62482a;
@@ -253,6 +254,14 @@
   </style>
 
   <script>
+    /*
+      The contents list may exceed the fixed codex frame, so the inner section
+      scrolls while the outer layout remains static. Scrollbars are hidden to
+      preserve the manuscript aesthetic, so a mask fade is used as the overflow
+      indicator. The fade is removed at the bottom to avoid implying additional
+      content. Direct navigation avoids history‑dependent behaviour.
+    */
+
     function closeCodex() {
       window.location.href = "index.html";
     }
@@ -298,7 +307,6 @@
 <li><a href="poets/shakespeare.html">William Shakespeare, Gentleman (1564–1616)</a></li>
 <li><a href="poets/iqbal.html">Sir Muhammad Iqbal (1877–1938)</a></li>
 </ul>
-
 
     </div>
 
