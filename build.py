@@ -5,7 +5,8 @@ from pathlib import Path
 from jinja2 import Template
 import shutil 
 
-# paths
+# Project paths (kept explicit rather than relative inside functions
+# to avoid repeated resolution and to ensure predictable build structure)
 ROOT = Path(__file__).parent
 SOURCE = ROOT / "source"
 TEMPLATES = SOURCE / "templates"
@@ -13,10 +14,11 @@ POETS_SRC = SOURCE / "pages" / "poets"
 DOCS = ROOT / "docs"
 POETS_OUT = DOCS / "poets"
 
-ASSETS_SRC = SOURCE / "assets"        # ← ADDED
-ASSETS_OUT = DOCS / "assets"          # ← ADDED
+# Assets copied verbatim so the build output is self-contained
+ASSETS_SRC = SOURCE / "assets"
+ASSETS_OUT = DOCS / "assets"
 
-# ensure output directories exist
+# Ensure output directories exist before writing generated files
 POETS_OUT.mkdir(parents=True, exist_ok=True)
 
 
@@ -27,17 +29,16 @@ def load_template(name):
 
 def parse_markdown(path):
     """
-    Extract YAML frontmatter + markdown body.
-    Supports both:
-    ---
-    yaml
-    ---
-    body
-    and pure YAML-only files (your current format).
+    Extract YAML frontmatter and optional markdown body.
+
+    Supports:
+    - fenced frontmatter (--- yaml --- body)
+    - YAML-only files (used for poets)
+
+    The dual format allows flexibility without requiring separate parsers.
     """
     raw = path.read_text(encoding="utf-8").strip()
 
-    # If file starts with '---', treat it as fenced frontmatter
     if raw.startswith("---"):
         end = raw.find("\n---", 3)
         if end != -1:
@@ -48,20 +49,25 @@ def parse_markdown(path):
             front = {}
             body = raw
     else:
-        # Pure YAML-only file (your current poet format)
+        # Poet files are YAML-only; failure falls back to empty metadata
         try:
             front = yaml.safe_load(raw) or {}
         except Exception:
             front = {}
         body = ""
 
-    # Convert markdown body to HTML (not used for poets anymore)
+    # Markdown conversion retained for future extensibility
     html = markdown.markdown(body, extensions=["fenced_code", "tables"])
     return front, html
 
 
 def build_poet_pages():
-    """Convert each poet markdown file into a full HTML page."""
+    """
+    Render each poet's YAML file into a standalone HTML page.
+
+    Templates are rendered individually so each poet page remains static
+    and does not depend on runtime JavaScript or external data.
+    """
     poet_template = Template(load_template("poet.html"))
     poets_data = []
 
@@ -71,7 +77,6 @@ def build_poet_pages():
         title = front.get("title", md_file.stem.title())
         image = front.get("image")
 
-        # Render template with updated YAML fields
         page_html = poet_template.render(
             title=title,
             image=image,
@@ -80,11 +85,10 @@ def build_poet_pages():
             suggested_reading=front.get("suggested_reading"),
         )
 
-        # Write output
         out_path = POETS_OUT / f"{md_file.stem}.html"
         out_path.write_text(page_html, encoding="utf-8")
 
-        # Store metadata for contents list
+        # Store metadata for Contents page generation
         poets_data.append({
             "title": title,
             "file": f"poets/{md_file.stem}.html",
@@ -95,7 +99,12 @@ def build_poet_pages():
 
 
 def build_poets_list(poets_data):
-    """Generate the <ul> list for contents.html."""
+    """
+    Build the <ul> list for contents.html.
+
+    Labels combine title, years, and origin when available.
+    This keeps the Contents page lightweight without extra logic in templates.
+    """
     items = []
 
     for poet in poets_data:
@@ -118,7 +127,12 @@ def build_poets_list(poets_data):
 
 
 def build_contents(poets_data):
-    """Inject poets list into contents.html."""
+    """
+    Inject the generated poets list into contents.html.
+
+    Using a placeholder avoids mixing template logic with build logic
+    and keeps the HTML template clean and static.
+    """
     contents_template = load_template("contents.html")
     poets_list_html = build_poets_list(poets_data)
 
@@ -127,20 +141,24 @@ def build_contents(poets_data):
 
 
 def build_preface():
-    """Copy preface.html directly into docs."""
+    """
+    Preface is static HTML; copied directly to output.
+    This avoids unnecessary template rendering.
+    """
     preface_template = load_template("preface.html")
     (DOCS / "preface.html").write_text(preface_template, encoding="utf-8")
 
 
 def build_cover():
-    """Copy index.html directly into docs."""
+    """
+    Cover page (index.html) is also static and copied as-is.
+    """
     index_template = load_template("index.html")
     (DOCS / "index.html").write_text(index_template, encoding="utf-8")
 
 
-# -----------------------------
-# ADDED: Copy assets directory
-# -----------------------------
+# Copy assets so the docs/ output is fully self-contained.
+# dirs_exist_ok=True ensures incremental builds do not fail.
 def copy_assets():
     if ASSETS_SRC.exists():
         shutil.copytree(ASSETS_SRC, ASSETS_OUT, dirs_exist_ok=True)
@@ -151,13 +169,13 @@ def main():
 
     poets_data = build_poet_pages()
 
-    # Chronological sorting by birth year
+    # Sorting by birth year keeps the Contents page historically coherent
     poets_data.sort(key=lambda p: p["frontmatter"].get("years", ""))
    
     build_contents(poets_data)
     build_preface()
     build_cover()
-    copy_assets()   # ← ADDED
+    copy_assets()
 
     print("Build complete.")
 
