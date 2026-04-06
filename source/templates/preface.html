@@ -9,7 +9,7 @@
   <title>Preface</title>
 
   <style>
-    /* --- Wooden desk background (light mode) --- */
+    /* Page-level scrolling disabled to preserve the fixed codex presentation */
     html, body {
       height: 100%;
       margin: 0;
@@ -17,6 +17,7 @@
       overscroll-behavior: none;
     }
 
+    /* Background maintains the desk-like environment used across the Codex */
     body {
       display: flex;
       justify-content: center;
@@ -33,7 +34,7 @@
       color: #3b2a22;
     }
 
-    /* --- Frame (match Contents proportions) --- */
+    /* Frame proportions match the Contents page for consistency across Codex sections */
     .codex-frame {
       width: min(420px, 100vw);
       height: min(700px, 100vh);
@@ -52,6 +53,7 @@
 
       border-radius: 12px;
 
+      /* Inner shadows reinforce the physical codex metaphor */
       box-shadow:
         inset 0 0 32px rgba(0,0,0,0.30),
         inset 0 0 14px rgba(0,0,0,0.12),
@@ -59,7 +61,6 @@
         0 0 0 2px rgba(0,0,0,0.18);
     }
 
-    /* --- Title --- */
     .codex-frame h2 {
       margin-top: 1.2rem;
       font-size: 1.6rem;
@@ -67,13 +68,12 @@
       text-align: center;
     }
 
-    /* --- Scrollable text with fade (match Contents) --- */
+    /* Scrollable text area with a fade to indicate overflow without scrollbars */
     .preface-text {
       width: 100%;
       flex: 1;
       overflow-y: auto;
       margin-top: 1rem;
-
 
       font-size: 1rem;
       line-height: 1.55;
@@ -90,7 +90,7 @@
       display: none;
     }
 
-    /* --- Unified hover styling --- */
+    /* Unified link styling across text and signature */
     .preface-text a,
     .signature a {
       text-decoration: none;
@@ -106,7 +106,7 @@
       text-decoration: underline;
     }
 
-    /* --- Signature (closer to text now) --- */
+    /* Signature appears only when the reader reaches the end of the text */
     .signature {
       width: 100%;
       text-align: right;
@@ -114,14 +114,14 @@
       visibility: hidden;
       transition: opacity 0.3s ease;
 
-      margin-top: 10px; /* was 10px */
+      margin-top: 10px;
       margin-bottom: 2.5rem;
 
       font-size: 0.96rem;
       font-family: "Lucida Calligraphy", "Segoe Script", "Brush Script MT", cursive;
     }
 
-    /* --- License pinned to bottom --- */
+    /* License is anchored to the bottom of the frame */
     .license {
       width: 100%;
       font-size: 0.60rem;
@@ -129,10 +129,10 @@
       text-align: center;
       margin-bottom: 10px;
 
-      margin-top: auto; /* pushes it to the bottom */
+      margin-top: auto;
     }
 
-    /* --- Back button (moved higher) --- */
+    /* Back button styled to match Codex metal-plate elements */
     .back-button {
       padding: clamp(0.2rem, 1.4vw, 0.7rem) clamp(0.2rem, 3vw, 2rem);
       font-size: clamp(0.85rem, 3vw, 1.1rem);
@@ -151,10 +151,8 @@
       transition: background 0.25s, color 0.25s, box-shadow 0.25s, transform 0.1s;
 
       align-self: center;
-      margin-top: 25px; /* slightly higher */
+      margin-top: 25px;
       margin-bottom: 20px;
-
-      /* removed negative bottom margin */
     }
 
     .back-button:hover {
@@ -162,7 +160,7 @@
       color: #6a4a2c;
     }
 
-    /* ---------------------- Dark mode ---------------------- */
+    /* Dark mode maintains the material metaphor while adjusting luminance */
     @media (prefers-color-scheme: dark) {
 
       body {
@@ -225,6 +223,14 @@
   </style>
 
   <script>
+    /*
+      The preface text may exceed the fixed frame, so the inner region scrolls
+      while the outer layout remains static. Scrollbars are hidden to preserve
+      the Codex aesthetic, so a mask fade is used to indicate overflow. The fade
+      is removed at the bottom, and the signature is revealed only when the
+      reader reaches the end.
+    */
+
     function goBack() {
       window.location.href = "contents.html";
     }
@@ -274,7 +280,10 @@
     </div>
 
     <div class="signature">
-      <a href="https://github.com/musman-uk" target="_blank" rel="noopener noreferrer">Mohammed Usman</a><br>
+      <!-- noopener prevents tab‑nabbing; noreferrer avoids leaking the Codex URL -->
+      <a href="https://github.com/musman-uk" target="_blank" rel="noopener noreferrer">
+        Mohammed Usman
+      </a><br>
     </div>
 
     <a onclick="goBack()" class="back-button">Back</a>
